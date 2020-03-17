@@ -265,6 +265,7 @@ h2.article-head {
   border-bottom: 1px dashed #e5e5e5;
 }
 .qrcode canvas {
+  background-image: url("images/qrcode.png");
   width: 8em;
   height: 8em;
   padding: 5px;
