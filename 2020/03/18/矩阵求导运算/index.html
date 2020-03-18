@@ -133,7 +133,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    298 字
+                    364 字
                   </span>
                 
 
@@ -169,14 +169,14 @@
           <div class="post-content mx-auto" id="post">
             
               <p
-                class="note note-warning">本文最后更新于：星期三, 三月 18日 2020, 8:47 晚上</p>
+                class="note note-warning">本文最后更新于：星期三, 三月 18日 2020, 9:04 晚上</p>
             
             <div class="markdown-body">
-              <h2 id="矩阵求导运算推导与总结"><a href="#矩阵求导运算推导与总结" class="headerlink" title="矩阵求导运算推导与总结"></a>矩阵求导运算推导与总结</h2><h3 id="1-Gradient-Vector-in-scalar-out"><a href="#1-Gradient-Vector-in-scalar-out" class="headerlink" title="1.Gradient: Vector in, scalar out"></a>1.Gradient: Vector in, scalar out</h3><p>输入向量，输出标量。即映射关系为$f:R^N➡R$ 。</p>
+              <h2 id="矩阵求导运算推导与总结"><a href="#矩阵求导运算推导与总结" class="headerlink" title="矩阵求导运算推导与总结"></a>矩阵求导运算推导与总结</h2><h3 id="1-标量对向量求导"><a href="#1-标量对向量求导" class="headerlink" title="1.标量对向量求导"></a>1.标量对向量求导</h3><p>输入向量，输出标量。即映射关系为$f:R^N➡R$ 。</p>
 <p>设$y = f(\boldsymbol{x})$ ,$\boldsymbol{x}$是Nx1的矢量，y是标量。</p>
 <p>则求导结果为:</p>
 <script type="math/tex; mode=display">
-\frac{\partial y}{\partial \boldsymbol{x}}=\left(\frac{\partial y}{\partial x_{1}}, \frac{\partial y}{\partial x_{2}}, \ldots, \frac{\partial y}{\partial x_{N}}\right)</script><h3 id="2-Jacobian-Vector-in-Vector-out"><a href="#2-Jacobian-Vector-in-Vector-out" class="headerlink" title="2.Jacobian: Vector in, Vector out"></a>2.Jacobian: Vector in, Vector out</h3><p>输入向量，输出也是向量，则需要用到 Jacobian矩阵。</p>
+\frac{\partial y}{\partial \boldsymbol{x}}=\left(\frac{\partial y}{\partial x_{1}}, \frac{\partial y}{\partial x_{2}}, \ldots, \frac{\partial y}{\partial x_{N}}\right)</script><h3 id="2-向量对向量求导"><a href="#2-向量对向量求导" class="headerlink" title="2.向量对向量求导"></a>2.向量对向量求导</h3><p>输入向量，输出也是向量，则需要用到 Jacobian矩阵。</p>
 <p>假设映射关系为$f:R^N➡R^M$ ,输入输出都为向量。$\boldsymbol{y} = f(\boldsymbol{x})$ ,则有:</p>
 <script type="math/tex; mode=display">
 \frac{\partial y}{\partial x}=\left(\begin{array}{ccc}
@@ -184,12 +184,14 @@
 \vdots & \ddots & \vdots \\
 \frac{\partial y_{M}}{\partial x_{1}} & \cdots & \frac{\partial y_{M}}{\partial x_{N}}
 \end{array}\right)</script><p>输出MxN的矩阵。</p>
-<p>假如$W$ 是一个MxN的矩阵，$\boldsymbol{z}=\boldsymbol{W}\boldsymbol{x}$ ，$\boldsymbol{x}$为Nx1的列向量，$\boldsymbol{z}$为Mx1的列向量，该式的Jacobian矩阵为NxM维。</p>
+<h4 id="2-1-x-为列向量"><a href="#2-1-x-为列向量" class="headerlink" title="2.1$x$为列向量"></a>2.1$x$为列向量</h4><p>假如$W$ 是一个NxM的矩阵，$\boldsymbol{z}=\boldsymbol{W}\boldsymbol{x}$ ，$\boldsymbol{x}$为Mx1的列向量，$\boldsymbol{z}$为Nx1的列向量,Jacobian矩阵为NxM维。</p>
 <script type="math/tex; mode=display">
 z_{i}=\sum_{k=1}^{m} W_{i k} x_{k}</script><script type="math/tex; mode=display">
 \left(\frac{\partial \boldsymbol{z}}{\partial \boldsymbol{x}}\right)_{i j}=\frac{\partial z_{i}}{\partial x_{j}}=\frac{\partial}{\partial x_{j}} \sum_{k=1}^{m} W_{i k} x_{k}=\sum_{k=1}^{m} W_{i k} \frac{\partial}{\partial x_{j}} x_{k}=W_{i j}</script><p>所以</p>
 <script type="math/tex; mode=display">
-\frac{\partial{\boldsymbol{z}}}{\partial{\boldsymbol{x}}} = \boldsymbol{W}</script>
+\frac{\partial{\boldsymbol{z}}}{\partial{\boldsymbol{x}}} = \boldsymbol{W}</script><h4 id="2-2-x-为行向量"><a href="#2-2-x-为行向量" class="headerlink" title="2.2 $x$为行向量"></a>2.2 $x$为行向量</h4><p>假设有$\boldsymbol{z}=\boldsymbol{x}\boldsymbol{W}$ ，$\boldsymbol{x}$为1xN的列向量，$\boldsymbol{z}$为1xM的列向量.W维度为NxM,Jacobian矩阵为MxN.</p>
+<script type="math/tex; mode=display">
+\frac{\partial{\boldsymbol{z}}}{\partial{\boldsymbol{x}}} = \boldsymbol{W^T}</script><h3 id="3-向量对矩阵求导"><a href="#3-向量对矩阵求导" class="headerlink" title="3.向量对矩阵求导"></a>3.向量对矩阵求导</h3>
             </div>
             <hr>
             <div>
