@@ -4,11 +4,30 @@
   
   
   <entry>
+    <title>cpp常用函数</title>
+    <link href="/EruLv.github.io/2020/03/19/cpp%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/"/>
+    <url>/EruLv.github.io/2020/03/19/cpp%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/</url>
+    
+    <content type="html"><![CDATA[<h2 id="c-常用函数"><a href="#c-常用函数" class="headerlink" title="c++常用函数"></a>c++常用函数</h2><h3 id="1-排序-sort"><a href="#1-排序-sort" class="headerlink" title="1.排序(sort)"></a>1.排序(sort)</h3><p>头文件:</p><pre><code class="lang-c++">#include&lt;algorithm&gt;</code></pre><p>使用方法:</p><pre><code class="lang-c++">void sort (RandomAccessIterator first, RandomAccessIterator last, Compare comp);</code></pre><p>（1）第一个参数first：是要排序的数组的起始地址。</p><p>（2）第二个参数last：是结束的地址（最后一个数据的后一个数据的地址）</p><p>（3）第三个参数comp是排序的方法：可以是从升序也可是降序。如果第三个参数不写，则默认的排序方法是<strong>从小到大</strong>排序。</p><h3 id="2-输出保留小数后几位"><a href="#2-输出保留小数后几位" class="headerlink" title="2.输出保留小数后几位"></a>2.输出保留小数后几位</h3><p>头文件:</p><pre><code class="lang-c++">#include&lt;iomanip&gt;</code></pre><p>需要补零:</p><pre><code class="lang-c++">cout&lt;&lt;fixed&lt;&lt;setprecision(需要精确到小数点后几位)&lt;&lt;ans&lt;&lt;endl;</code></pre><p>不需要补零:</p><pre><code class="lang-c++">cout&lt;&lt;setprecision(需要精确到小数点后几位)&lt;&lt;ans&lt;&lt;endl;</code></pre>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>c++</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>矩阵求导运算</title>
     <link href="/EruLv.github.io/2020/03/18/%E7%9F%A9%E9%98%B5%E6%B1%82%E5%AF%BC%E8%BF%90%E7%AE%97/"/>
     <url>/EruLv.github.io/2020/03/18/%E7%9F%A9%E9%98%B5%E6%B1%82%E5%AF%BC%E8%BF%90%E7%AE%97/</url>
     
-    <content type="html"><![CDATA[<h2 id="矩阵求导运算推导与总结"><a href="#矩阵求导运算推导与总结" class="headerlink" title="矩阵求导运算推导与总结"></a>矩阵求导运算推导与总结</h2><h3 id="1-标量对向量求导"><a href="#1-标量对向量求导" class="headerlink" title="1.标量对向量求导"></a>1.标量对向量求导</h3><p>输入向量，输出标量。即映射关系为$f:R^N➡R$ 。</p><p>设$y = f(\boldsymbol{x})$ ,$\boldsymbol{x}$是Nx1的矢量，y是标量。</p><p>则求导结果为:</p><script type="math/tex; mode=display">\frac{\partial y}{\partial \boldsymbol{x}}=\left(\frac{\partial y}{\partial x_{1}}, \frac{\partial y}{\partial x_{2}}, \ldots, \frac{\partial y}{\partial x_{N}}\right)</script><h3 id="2-向量对向量求导"><a href="#2-向量对向量求导" class="headerlink" title="2.向量对向量求导"></a>2.向量对向量求导</h3><p>输入向量，输出也是向量，则需要用到 Jacobian矩阵。</p><p>假设映射关系为$f:R^N➡R^M$ ,输入输出都为向量。$\boldsymbol{y} = f(\boldsymbol{x})$ ,则有:</p><script type="math/tex; mode=display">\frac{\partial y}{\partial x}=\left(\begin{array}{ccc}\frac{\partial y_{1}}{\partial x_{1}} & \cdots & \frac{\partial y_{1}}{\partial x_{N}} \\\vdots & \ddots & \vdots \\\frac{\partial y_{M}}{\partial x_{1}} & \cdots & \frac{\partial y_{M}}{\partial x_{N}}\end{array}\right)</script><p>输出MxN的矩阵。</p><h4 id="2-1-x-为列向量"><a href="#2-1-x-为列向量" class="headerlink" title="2.1$x$为列向量"></a>2.1$x$为列向量</h4><p>假如$W$ 是一个NxM的矩阵，$\boldsymbol{z}=\boldsymbol{W}\boldsymbol{x}$ ，$\boldsymbol{x}$为Mx1的列向量，$\boldsymbol{z}$为Nx1的列向量,Jacobian矩阵为NxM维。</p><script type="math/tex; mode=display">z_{i}=\sum_{k=1}^{m} W_{i k} x_{k}</script><script type="math/tex; mode=display">\left(\frac{\partial \boldsymbol{z}}{\partial \boldsymbol{x}}\right)_{i j}=\frac{\partial z_{i}}{\partial x_{j}}=\frac{\partial}{\partial x_{j}} \sum_{k=1}^{m} W_{i k} x_{k}=\sum_{k=1}^{m} W_{i k} \frac{\partial}{\partial x_{j}} x_{k}=W_{i j}</script><p>所以</p><script type="math/tex; mode=display">\frac{\partial{\boldsymbol{z}}}{\partial{\boldsymbol{x}}} = \boldsymbol{W}</script><h4 id="2-2-x-为行向量"><a href="#2-2-x-为行向量" class="headerlink" title="2.2 $x$为行向量"></a>2.2 $x$为行向量</h4><p>假设有$\boldsymbol{z}=\boldsymbol{x}\boldsymbol{W}$ ，$\boldsymbol{x}$为1xN的列向量，$\boldsymbol{z}$为1xM的列向量.W维度为NxM,Jacobian矩阵为MxN.</p><script type="math/tex; mode=display">\frac{\partial{\boldsymbol{z}}}{\partial{\boldsymbol{x}}} = \boldsymbol{W^T}</script><h3 id="3-向量对矩阵求导"><a href="#3-向量对矩阵求导" class="headerlink" title="3.向量对矩阵求导"></a>3.向量对矩阵求导</h3>]]></content>
+    <content type="html"><![CDATA[<h2 id="矩阵求导运算推导与总结"><a href="#矩阵求导运算推导与总结" class="headerlink" title="矩阵求导运算推导与总结"></a>矩阵求导运算推导与总结</h2><h3 id="1-标量对向量求导"><a href="#1-标量对向量求导" class="headerlink" title="1.标量对向量求导"></a>1.标量对向量求导</h3><p>输入向量，输出标量。即映射关系为$f:R^N➡R$ 。</p><p>设$y = f(\boldsymbol{x})$ ,$\boldsymbol{x}$是Nx1的矢量，y是标量。</p><p>则求导结果为:</p><script type="math/tex; mode=display">\frac{\partial y}{\partial \boldsymbol{x}}=\left(\frac{\partial y}{\partial x_{1}}, \frac{\partial y}{\partial x_{2}}, \ldots, \frac{\partial y}{\partial x_{N}}\right)</script><h3 id="2-向量对向量求导"><a href="#2-向量对向量求导" class="headerlink" title="2.向量对向量求导"></a>2.向量对向量求导</h3><p>输入向量，输出也是向量，则需要用到 Jacobian矩阵。</p><p>假设映射关系为$f:R^N➡R^M$ ,输入输出都为向量。$\boldsymbol{y} = f(\boldsymbol{x})$ ,则有:</p><script type="math/tex; mode=display">\frac{\partial y}{\partial x}=\left(\begin{array}{ccc}\frac{\partial y_{1}}{\partial x_{1}} & \cdots & \frac{\partial y_{1}}{\partial x_{N}} \\\vdots & \ddots & \vdots \\\frac{\partial y_{M}}{\partial x_{1}} & \cdots & \frac{\partial y_{M}}{\partial x_{N}}\end{array}\right)</script><p>输出MxN的矩阵。</p><script type="math/tex; mode=display">\left(\frac{\partial \boldsymbol{y}}{\partial \boldsymbol{x}}\right)_{i j}=\frac{\partial y_{i}}{\partial x_{j}}</script><h4 id="2-1-x-为列向量"><a href="#2-1-x-为列向量" class="headerlink" title="2.1$x$为列向量"></a>2.1$x$为列向量</h4><p>假如$W$ 是一个NxM的矩阵，$\boldsymbol{z}=\boldsymbol{W}\boldsymbol{x}$ ，$\boldsymbol{x}$为Mx1的列向量，$\boldsymbol{z}$为Nx1的列向量,Jacobian矩阵为NxM维。</p><script type="math/tex; mode=display">z_{i}=\sum_{k=1}^{m} W_{i k} x_{k}</script><script type="math/tex; mode=display">\left(\frac{\partial \boldsymbol{z}}{\partial \boldsymbol{x}}\right)_{i j}=\frac{\partial z_{i}}{\partial x_{j}}=\frac{\partial}{\partial x_{j}} \sum_{k=1}^{m} W_{i k} x_{k}=\sum_{k=1}^{m} W_{i k} \frac{\partial}{\partial x_{j}} x_{k}=W_{i j}</script><p>所以</p><script type="math/tex; mode=display">\frac{\partial{\boldsymbol{z}}}{\partial{\boldsymbol{x}}} = \boldsymbol{W}</script><h4 id="2-2-x-为行向量"><a href="#2-2-x-为行向量" class="headerlink" title="2.2 $x$为行向量"></a>2.2 $x$为行向量</h4><p>假设有$\boldsymbol{z}=\boldsymbol{x}\boldsymbol{W}$ ，$\boldsymbol{x}$为1xN的列向量，$\boldsymbol{z}$为1xM的列向量.W维度为NxM,Jacobian矩阵为MxN.</p><script type="math/tex; mode=display">\frac{\partial{\boldsymbol{z}}}{\partial{\boldsymbol{x}}} = \boldsymbol{W^T}</script><h3 id="3-向量对矩阵求导"><a href="#3-向量对矩阵求导" class="headerlink" title="3.向量对矩阵求导"></a>3.向量对矩阵求导</h3>]]></content>
     
     
     
