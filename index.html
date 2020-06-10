@@ -149,6 +149,52 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/EruLv.github.io/2020/06/11/Algoritm%E6%8E%92%E5%BA%8F/">
+        <p class="h4 index-header">Algorithm排序</p>
+      </a>
+
+      <a href="/EruLv.github.io/2020/06/11/Algoritm%E6%8E%92%E5%BA%8F/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">基础算法(一)——排序1.快排快排是不稳定的。
+基于分治，步骤:
+
+确定分界点
+调整区间，&lt;=x在x左边，&gt;=x的在x右边。
+递归，左边右边排序。
+
+void quick_sort(int q[], int l, int r){
+    if(l&gt;=r) return;
+    int x = q[l+r&gt;&gt;1], i = l - 1, j = r + 1;
+    while(i &lt; j){
+        do i++; while(q[i] &lt; x);
+        do j--; while(q[j] &gt; x);
+        if(</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-11&nbsp;&nbsp;
+        
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/EruLv.github.io/tags/%E7%AE%97%E6%B3%95-%E6%8E%92%E5%BA%8F/">算法 排序</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/EruLv.github.io/2020/06/10/Algoritm%E6%A8%A1%E6%9D%BF/">
         <p class="h4 index-header">Algoritm模板</p>
       </a>
@@ -160,8 +206,20 @@
         
         <div class="index-excerpt" >
           <div class="index-text mb-1">C++常用算法模板（一）字符串、数字、数组的基础操作。
-1.反转字符串
-</div>
+1.反序数1234-&gt;4321。
+可用于判断数字是否对称。
+int reverse(int x){
+    //反序数
+    int r = 0;
+    while(x!=0){
+        r *= 10;
+        r += x%10;
+        x /= 10;
+    } 
+    return r;
+}
+
+ </div>
         </div>
       </a>
 

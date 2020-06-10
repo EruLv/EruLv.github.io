@@ -4,11 +4,30 @@
   
   
   <entry>
+    <title>Algorithm排序</title>
+    <link href="/EruLv.github.io/2020/06/11/Algoritm%E6%8E%92%E5%BA%8F/"/>
+    <url>/EruLv.github.io/2020/06/11/Algoritm%E6%8E%92%E5%BA%8F/</url>
+    
+    <content type="html"><![CDATA[<h2 id="基础算法-一-——排序"><a href="#基础算法-一-——排序" class="headerlink" title="基础算法(一)——排序"></a>基础算法(一)——排序</h2><h3 id="1-快排"><a href="#1-快排" class="headerlink" title="1.快排"></a>1.快排</h3><p>快排是不稳定的。</p><p>基于<strong>分治</strong>，步骤:</p><ol><li>确定分界点</li><li>调整区间，&lt;=x在x左边，&gt;=x的在x右边。</li><li>递归，左边右边排序。</li></ol><pre><code class="lang-c++">void quick_sort(int q[], int l, int r){    if(l&gt;=r) return;    int x = q[l+r&gt;&gt;1], i = l - 1, j = r + 1;    while(i &lt; j){        do i++; while(q[i] &lt; x);        do j--; while(q[j] &gt; x);        if(i &lt; j) swap(q[i], q[j]);    }    quick_sort(q,l,j);    quick_sort(q,j+1,r);}</code></pre><h3 id="2-归并排序"><a href="#2-归并排序" class="headerlink" title="2.归并排序"></a>2.归并排序</h3><p>归并排序是稳定的。</p><ol><li>确定分界点。mid = (l+r)/2</li><li>递归排序left,right</li><li>归并，合二为一</li></ol><pre><code class="lang-c++">void merge_sort(int q[], int l, int r){    if (l &gt;= r) return;    int mid = l + r &gt;&gt; 1;    merge_sort(q, l, mid);    merge_sort(q, mid + 1, r);    int k = 0, i = l, j = mid + 1;    while (i &lt;= mid &amp;&amp; j &lt;= r)        if (q[i] &lt; q[j]) tmp[k ++ ] = q[i ++ ];        else tmp[k ++ ] = q[j ++ ];    while (i &lt;= mid) tmp[k ++ ] = q[i ++ ];    while (j &lt;= r) tmp[k ++ ] = q[j ++ ];    for (i = l, j = 0; i &lt;= r; i ++, j ++ ) q[i] = tmp[j];}</code></pre>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>算法 排序</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Algoritm模板</title>
     <link href="/EruLv.github.io/2020/06/10/Algoritm%E6%A8%A1%E6%9D%BF/"/>
     <url>/EruLv.github.io/2020/06/10/Algoritm%E6%A8%A1%E6%9D%BF/</url>
     
-    <content type="html"><![CDATA[<h2 id="C-常用算法模板（一）"><a href="#C-常用算法模板（一）" class="headerlink" title="C++常用算法模板（一）"></a>C++常用算法模板（一）</h2><p>字符串、数字、数组的基础操作。</p><p>1.反转字符串</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="C-常用算法模板（一）"><a href="#C-常用算法模板（一）" class="headerlink" title="C++常用算法模板（一）"></a>C++常用算法模板（一）</h2><p>字符串、数字、数组的基础操作。</p><h3 id="1-反序数"><a href="#1-反序数" class="headerlink" title="1.反序数"></a>1.反序数</h3><p>1234-&gt;4321。</p><p>可用于判断数字是否对称。</p><pre><code class="lang-c++">int reverse(int x){    //反序数    int r = 0;    while(x!=0){        r *= 10;        r += x%10;        x /= 10;    }     return r;}</code></pre><h3 id><a href="#" class="headerlink" title=" "></a> </h3>]]></content>
     
     
     
@@ -67,7 +86,7 @@
     <link href="/EruLv.github.io/2020/03/19/cpp%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/"/>
     <url>/EruLv.github.io/2020/03/19/cpp%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/</url>
     
-    <content type="html"><![CDATA[<h2 id="c-常用函数"><a href="#c-常用函数" class="headerlink" title="c++常用函数"></a>c++常用函数</h2><h3 id="1-排序-sort"><a href="#1-排序-sort" class="headerlink" title="1.排序(sort)"></a>1.排序(sort)</h3><p>头文件:</p><pre><code class="lang-c++">#include&lt;algorithm&gt;</code></pre><p>使用方法:</p><pre><code class="lang-c++">void sort (RandomAccessIterator first, RandomAccessIterator last, Compare comp);</code></pre><p>（1）第一个参数first：是要排序的数组的起始地址。</p><p>（2）第二个参数last：是结束的地址（最后一个数据的后一个数据的地址）</p><p>（3）第三个参数comp是排序的方法：可以是从升序也可是降序。如果第三个参数不写，则默认的排序方法是<strong>从小到大</strong>排序。</p><h3 id="2-输出保留小数后几位"><a href="#2-输出保留小数后几位" class="headerlink" title="2.输出保留小数后几位"></a>2.输出保留小数后几位</h3><p>头文件:</p><pre><code class="lang-c++">#include&lt;iomanip&gt;</code></pre><p>需要补零:</p><pre><code class="lang-c++">cout&lt;&lt;fixed&lt;&lt;setprecision(需要精确到小数点后几位)&lt;&lt;ans&lt;&lt;endl;</code></pre><p>不需要补零:</p><pre><code class="lang-c++">cout&lt;&lt;setprecision(需要精确到小数点后几位)&lt;&lt;ans&lt;&lt;endl;</code></pre><h3 id="3-全局变量声明"><a href="#3-全局变量声明" class="headerlink" title="3.全局变量声明"></a>3.全局变量声明</h3><p>声明的int 的全局变量，数组会默认初始化为0.</p><h3 id="4-无限大与无限小-inf"><a href="#4-无限大与无限小-inf" class="headerlink" title="4.无限大与无限小(inf)"></a>4.无限大与无限小(inf)</h3><pre><code class="lang-c++">int inf = 1e8;</code></pre><h3 id="5"><a href="#5" class="headerlink" title="5."></a>5.</h3>]]></content>
+    <content type="html"><![CDATA[<h2 id="c-常用函数"><a href="#c-常用函数" class="headerlink" title="c++常用函数"></a>c++常用函数</h2><h3 id="1-排序-sort"><a href="#1-排序-sort" class="headerlink" title="1.排序(sort)"></a>1.排序(sort)</h3><p>头文件:</p><pre><code class="lang-c++">#include&lt;algorithm&gt;</code></pre><p>使用方法:</p><pre><code class="lang-c++">void sort (RandomAccessIterator first, RandomAccessIterator last, Compare comp);</code></pre><p>（1）第一个参数first：是要排序的数组的起始地址。</p><p>（2）第二个参数last：是结束的地址（最后一个数据的后一个数据的地址）</p><p>（3）第三个参数comp是排序的方法：可以是从升序也可是降序。如果第三个参数不写，则默认的排序方法是<strong>从小到大</strong>排序。</p><h3 id="2-输出保留小数后几位"><a href="#2-输出保留小数后几位" class="headerlink" title="2.输出保留小数后几位"></a>2.输出保留小数后几位</h3><p>头文件:</p><pre><code class="lang-c++">#include&lt;iomanip&gt;</code></pre><p>需要补零:</p><pre><code class="lang-c++">cout&lt;&lt;fixed&lt;&lt;setprecision(需要精确到小数点后几位)&lt;&lt;ans&lt;&lt;endl;</code></pre><p>不需要补零:</p><pre><code class="lang-c++">cout&lt;&lt;setprecision(需要精确到小数点后几位)&lt;&lt;ans&lt;&lt;endl;</code></pre><h3 id="3-全局变量声明"><a href="#3-全局变量声明" class="headerlink" title="3.全局变量声明"></a>3.全局变量声明</h3><p>声明的int 的全局变量，数组会默认初始化为0.</p><h3 id="4-无限大与无限小-inf"><a href="#4-无限大与无限小-inf" class="headerlink" title="4.无限大与无限小(inf)"></a>4.无限大与无限小(inf)</h3><pre><code class="lang-c++">int inf = 1e8;</code></pre><h3 id><a href="#" class="headerlink" title=" "></a> </h3>]]></content>
     
     
     
