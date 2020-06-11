@@ -133,7 +133,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    232 字
+                    338 字
                   </span>
                 
 
@@ -169,7 +169,7 @@
           <div class="post-content mx-auto" id="post">
             
               <p
-                class="note note-warning">本文最后更新于：星期四, 六月 11日 2020, 12:18 凌晨</p>
+                class="note note-warning">本文最后更新于：星期四, 六月 11日 2020, 5:17 下午</p>
             
             <div class="markdown-body">
               <h2 id="c-常用函数"><a href="#c-常用函数" class="headerlink" title="c++常用函数"></a>c++常用函数</h2><h3 id="1-排序-sort"><a href="#1-排序-sort" class="headerlink" title="1.排序(sort)"></a>1.排序(sort)</h3><p>头文件:</p>
@@ -190,10 +190,27 @@
 <p>不需要补零:</p>
 <pre><code class="lang-c++">cout&lt;&lt;setprecision(需要精确到小数点后几位)&lt;&lt;ans&lt;&lt;endl;
 </code></pre>
-<h3 id="3-全局变量声明"><a href="#3-全局变量声明" class="headerlink" title="3.全局变量声明"></a>3.全局变量声明</h3><p>声明的int 的全局变量，数组会默认初始化为0.</p>
-<h3 id="4-无限大与无限小-inf"><a href="#4-无限大与无限小-inf" class="headerlink" title="4.无限大与无限小(inf)"></a>4.无限大与无限小(inf)</h3><pre><code class="lang-c++">int inf = 1e8;
+<p>更简单的方法:使用printf()</p>
+<pre><code class="lang-c++">float d = 0.235;
+printf(&quot;%.5f\n&quot;,d);
 </code></pre>
-<h3 id><a href="#" class="headerlink" title=" "></a> </h3>
+<p>结果:0.23500</p>
+<pre><code class="lang-c++">float d = 0.235;
+printf(&quot;%.2f\n&quot;,d);
+</code></pre>
+<p>结果: 0.23</p>
+<h3 id="3-格式化输出-日期"><a href="#3-格式化输出-日期" class="headerlink" title="3.格式化输出(日期)"></a>3.格式化输出(日期)</h3><pre><code class="lang-c++">printf(&quot;%04d-%02d-%02d\n&quot;,yyyy,mm,dd);
+</code></pre>
+<p>会右对齐左补0.</p>
+<h3 id="4-全局变量声明"><a href="#4-全局变量声明" class="headerlink" title="4.全局变量声明"></a>4.全局变量声明</h3><p>声明的int 的全局变量，数组会默认初始化为0.</p>
+<h3 id="5-无限大与无限小-inf"><a href="#5-无限大与无限小-inf" class="headerlink" title="5.无限大与无限小(inf)"></a>5.无限大与无限小(inf)</h3><pre><code class="lang-c++">int inf = 1e8;
+</code></pre>
+<h3 id="6-字符串转int"><a href="#6-字符串转int" class="headerlink" title="6.字符串转int"></a>6.字符串转int</h3><p>atoi:(表示 alphanumeric to integer)是把字符串转换成整型数的一个函数。</p>
+<pre><code class="lang-c++">string s = &quot;123&quot;;
+int x = atoi(s.c_str());
+cout&lt;&lt;x&lt;&lt;endl;
+</code></pre>
+
             </div>
             <hr>
             <div>
