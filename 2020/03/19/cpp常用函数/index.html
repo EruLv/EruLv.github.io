@@ -133,7 +133,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    338 字
+                    414 字
                   </span>
                 
 
@@ -169,10 +169,10 @@
           <div class="post-content mx-auto" id="post">
             
               <p
-                class="note note-warning">本文最后更新于：星期四, 六月 11日 2020, 5:17 下午</p>
+                class="note note-warning">本文最后更新于：星期四, 六月 11日 2020, 10:34 晚上</p>
             
             <div class="markdown-body">
-              <h2 id="c-常用函数"><a href="#c-常用函数" class="headerlink" title="c++常用函数"></a>c++常用函数</h2><h3 id="1-排序-sort"><a href="#1-排序-sort" class="headerlink" title="1.排序(sort)"></a>1.排序(sort)</h3><p>头文件:</p>
+              <h2 id="c-常用函数"><a href="#c-常用函数" class="headerlink" title="c++常用函数"></a>c++常用函数</h2><h3 id="1-排序"><a href="#1-排序" class="headerlink" title="1.排序"></a>1.排序</h3><h4 id="sort"><a href="#sort" class="headerlink" title="sort:"></a>sort:</h4><p>头文件:</p>
 <pre><code class="lang-c++">#include&lt;algorithm&gt;
 </code></pre>
 <p>使用方法:</p>
@@ -181,6 +181,18 @@
 <p>（1）第一个参数first：是要排序的数组的起始地址。</p>
 <p>（2）第二个参数last：是结束的地址（最后一个数据的后一个数据的地址）</p>
 <p>（3）第三个参数comp是排序的方法：可以是从升序也可是降序。如果第三个参数不写，则默认的排序方法是<strong>从小到大</strong>排序。</p>
+<h4 id="qsort"><a href="#qsort" class="headerlink" title="qsort:"></a>qsort:</h4><pre><code class="lang-c++">void qsort(void *base, size_t nitems, size_t size, int (*compar)(const void *, const void*))
+</code></pre>
+<ul>
+<li><p><strong>base</strong> — 指向要排序的数组的第一个元素的指针。</p>
+</li>
+<li><p><strong>nitems</strong> — 由 base 指向的数组中元素的个数。</p>
+</li>
+<li><p><strong>size</strong> — 数组中每个元素的大小，以字节为单位。</p>
+</li>
+<li><p><strong>compar</strong> — 用来比较两个元素的函数。</p>
+</li>
+</ul>
 <h3 id="2-输出保留小数后几位"><a href="#2-输出保留小数后几位" class="headerlink" title="2.输出保留小数后几位"></a>2.输出保留小数后几位</h3><p>头文件:</p>
 <pre><code class="lang-c++">#include&lt;iomanip&gt;
 </code></pre>
