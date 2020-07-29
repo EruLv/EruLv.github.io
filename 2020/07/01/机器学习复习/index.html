@@ -202,7 +202,7 @@ P(X=x|y = c_k) = P(X = x_1,x_2,...,x_n|y = c_k) = \prod_{j = 1}^{n}P(X_j = x_j|y
 P(Y = c_k|X) = \frac{P(X = x|Y = c_k)P(Y = c_k)}{P(X)} = \frac{P(X = x|Y = c_k)P(Y = c_k)}{\sum_{k} P(X = x|y = c_k)P(y = c_k)}</script><p><strong>在估计条件概率$P(X)$时出现概率为0的情况怎么办？</strong></p>
 <p>贝叶斯估计:</p>
 <p>在每个随机变量的哥哥取值的频数上各加一个正数$\lambda$,常取$\lambda = 1$</p>
-<h2 id="4-决策树"><a href="#4-决策树" class="headerlink" title="4.决策树"></a>4.决策树</h2><h3 id="4-1算法流程"><a href="#4-1算法流程" class="headerlink" title="4.1算法流程"></a>4.1算法流程</h3><p><img src="/EruLv.github.io/2020/07/01/%E2%80%9C%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%A4%8D%E4%B9%A0%E2%80%9D/dtree.png" srcset="/EruLv.github.io/img/loading.gif" alt="image-20200701214058220"></p>
+<h2 id="4-决策树"><a href="#4-决策树" class="headerlink" title="4.决策树"></a>4.决策树</h2><h3 id="4-1算法流程"><a href="#4-1算法流程" class="headerlink" title="4.1算法流程"></a>4.1算法流程</h3><p><img src="/EruLv.github.io/2020/07/01/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%A4%8D%E4%B9%A0/dtree.png" srcset="/EruLv.github.io/img/loading.gif" alt="image-20200701214058220"></p>
 <h3 id="4-2-决策树的三个停止条件"><a href="#4-2-决策树的三个停止条件" class="headerlink" title="4.2 决策树的三个停止条件:"></a><strong>4.2 决策树的三个停止条件:</strong></h3><ul>
 <li>当前节点包含的样本属于同一类别，无需划分。</li>
 <li>当前属性集为空，或是所有样本在所有属性上取值相同，无需划分。把当前节点标记为叶节点，类别设定为它的父节点所含样本最多的类别</li>
@@ -281,10 +281,10 @@ P(Y = K|x) = \frac{1}{1+\sum_{k=1}^{K-1}exp(w^T x_k+b)}</script><h2 id="7-隐马
 </code></pre><h3 id="8-3评价指标"><a href="#8-3评价指标" class="headerlink" title="8.3评价指标"></a>8.3评价指标</h3><p>标准: 簇内相似度高，簇间相似度低</p>
 <p>内部指标:</p>
 <p>DB指数</p>
-<p><img src="/EruLv.github.io/2020/07/01/%E2%80%9C%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%A4%8D%E4%B9%A0%E2%80%9D/dbi.png" srcset="/EruLv.github.io/img/loading.gif" alt="image-20200721150259920"></p>
+<p><img src="/EruLv.github.io/2020/07/01/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%A4%8D%E4%B9%A0/dbi.png" srcset="/EruLv.github.io/img/loading.gif" alt="image-20200721150259920"></p>
 <p>外部指标:</p>
 <p>Jaccard 系数</p>
-<p><img src="/EruLv.github.io/2020/07/01/%E2%80%9C%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%A4%8D%E4%B9%A0%E2%80%9D/jaccard.png" srcset="/EruLv.github.io/img/loading.gif" alt="image-20200721151105353"></p>
+<p><img src="/EruLv.github.io/2020/07/01/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%A4%8D%E4%B9%A0/jaccard.png" srcset="/EruLv.github.io/img/loading.gif" alt="image-20200721151105353"></p>
 
             </div>
             <hr>
