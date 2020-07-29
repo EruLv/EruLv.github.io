@@ -133,7 +133,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    543 字
+                    578 字
                   </span>
                 
 
@@ -169,7 +169,7 @@
           <div class="post-content mx-auto" id="post">
             
               <p
-                class="note note-warning">本文最后更新于：星期二, 六月 16日 2020, 11:56 晚上</p>
+                class="note note-warning">本文最后更新于：星期二, 七月 7日 2020, 9:24 晚上</p>
             
             <div class="markdown-body">
               <h2 id="c-常用函数"><a href="#c-常用函数" class="headerlink" title="c++常用函数"></a>c++常用函数</h2><h3 id="1-排序"><a href="#1-排序" class="headerlink" title="1.排序"></a>1.排序</h3><h4 id="sort"><a href="#sort" class="headerlink" title="sort:"></a>sort:</h4><p>头文件:</p>
@@ -215,13 +215,22 @@ printf(&quot;%.2f\n&quot;,d);
 </code></pre>
 <p>会右对齐左补0.</p>
 <h3 id="4-全局变量声明"><a href="#4-全局变量声明" class="headerlink" title="4.全局变量声明"></a>4.全局变量声明</h3><p>声明的int 的全局变量，数组会默认初始化为0.</p>
-<h3 id="5-无限大与无限小-inf"><a href="#5-无限大与无限小-inf" class="headerlink" title="5.无限大与无限小(inf)"></a>5.无限大与无限小(inf)</h3><pre><code class="lang-c++">int inf = 1e8;
+<h3 id="5-无限大与无限小-inf"><a href="#5-无限大与无限小-inf" class="headerlink" title="5.无限大与无限小(inf)"></a>5.无限大与无限小(inf)</h3><pre><code class="lang-c++">int inf = 1e9;
+//更好的: int最大2^31 - 1, 约等于10^9。
+int inf = 0x3f3f3f3f;
 </code></pre>
-<h3 id="6-字符串转int"><a href="#6-字符串转int" class="headerlink" title="6.字符串转int"></a>6.字符串转int</h3><p>atoi:(表示 alphanumeric to integer)是把字符串转换成整型数的一个函数。</p>
+<h3 id="6-string与int互转"><a href="#6-string与int互转" class="headerlink" title="6.string与int互转"></a>6.string与int互转</h3><p>atoi:(表示 alphanumeric to integer)是把字符串转换成整型数的一个函数。</p>
 <pre><code class="lang-c++">string s = &quot;123&quot;;
 int x = atoi(s.c_str());
 cout&lt;&lt;x&lt;&lt;endl;
 </code></pre>
+<p>int转字符串</p>
+<pre><code class="lang-c++">#include&lt;string&gt;
+string s = &quot;&quot;;
+int x = 5;
+s = to_string(x);
+</code></pre>
+<p>c</p>
 <h3 id="7-输入带空格的字符串"><a href="#7-输入带空格的字符串" class="headerlink" title="7.输入带空格的字符串"></a>7.输入带空格的字符串</h3><pre><code class="lang-c++">#include&lt;string.h&gt;
 
 char str[1000];
@@ -265,7 +274,7 @@ int main(){
         }
     }
 </code></pre>
-
+<h3 id><a href="#" class="headerlink" title=" "></a> </h3>
             </div>
             <hr>
             <div>
