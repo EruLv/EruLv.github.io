@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="Eru Lv">
   <meta name="keywords" content="">
-  <title>归档 - Hexo</title>
+  <title>Hexo</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
@@ -43,7 +43,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 100vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -111,7 +111,7 @@
 </nav>
 
     <div class="view intro-2" id="background" parallax=true
-         style="background: url('/EruLv.github.io/img/bg1.jpg') no-repeat center center;
+         style="background: url('/EruLv.github.io/img/banner.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask rgba-black-light flex-center">
@@ -124,6 +124,10 @@
           </div>
 
           
+            <div class="scroll-down-bar">
+              <i class="fas fa-angle-down scroll-down-arrow"></i>
+            </div>
+          
         </div>
       </div>
     </div>
@@ -133,33 +137,66 @@
     
       <div class="container nopadding-md">
         <div class="py-5 z-depth-3" id="board"
-          >
+          style=margin-top:0>
           
           <div class="container">
             <div class="row">
               <div class="col-12 col-md-10 m-auto">
                 
 
-<div class="list-group">
-  <p class="h4">共计 11 篇文章</p>
-  <hr>
-  
+
+  <div class="row mx-auto index-card">
     
-      
-      <p class="h5">2020</p>
     
-    <a href="/EruLv.github.io/2020/03/19/cpp%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">cpp常用函数</span>
-      <span style="float: right;">03-19</span>
-    </a>
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/EruLv.github.io/2020/03/18/%E7%9F%A9%E9%98%B5%E6%B1%82%E5%AF%BC%E8%BF%90%E7%AE%97/">
+        <p class="h4 index-header">矩阵求导运算</p>
+      </a>
+
+      <a href="/EruLv.github.io/2020/03/18/%E7%9F%A9%E9%98%B5%E6%B1%82%E5%AF%BC%E8%BF%90%E7%AE%97/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">矩阵求导运算推导与总结1.标量对向量求导输入向量，输出标量。即映射关系为$f:R^N➡R$ 。
+设$y = f(\boldsymbol{x})$ ,$\boldsymbol{x}$是Nx1的矢量，y是标量。
+则求导结果为:
+
+\frac{\partial y}{\partial \boldsymbol{x}}=\left(\frac{\partial y}{\partial x_{1}}, \frac{\partial y}{\partial x_{2}}, \ldots, \frac{\partial y}{\partial x_{N}}\right)2.向量对向量求导输入向量，输出也是向量</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-18&nbsp;&nbsp;
+        
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/EruLv.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>&nbsp;
+          
+            <a href="/EruLv.github.io/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">线性代数</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+
+
+  <nav aria-label="index posts navigation">
+    <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
+      <a class="extend prev" rel="prev" href="/EruLv.github.io/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/EruLv.github.io/">1</a><span class="page-number current">2</span>
+    </span>
+  </nav>
   
-    
-    <a href="/EruLv.github.io/2020/03/18/%E7%9F%A9%E9%98%B5%E6%B1%82%E5%AF%BC%E8%BF%90%E7%AE%97/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">矩阵求导运算</span>
-      <span style="float: right;">03-18</span>
-    </a>
-  
-</div>
+  <script>
+    for (ele of document.getElementById("pagination").getElementsByClassName("page-number")) {
+      ele.href += '#board';
+    }
+  </script>
 
 
 
@@ -259,7 +296,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "归档&nbsp;",
+        "Hello World&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
