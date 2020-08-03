@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/EruLv.github.io/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/EruLv.github.io/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Eru Lv">
+  <meta name="keywords" content="">
+  <title>java基础 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css" />
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+
+  <link  rel="stylesheet" href="/EruLv.github.io/lib/prettify/tomorrow-night-eighties.min.css" />
+
+<link  rel="stylesheet" href="/EruLv.github.io/css/main.css" />
+
+
+  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+<!-- 自定义样式保持在最底部 -->
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/EruLv.github.io/">&nbsp;<strong>HwLv's blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/EruLv.github.io/">首页</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/EruLv.github.io/archives/">归档</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/EruLv.github.io/categories/">分类</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/EruLv.github.io/tags/">标签</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/EruLv.github.io/about/">关于</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/EruLv.github.io/img/bg2.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+                <p class="mt-3 post-meta">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                  星期六, 八月 1日 2020, 8:27 晚上
+                </p>
+              
+
+              <p class="mt-1">
+                
+                  
+                  <span class="post-meta">
+                    <i class="far fa-chart-bar"></i>
+                    1.5k 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta">
+                      <i class="far fa-clock"></i>
+                      6 分钟
+                  </span>
+                
+
+                
+              </p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5 z-depth-3" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+              <p
+                class="note note-warning">本文最后更新于：星期二, 八月 4日 2020, 12:11 凌晨</p>
+            
+            <div class="markdown-body">
+              <h1 id="Java基础笔记-《Java编程思想》阅读笔记"><a href="#Java基础笔记-《Java编程思想》阅读笔记" class="headerlink" title="Java基础笔记-《Java编程思想》阅读笔记"></a>Java基础笔记-《Java编程思想》阅读笔记</h1><h6 id="距离上次使用java已经过去2年多了，趁大三夏令营结束的这段时间复习一下java"><a href="#距离上次使用java已经过去2年多了，趁大三夏令营结束的这段时间复习一下java" class="headerlink" title="距离上次使用java已经过去2年多了，趁大三夏令营结束的这段时间复习一下java."></a>距离上次使用java已经过去2年多了，趁大三夏令营结束的这段时间复习一下java.</h6><h2 id="1-一切皆是对象"><a href="#1-一切皆是对象" class="headerlink" title="1.一切皆是对象"></a>1.一切皆是对象</h2><ol>
+<li><p>ava是一种更纯粹的面向对象的编程语言。</p>
+</li>
+<li><p>Java使用<code>new</code>关键字创建对象，对象的存储位置在<strong>堆</strong>内。对于一些基本类型，<code>new</code>对堆的操作开销较大，因此对于这些类型，java采取与c,c++相同的方法，即，不用<code>new</code>来创建这些变量，而直接创建一个并非是引用的变量，这个变量直接存储值，并置于堆栈中，音因此更加高效。</p>
+</li>
+<li><p>Java变量的<strong>基本类型</strong>:</p>
+</li>
+</ol>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>基本类型</th>
+<th>大小</th>
+<th>最小值</th>
+<th>最大值</th>
+<th>包装器类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>boolean</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>char</td>
+<td>16 bits</td>
+<td>Unicode 0</td>
+<td>Unicode $2^{16} -1$</td>
+<td>Character</td>
+</tr>
+<tr>
+<td>byte</td>
+<td>8 bits</td>
+<td>-128</td>
+<td>127</td>
+<td>Byte</td>
+</tr>
+<tr>
+<td>short</td>
+<td>16 bits</td>
+<td>-$2^{15}$</td>
+<td>$2^{15}-1$</td>
+<td>Short</td>
+</tr>
+<tr>
+<td>int</td>
+<td>32 bits</td>
+<td>-$2^{31}$</td>
+<td>$2^{31} - 1$</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>long</td>
+<td>64 bits</td>
+<td>-$2^{63}$</td>
+<td>$2^{63} - 1$</td>
+<td>Long</td>
+</tr>
+<tr>
+<td>float</td>
+<td>32 bits</td>
+<td>IEEE 754</td>
+<td>IEEE 754</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>double</td>
+<td>64 bits</td>
+<td>IEEE 754</td>
+<td>IEEE 754</td>
+<td>Double</td>
+</tr>
+<tr>
+<td>void</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>Void</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>所有数值类型变量均有符号。</p>
+<pre><code class="lang-java">//创建一个基本类型变量
+int a = 13;
+//使用包装器创建一个非基本对象
+Integer a = new Integer(13);
+//java自动将基本类型转换为包装器类型
+Integer a = 13;
+</code></pre>
+<p>4.高精度</p>
+<ul>
+<li><p>高精度整数:<code>BigInteger</code>，支持任何精度的整数。</p>
+</li>
+<li><p>高精度浮点数:<code>BigDecimal</code>，支持任何精度的浮点数。</p>
+</li>
+</ul>
+<p>只能通过<code>new</code>创建.</p>
+<p>对象的作用域</p>
+<p>由<code>new</code>创建的对象，只要你需要，就会一直保存下去，即超出作用域是不会被立即销毁。</p>
+<p>6.类的要素:</p>
+<ul>
+<li><p>字段</p>
+</li>
+<li><p>方法</p>
+</li>
+</ul>
+<p>7.当java的变量作为类的成员时，若该变量时基本类型并且未被赋值，则java会给它一个默认值(类似c++)。</p>
+<p>8.导入类</p>
+<pre><code class="lang-java">import java.utils.ArrayList;
+import java.utils.*;    //导入utils下所有类。
+</code></pre>
+<p>9.static</p>
+<p>当一个事物声明是static时，意味着这个域或方法不会与包含它的那个对象关联在一起。即无论创建多少个包含它的对象，系统只给它分配一个存储空间。</p>
+<pre><code class="lang-java">class test{
+    static int a = 1;
+}
+
+class Main {
+    public static void main(String args[]){
+        test t = new test();
+        t.a ++;
+        test tt = new test();
+        tt.a ++;
+        test.a ++;    //可以直接通过类名调用静态方法
+        System.out.println(t.a);
+        System.out.println(tt.a);
+    }
+}
+
+结果:
+4
+4
+</code></pre>
+<p>同理，静态方法也可通过类名直接调用或通过对象调用。</p>
+<p>10.</p>
+<p>java.lang是默认导入到每个Java文件中的，不需要额外import.</p>
+<p>11.编译</p>
+<p>生成.class类</p>
+<pre><code>javac xxx.java
+</code></pre><p>假设生成了A.class和B.class, 现在运行代码:</p>
+<pre><code>java A
+</code></pre><p>12.注释</p>
+<pre><code class="lang-java">class Main {
+    /** 类的作用是啥巴拉巴拉
+     * @author 作者名称
+     * @param args 参数解释
+     * @return xxx
+     * @version 1.0
+     */
+    public static void main(String args[]){
+        System.getProperties().list(System.out);
+    }
+}
+</code></pre>
+<h2 id="2-操作符"><a href="#2-操作符" class="headerlink" title="2.操作符"></a>2.操作符</h2><p>1.赋值</p>
+<p><strong>基本类型的赋值</strong>: </p>
+<p>直接把内容赋值给左边，如a = b, 当改变b的值时，a的内容不变。</p>
+<p><strong>对象赋值</strong>:</p>
+<p>把指向对象的引用复制给左边，如c = d,那么c和d都指向同一存储位置。</p>
+<p>2.random</p>
+<pre><code class="lang-java">import java.util.*;
+
+class Main {
+    public static void main(String args[]){
+        Random random = new Random(66);    //随机数对象，种子:66
+        int a = random.nextInt(100) + 1;    //设置Int范围1-100
+        float b = random.nextFloat()*10;    //设置float范围0-10
+        System.out.println(a);
+        System.out.println(b);
+    }
+}
+</code></pre>
+<p>3.科学计数法</p>
+<pre><code class="lang-java">class Main {
+    public static void main(String args[]){
+        float a = 1e32f;
+        System.out.println(a);
+    }
+}
+</code></pre>
+<p>4.按位操作</p>
+<p><code>&amp;</code>:与</p>
+<p><code>|</code>:或</p>
+<p><code>~</code>:非</p>
+<p><code>^</code>:异或</p>
+<p><code>&lt;&lt;</code>:左移</p>
+<p><code>&gt;&gt;</code>:右移</p>
+<p>5.if-else操作</p>
+<pre><code class="lang-java">boolean-exp ? a:b;
+</code></pre>
+<p>6.类型转换</p>
+<p><strong>窄化转换</strong>可能面临信息丢失的危险，所以必须显示转换。</p>
+<p><strong>拓展转换</strong>不需要显示转换。</p>
+<p>例如: long转int会报错，必须显示转换。</p>
+<pre><code class="lang-java">class Main {
+    public static void main(String args[]){
+        long a = 1000000;
+        int b = a;
+    }
+}
+</code></pre>
+<p>7.截尾和舍入</p>
+<pre><code class="lang-java">class Main {
+    public static void main(String args[]){
+        double a = 9.7;
+        int b = (int)a;    //截尾
+        int c = (int)Math.round(a);    //四舍五入
+        System.out.println(b);
+        System.out.println(c);
+    }
+}
+</code></pre>
+<p>8.其他</p>
+<ul>
+<li>比int小的类型(char,byte,short)在运算时会自动转换为int类型。</li>
+<li>通常，表达式中最大数据类型决定了表达式最终结果的数据类型。</li>
+</ul>
+<h2 id="3-执行控制流程"><a href="#3-执行控制流程" class="headerlink" title="3.执行控制流程"></a>3.执行控制流程</h2><p>1.if else,while, for, switch</p>
+<p>pass</p>
+<p>2.Foreach</p>
+<p>(c++11中也支持该语句)</p>
+<p>Foreach可用于任何数组和Iterable对象。</p>
+<pre><code class="lang-java">        Random r = new Random(6);
+        int a[] = new int[10];
+        for(int i = 0;i &lt; a.length; i++){
+            a[i] = r.nextInt(100);
+        }
+        for(int x:a){
+            System.out.println(x);
+        }
+</code></pre>
+<pre><code class="lang-java">    public static void main(String args[]){
+        for(int x: range(5,10)){    //rang前提: import static net.mindview.util.Range.*;
+            print(x);
+        }
+    }
+</code></pre>
+<p>3.goto</p>
+<p>goto是java的一个保留字，但是java并不能使用goto语句。</p>
+<p>4.标签</p>
+<p><code>break label</code>: 跳出标签所指循环。</p>
+<p><code>continue label</code>:跳过标签所指循环的这一步。</p>
+<pre><code class="lang-java">class Main {
+    public static void main(String args[]){
+        int i = 0;
+        outer:
+        for(;;){
+            inner:
+            for(;i &lt; 10; i++){
+                print(&quot;i = &quot;+i);
+                if(i == 5) break outer;    //直接跳出外部循环
+            }
+        }
+    }
+}
+</code></pre>
+<h2 id="4-初始化与请理"><a href="#4-初始化与请理" class="headerlink" title="4.初始化与请理"></a>4.初始化与请理</h2><p>1.构造器</p>
+<p>与类名相同的函数。</p>
+<p>2.重载</p>
+<p>方法名相同，形参不同。</p>
+<p><strong>函数名和形参相同，返回值不同，不是重载，编译器会报错。</strong></p>
+<p>3.this</p>
+<p>在类内使用，表示该类的引用。可用于区分形参和类内参数。</p>
+<p>一般的方法，如:</p>
+<pre><code class="lang-java">class Person {
+    public void eat(Apple apple) {
+        print(&quot;Yummy&quot;);
+    }
+}
+
+//实际上隐含的代码是(实际不能把this写上，否则编译器报错):
+class Person {
+    public void eat(this, Apple apple) {
+        print(&quot;Yummy&quot;);
+    }
+}
+</code></pre>
+<p>4.再看static</p>
+<p>static方法是没有<code>this</code>的方法，在所以在static方法内部不能直接调用非静态方法，单反过来是可以的。</p>
+<p>static很像全局方法，给java提供了一种访问全局变量和方法的思路。</p>
+<p>5.finalize</p>
+<p>类似于c++中的析构函数。但不建议使用。java9以上的版本该方法被<strong>Deprecated</strong> 并且<strong>will be removed</strong>.</p>
+
+            </div>
+            <hr>
+            <div>
+              <p>
+                
+                
+                  <span>
+                <i class="iconfont icon-tag"></i>
+                    
+                      <a class="hover-with-bg" href="/EruLv.github.io/tags/java/">java</a>
+                    
+                  </span>
+                
+              </p>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-12 col-md-6">
+                    
+                  </div>
+                  <div class="post-next col-12 col-md-6">
+                    
+                      <a href="/EruLv.github.io/2020/07/30/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
+                        <span>动态规划</span>
+                        <i class="fa fa-chevron-right"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+              
+                <!-- Comments -->
+                <div class="comments" id="comments">
+                  
+                  
+
+                </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc-start"></div>
+<div id="toc">
+  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
+<script  src="/EruLv.github.io/js/main.js" ></script>
+
+
+  <script  src="/EruLv.github.io/js/lazyload.js" ></script>
+
+
+
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var navHeight = $('#navbar').height();
+      var toc = $('#toc');
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+      var tocLimMax = 2 * boardTop + boardCtn.height();
+
+      $(window).scroll(function () {
+        var tocLimMin = $('#toc-start').offset().top - navHeight;
+        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
+
+        if (tocLimMin <= scroH && scroH <= tocLimMax) {
+          toc.css({
+            'display': 'block',
+            'position': 'fixed',
+            'top': navHeight,
+          });
+        } else if (scroH <= tocLimMin) {
+          toc.css({
+            'position': '',
+            'top': '',
+          });
+        } else if (scroH > tocLimMax) {
+          toc.css('display', 'none');
+        }
+      });
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc > p').css('visibility', 'visible');
+      }
+      var offset = boardCtn.css('margin-right')
+      $('#toc-ctn').css({
+        'right': offset
+      })
+    });
+  </script>
+
+
+
+
+
+
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "java基础&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/EruLv.github.io/js/local-search.js" ></script>
+  <script>
+    var path = "/EruLv.github.io/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+          tex2jax: {
+              inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+              processEscapes: true,
+              skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+          }
+      });
+
+      MathJax.Hub.Queue(function() {
+          var all = MathJax.Hub.getAllJax(), i;
+          for(i=0; i < all.length; i += 1) {
+              all[i].SourceElement().parentNode.className += ' has-jax';
+          }
+      });
+
+    </script>
+
+    <script  src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML" ></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
