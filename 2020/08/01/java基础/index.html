@@ -133,7 +133,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    1.5k 字
+                    3.3k 字
                   </span>
                 
 
@@ -141,7 +141,7 @@
                   
                   <span class="post-meta">
                       <i class="far fa-clock"></i>
-                      6 分钟
+                      14 分钟
                   </span>
                 
 
@@ -169,7 +169,7 @@
           <div class="post-content mx-auto" id="post">
             
               <p
-                class="note note-warning">本文最后更新于：星期二, 八月 4日 2020, 12:11 凌晨</p>
+                class="note note-warning">本文最后更新于：星期三, 八月 5日 2020, 12:02 凌晨</p>
             
             <div class="markdown-body">
               <h1 id="Java基础笔记-《Java编程思想》阅读笔记"><a href="#Java基础笔记-《Java编程思想》阅读笔记" class="headerlink" title="Java基础笔记-《Java编程思想》阅读笔记"></a>Java基础笔记-《Java编程思想》阅读笔记</h1><h6 id="距离上次使用java已经过去2年多了，趁大三夏令营结束的这段时间复习一下java"><a href="#距离上次使用java已经过去2年多了，趁大三夏令营结束的这段时间复习一下java" class="headerlink" title="距离上次使用java已经过去2年多了，趁大三夏令营结束的这段时间复习一下java."></a>距离上次使用java已经过去2年多了，趁大三夏令营结束的这段时间复习一下java.</h6><h2 id="1-一切皆是对象"><a href="#1-一切皆是对象" class="headerlink" title="1.一切皆是对象"></a>1.一切皆是对象</h2><ol>
@@ -459,6 +459,321 @@ class Person {
 <p>static很像全局方法，给java提供了一种访问全局变量和方法的思路。</p>
 <p>5.finalize</p>
 <p>类似于c++中的析构函数。但不建议使用。java9以上的版本该方法被<strong>Deprecated</strong> 并且<strong>will be removed</strong>.</p>
+<p>6.构造器初始化</p>
+<p>变量一定会在构造函数之前初始化(即使变量可能定义在构造函数后面)，变量之间的初始化顺序由定义的顺序决定。</p>
+<p>7.静态数据初始化</p>
+<p><code>static</code> 不能作用与局部数据，静态数据也会自动初始化(基本类型，对象类型)。</p>
+<pre><code class="lang-java">import java.util.*;
+import static net.mindview.util.Print.*;
+import static net.mindview.util.Range.*;
+
+class Bowl{
+    Bowl(int marker){
+        print(&quot;Bowl(&quot;+marker+&quot;)&quot;);
+    }
+    void f1(int marker){
+        print(&quot;f1(&quot;+marker+&quot;)&quot;);
+    }
+}
+
+class Table{
+    static Bowl bowl1 = new Bowl(1);
+    Table(){
+        print(&quot;Table()&quot;);
+        bowl2.f1(1);
+    }
+    void f2(int marker){
+        print(&quot;f2(&quot;+marker+&quot;)&quot;);
+    }
+    static Bowl bowl2 = new Bowl(2);
+
+}
+
+class Cupboard{
+    Bowl bowl3 = new Bowl(3);
+    static Bowl bowl4 = new Bowl(4);
+    Cupboard(){
+        print(&quot;Cupboard&quot;);
+        bowl4.f1(2);
+    }
+    void f3(int marker){
+        print(&quot;f3(&quot;+marker+&quot;)&quot;);
+    }
+    static Bowl bowl5 = new Bowl(5);
+}
+
+class Main {
+    public static void main(String args[]){
+        print(&quot;create new Cupboard() in main !&quot;);
+        new Cupboard();
+        print(&quot;create new Cupboard() in main !&quot;);
+        new Cupboard();
+        table.f2(1);
+        cupboard.f3(1);
+    }
+    static Table table = new Table();
+    static Cupboard cupboard = new Cupboard();
+}
+</code></pre>
+<pre><code>输出:
+Bowl(1)
+Bowl(2)
+Table()
+f1(1)
+Bowl(4)
+Bowl(5)
+Bowl(3)
+Cupboard
+f1(2)
+create new Cupboard() in main !
+Bowl(3)
+Cupboard
+f1(2)
+create new Cupboard() in main !
+Bowl(3)
+Cupboard
+f1(2)
+f2(1)
+f3(1)
+</code></pre><p>总结初始化顺序:</p>
+<p>静态对象(只会被初始化一次)-&gt;非静态对象-&gt;构造器。</p>
+<p>8.静态子句</p>
+<p>只会被执行一次的域</p>
+<pre><code class="lang-java">static{
+    int i = 1;
+    xxxx
+}
+</code></pre>
+<p>9.数组初始化</p>
+<pre><code>int a[];
+int[] a;
+int[] a = {1,2,3,4};
+int a[] = new int[10];
+</code></pre><pre><code class="lang-java">a2 = a1;//把a1的引用赋值给a2;
+</code></pre>
+<pre><code class="lang-java">Arrays.toString(a); //把数组转化为字符串,需要引用java.utils.*标准库
+</code></pre>
+<p>创建对象数组时，需要分两步:</p>
+<p>创建应用数组，给每个引用赋初值。</p>
+<pre><code class="lang-java">A[] a = new A[10];
+for(int i = 0; i  &lt; a.length; i++){
+    a = new A();
+}
+</code></pre>
+<p>或者直接初始化</p>
+<pre><code class="lang-java">A[] a = {new A(1),new A(2)};
+A[] a = new A[]{new A(1), new A(2)};
+</code></pre>
+<p>10.可变参数列表</p>
+<pre><code class="lang-java">public class VarArgs{
+    static void printArray(Object... args){    //将你的输入自动封装成数组，疮长度不固定，可以是0
+        for(Object obj: args){
+            System.out.print(obj + &quot; &quot;);
+        }
+        print();
+    }
+}
+
+class DynamicArray{
+    public static void main(String[] args){
+        VarArgs.printArray(&quot;1&quot;,&quot;2&quot;,&quot;3&quot;);
+        VarArgs.printArray(new Object[]{
+                new Integer(1),
+                new Integer(2),
+                new Integer(3)
+        });
+    }
+}
+</code></pre>
+<p>11.枚举类型</p>
+<pre><code class="lang-java">enum E{
+    A,B,C,D
+}
+class Main{
+    public static void main(String[] args){
+        for(E e: E.values()){
+            print(e);
+        }
+        print(E.A);        
+    }
+}
+</code></pre>
+<p>enum类有toString方法，可以在switch中使用。</p>
+<h2 id="5-访问权限控制"><a href="#5-访问权限控制" class="headerlink" title="5.访问权限控制"></a>5.访问权限控制</h2><p>1.包Package</p>
+<p> 每个<code>.java</code>文件都只能有一个public类，该类的名称必须与文件名相同，如果改文件还有额外的类的话，包之外的世界(其他文件)是无法看见这个类的。即每个文件都有一个<code>public</code>类，以及许多非<code>public</code>类。</p>
+<p>每个文件都有一个构件，如果希望这些构件从属于同一个群组，就可以使用关键字<code>package</code>,必须放在程序最前面。</p>
+<p>新建package access</p>
+<pre><code class="lang-java">package access;
+
+public class A {
+    public A(){
+        System.out.println(&quot;access A !&quot;);
+    }
+}
+
+class AA{
+    public AA(){
+        System.out.println(&quot;access AA !&quot;);
+    }
+}
+</code></pre>
+<p>在<code>access</code>包外调用包内的内容。</p>
+<pre><code class="lang-java">import access.*;
+
+public class B {
+    public static void main(String[] args){
+//        AA aa = new AA();
+        A a = new A();
+    }
+}
+</code></pre>
+<p>java解释器寻找类库的过程：</p>
+<p>比如导入包</p>
+<pre><code class="lang-java">import net.mindview.test.*
+</code></pre>
+<p>当编译器遇到<code>test</code>的<code>import</code>语句时，就开始在<code>CLASSPATH</code>所指定的目录中查找，查找到子目录<code>net/mindview/test</code>，然后从已编译的文件中找出名称相符者。</p>
+<p>如果导入的两个类库中存在冲突类，如果你恰好使用到了冲突的类，编译器会报错。</p>
+<p><strong>自己一个print包</strong></p>
+<pre><code class="lang-java">package access;
+
+public class Print {
+    public static void print(Object obj){
+        System.out.println(obj);
+    }
+    public static void print(){
+        System.out.println();
+    }
+}
+</code></pre>
+<p>调用:</p>
+<pre><code class="lang-java">import static access.Print.*;
+
+public class B {
+    public static void main(String[] args){
+        print();
+    }
+}
+</code></pre>
+<p><code>import static 包名.类名.*;</code></p>
+<p>意思是导入这个类里的静态成员（静态方法、静态变量）,可以直接使用静态方法而不用通过<code>类名.方法名()</code>,可以导入的静态成员包括静态对象引用、静态常量和静态方法。</p>
+<p>2.<strong>访问权限修饰词</strong></p>
+<p>2.1包访问权限(默认权限)</p>
+<p>没有访问权限修饰词，则默认为包访问权限(<code>friendly</code>),则当前包中的其他类堆那个成员对具有访问权限。对于包外的所有类都是不可见的。</p>
+<p>如果你没有设置当前文件所属的包，即没有定义<code>package xxxx</code>,则位于同一目录的这样文件被java看作位于隶属于该目录的默认包中，于是对于同级目录下的没有设置包的文件来说，它们有<strong>包访问权限</strong>。</p>
+<p>2.2 public</p>
+<p>在任何位置都可以访问。</p>
+<p>2.3 private</p>
+<p>除了包含该成员的类之外，其他任何类都无法访问这个成员。</p>
+<p>2.4 protected</p>
+<p>继承的子类可以访问基类中的<code>protected</code>的成员（当然也可以访问<code>public</code>的）。</p>
+<p><code>protected</code>也提供包继承，即同一个包内的类也可以访问含有<code>protected</code>声明的成员。</p>
+<p>3.注意，类(外部类)不可以时<code>protected</code>或者<code>privated</code>.可以把构造器设置为<code>private</code>,阻止其他类创建该类的实例。</p>
+<h2 id="6-复用类"><a href="#6-复用类" class="headerlink" title="6.复用类"></a>6.复用类</h2><p>1.复用类的两种实现方法</p>
+<p>组合:在新类中<code>new</code>一个现有类。</p>
+<p>继承:在基类的基础上添加代码。</p>
+<p>2.toString方法</p>
+<p>在每一个非基本类型的对象都有一个<code>toString()</code>方法，当编译器需要一个String而你只有一个对象时，该方法会被调用。可以自己定义<code>toString()</code>方法:</p>
+<pre><code class="lang-java">public String toString(){
+    return &quot;This is toString&quot;;
+}
+</code></pre>
+<pre><code class="lang-java">import static access.Print.*;
+
+public class B {
+    public static void main(String[] args){
+        Print p = new Print();
+        System.out.println(p);
+    }
+}
+</code></pre>
+<p>3.继承</p>
+<p>java默认从<code>Object</code>类继承。</p>
+<p>继承关键字:<code>extends</code>.</p>
+<pre><code class="lang-java">public A ectends B{
+    //balabala
+}
+</code></pre>
+<p>A类从B类继承。</p>
+<pre><code class="lang-java">class C{
+    C(){
+        System.out.println(&quot;initialize C!&quot;);
+    }
+}
+
+class B extends C{
+    B(){
+        System.out.println(&quot;initialize B!&quot;);
+    }
+}
+
+public class A extends B{
+    A(){
+        System.out.println(&quot;initialize A!&quot;);
+    }
+    public static void main(String[] args){
+        A a = new A();
+    }
+}
+</code></pre>
+<p>java会首先初始化基类。</p>
+<p>如果没有默认的基类构造器，或者基类构造器带参数，则必须使用<code>super</code>，显示地调用基类构造器。并且<code>super</code>要位于最前面。</p>
+<p>4.代理</p>
+<p>继承和组合的一个折中，不直接继承，而是创建基类的一个实例，根据定义当前类需要的方法。</p>
+<p>5.名称屏蔽</p>
+<p>如果基类中有一个方法，在子类中被重载了，那么基类中的这个方法依然是可用的。</p>
+<p>使用<code>@override</code>会检查你写的下面的代码是否覆盖掉基类代码，如果只是重载而不是覆盖，则编译器会报错。</p>
+<pre><code class="lang-java">class B {
+    B(int i) {
+        System.out.println(&quot;initialize B!&quot;);
+    }
+    void f(int x){
+        System.out.println(&quot;f(&quot;+x+&quot;)&quot;);
+    }
+}
+
+public class A extends B{
+    A(){
+        super(1);
+        System.out.println(&quot;initialize A!&quot;);
+    }
+
+    void f(String s){
+        System.out.println(&quot;f(&quot;+s+&quot;)&quot;);
+    }
+    public static void main(String[] args){
+        A a = new A();
+        a.f(&quot;你好&quot;);
+        a.f(1);
+    }
+}
+
+/* outputs:
+initialize B!
+initialize A!
+f(你好)
+f(1)
+*/
+</code></pre>
+<pre><code class="lang-java">public class A extends B{
+    A(){
+        super(1);
+        System.out.println(&quot;initialize A!&quot;);
+    }
+    //限定只能覆盖,重写会报错
+    @Override
+    void f(int x){
+        System.out.println(&quot;ff(&quot;+x+&quot;)&quot;);
+    }
+
+    public static void main(String[] args){
+        A a = new A();
+        a.f(1);
+    }
+}
+</code></pre>
+<p>6.组合和继承的选择</p>
+<p>组合是使用现有类的一些功能，来实现我们需要的功能，比如car类可能需要wheel类，Engine类等。</p>
+<p>继承一般是把一个通用类的功能特殊化，具体化。</p>
 
             </div>
             <hr>
