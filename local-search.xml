@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>java基础2</title>
+    <link href="/EruLv.github.io/2020/08/18/java%E5%9F%BA%E7%A1%802/"/>
+    <url>/EruLv.github.io/2020/08/18/java%E5%9F%BA%E7%A1%802/</url>
+    
+    <content type="html"><![CDATA[<h2 id="Java基础2"><a href="#Java基础2" class="headerlink" title="Java基础2"></a>Java基础2</h2><h2 id="8-接口"><a href="#8-接口" class="headerlink" title="8.接口"></a>8.接口</h2><h3 id="1-抽象方法和抽象类"><a href="#1-抽象方法和抽象类" class="headerlink" title="1.抽象方法和抽象类"></a>1.抽象方法和抽象类</h3><p>仅有声明而没有方法体。</p><pre><code class="lang-java">abstract class Instrument {    //抽象类  private int i; // Storage allocated for each  public abstract void play(Note n);    //抽象方法  public String what() { return &quot;Instrument&quot;; }  public abstract void adjust();}</code></pre><p>包含抽象方法的类叫做抽象类。<strong>如果一个类包含一个或多个抽象方法，则该类必须是抽象的。</strong></p><p><strong>如果从一个抽象类继承，必须为基类中的所有抽象方法提供定义，否则该类也会被强制认为是抽象类。</strong></p><h3 id="2-接口"><a href="#2-接口" class="headerlink" title="2.接口"></a>2.接口</h3><p>更纯粹的抽象方法，<strong>接口内不能有方法体。</strong></p><p>用<code>interface</code>关键字代替<code>class</code></p><p>要想某个类遵循特定的接口，需要用<code>implements</code>关键字（类似于<code>extents</code>，必须实现接口的全部方法。</p><p>接口类中的方法必须被定义为<code>public</code>（默认<code>public</code>）。</p><pre><code class="lang-java">interface Instrument {  int VALUE = 5;   void play(Note n); // Automatically public  void adjust();}class Wind implements Instrument {  public void play(Note n) {    print(this + &quot;.play() &quot; + n);  }  public String toString() { return &quot;Wind&quot;; }  public void adjust() { print(this + &quot;.adjust()&quot;); }}</code></pre><h3 id="3-多重继承"><a href="#3-多重继承" class="headerlink" title="3.多重继承"></a>3.多重继承</h3><p>在<code>implements</code>可以添加多个接口，用逗号隔开。</p><p>当同时有继承操作时，需要把<code>extends</code>放在前面。</p><pre><code class="lang-java">interface CanFight {  void fight();}interface CanSwim {  void swim();}interface CanFly {  void fly();}class ActionCharacter {  public void fight() {}}  //继承+接口class Hero extends ActionCharacter    implements CanFight, CanSwim, CanFly {  public void swim() {}  public void fly() {}}</code></pre><h3 id="4-通过继承拓展接口"><a href="#4-通过继承拓展接口" class="headerlink" title="4.通过继承拓展接口"></a>4.通过继承拓展接口</h3><p>接口与类一样也可以继承。</p><pre><code class="lang-java">interface Monster {  void menace();}interface DangerousMonster extends Monster {  void destroy();}interface Lethal {  void kill();}class DragonZilla implements DangerousMonster {  public void menace() {}  public void destroy() {}}  interface Vampire extends DangerousMonster, Lethal {  void drinkBlood();}class VeryBadVampire implements Vampire {  public void menace() {}  public void destroy() {}  public void kill() {}  public void drinkBlood() {}}</code></pre><h3 id="5-接口中的域"><a href="#5-接口中的域" class="headerlink" title="5.接口中的域"></a>5.接口中的域</h3><p>接口中的域默认时<code>static</code>和<code>final</code>的，即全局常量。</p><pre><code class="lang-java">public interface RandVals {  Random RAND = new Random(47);  int RANDOM_INT = RAND.nextInt(10);  long RANDOM_LONG = RAND.nextLong() * 10;  float RANDOM_FLOAT = RAND.nextLong() * 10;  double RANDOM_DOUBLE = RAND.nextDouble() * 10;} public class TestRandVals {  public static void main(String[] args) {    print(RandVals.RANDOM_INT);    print(RandVals.RANDOM_LONG);    print(RandVals.RANDOM_FLOAT);    print(RandVals.RANDOM_DOUBLE);  }} /* Output:8-32032247016559954-8.5939291E185.779976127815049*///:~</code></pre><h3 id="6-嵌套接口"><a href="#6-嵌套接口" class="headerlink" title="6.嵌套接口"></a>6.嵌套接口</h3><p>在类中声明接口，接口是<code>static</code>的，其他类可以通过类名访问接口。类内的接口可以设置为<code>默认</code>,<code>public</code>，<code>private</code>。</p><pre><code class="lang-java">class A {  interface B {    void f();  }  public class BImp implements B {    public void f() {}  }  private class BImp2 implements B {    public void f() {}  }  public interface C {    void f();  }  class CImp implements C {    public void f() {}  }      private class CImp2 implements C {    public void f() {}  }  private interface D {    void f();  }  private class DImp implements D {    public void f() {}  }  public class DImp2 implements D {    public void f() {}  }  public D getD() { return new DImp2(); }  private D dRef;  public void receiveD(D d) {    dRef = d;    dRef.f();  }}</code></pre>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>java</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>计算机图形学复习</title>
     <link href="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/"/>
     <url>/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/</url>
