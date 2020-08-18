@@ -133,7 +133,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    3.3k 字
+                    4.7k 字
                   </span>
                 
 
@@ -141,7 +141,7 @@
                   
                   <span class="post-meta">
                       <i class="far fa-clock"></i>
-                      14 分钟
+                      21 分钟
                   </span>
                 
 
@@ -169,11 +169,11 @@
           <div class="post-content mx-auto" id="post">
             
               <p
-                class="note note-warning">本文最后更新于：星期三, 八月 5日 2020, 12:02 凌晨</p>
+                class="note note-warning">本文最后更新于：星期二, 八月 18日 2020, 10:26 晚上</p>
             
             <div class="markdown-body">
               <h1 id="Java基础笔记-《Java编程思想》阅读笔记"><a href="#Java基础笔记-《Java编程思想》阅读笔记" class="headerlink" title="Java基础笔记-《Java编程思想》阅读笔记"></a>Java基础笔记-《Java编程思想》阅读笔记</h1><h6 id="距离上次使用java已经过去2年多了，趁大三夏令营结束的这段时间复习一下java"><a href="#距离上次使用java已经过去2年多了，趁大三夏令营结束的这段时间复习一下java" class="headerlink" title="距离上次使用java已经过去2年多了，趁大三夏令营结束的这段时间复习一下java."></a>距离上次使用java已经过去2年多了，趁大三夏令营结束的这段时间复习一下java.</h6><h2 id="1-一切皆是对象"><a href="#1-一切皆是对象" class="headerlink" title="1.一切皆是对象"></a>1.一切皆是对象</h2><ol>
-<li><p>ava是一种更纯粹的面向对象的编程语言。</p>
+<li><p>java是一种更纯粹的面向对象的编程语言。</p>
 </li>
 <li><p>Java使用<code>new</code>关键字创建对象，对象的存储位置在<strong>堆</strong>内。对于一些基本类型，<code>new</code>对堆的操作开销较大，因此对于这些类型，java采取与c,c++相同的方法，即，不用<code>new</code>来创建这些变量，而直接创建一个并非是引用的变量，这个变量直接存储值，并置于堆栈中，音因此更加高效。</p>
 </li>
@@ -535,7 +535,7 @@ Cupboard
 f1(2)
 f2(1)
 f3(1)
-</code></pre><p>总结初始化顺序:</p>
+</code></pre><p><strong>总结初始化顺序:</strong></p>
 <p>静态对象(只会被初始化一次)-&gt;非静态对象-&gt;构造器。</p>
 <p>8.静态子句</p>
 <p>只会被执行一次的域</p>
@@ -715,7 +715,7 @@ public class A extends B{
     }
 }
 </code></pre>
-<p>java会首先初始化基类。</p>
+<p><strong>java会首先初始化基类。</strong></p>
 <p>如果没有默认的基类构造器，或者基类构造器带参数，则必须使用<code>super</code>，显示地调用基类构造器。并且<code>super</code>要位于最前面。</p>
 <p>4.代理</p>
 <p>继承和组合的一个折中，不直接继承，而是创建基类的一个实例，根据定义当前类需要的方法。</p>
@@ -774,6 +774,280 @@ f(1)
 <p>6.组合和继承的选择</p>
 <p>组合是使用现有类的一些功能，来实现我们需要的功能，比如car类可能需要wheel类，Engine类等。</p>
 <p>继承一般是把一个通用类的功能特殊化，具体化。</p>
+<p>7.向上转型</p>
+<p>将导出类(子类)转换为基类的动作（从一个特殊类转换为通用类）。如:</p>
+<pre><code class="lang-java">Instrument x = new Flute();
+</code></pre>
+<p>8.final关键字</p>
+<p><strong>1.数据</strong></p>
+<p><code>final</code>代表常量，如果修饰基本类型，则表示该数据不能修改，如果修饰对象，表示改引用不能指向其他对象(但对象可以改变)。</p>
+<p><code>final static</code>命名一般是大写字幕+下划线。</p>
+<p><code>final</code>必须在定义时初始化。当然，如果作为类成员变量，可以先不初始化，但一定要在构造函数里初始化。</p>
+<pre><code class="lang-java">class Test{
+    private final int j = 1;
+    private final int i;
+    Test(){
+        i = 1;
+    }
+}
+</code></pre>
+<p><strong>2.方法</strong></p>
+<p><code>final</code>修饰方法作用和<code>private</code>关键字类似，可以防止子类覆盖。</p>
+<pre><code class="lang-java">class WithFinals {
+    // Identical to &quot;private&quot; alone:
+    private final void f() { print(&quot;WithFinals.f()&quot;); }
+    // Also automatically &quot;final&quot;:
+    public final void g() { print(&quot;WithFinals.g()&quot;); }
+}
+
+class OverridingPrivate extends WithFinals {
+    private final void f() {
+        print(&quot;OverridingPrivate.f()&quot;);
+    }
+    public void g() {   //会报错
+        print(&quot;OverridingPrivate.g()&quot;);
+    }
+}
+</code></pre>
+<p><strong>3.类</strong></p>
+<p>在类前加<code>final</code>关键字表示改类不能被继承。final类不会被继承，因此它的所有方法都隐式指定为final的。</p>
+<h2 id="7-多态"><a href="#7-多态" class="headerlink" title="7.多态"></a>7.<strong>多态</strong></h2><p>在<strong>oop</strong>中，多态时继数据抽象和继承之后的第三种基本特征。多态的作用是消除类型之间的耦合关系</p>
+<p>1.向上转型</p>
+<p>对象既可作为它自己本身的类型使用，也可作为它的基类型使用。</p>
+<pre><code class="lang-java">class Instrument {
+  public void play(Note n) {
+    print(&quot;Instrument.play()&quot;);
+  }
+}
+public class Wind extends Instrument {
+  // Redefine interface method:
+  public void play(Note n) {
+    System.out.println(&quot;Wind.play() &quot; + n);
+  }
+} 
+
+public class Music {
+  public static void tune(Instrument i) {
+    // ...
+    i.play(Note.MIDDLE_C);
+  }
+  public static void main(String[] args) {
+    Wind flute = new Wind();
+    tune(flute); // Upcasting
+  }
+} /* Output:
+Wind.play() MIDDLE_C
+*///:~
+</code></pre>
+<p>接收Instrument类型的对象，调用的却是Wind的方法。</p>
+<p>为什么会这样？因为java中除了<code>final</code>和<code>static</code>均采用动态绑定，在运行时判断对象类型。</p>
+<p>你以为你把它转到基类了，实际上如果可以，它还是会调用子类的方法。</p>
+<pre><code class="lang-java">class A{
+    public void play(){
+        System.out.println(&quot;A.play()&quot;);
+    }
+}
+class B extends A{
+    public void play(){
+        System.out.println(&quot;B.play()&quot;);
+    }
+}
+
+public class test {
+    public static void main(String[] args){
+        A a = new B();
+        a.play();
+    }
+}B
+/* Output:
+B.play() 
+*///:~
+</code></pre>
+<p>2.“覆盖”私有方法</p>
+<pre><code class="lang-java">public class PrivateOverride {
+  private void f() { print(&quot;private f()&quot;); }    
+  public static void main(String[] args) {
+    PrivateOverride po = new Derived();
+    po.f();
+  }
+}
+
+class Derived extends PrivateOverride {
+  public void f() { print(&quot;public f()&quot;); }    
+} /* Output:
+private f()
+*///:~
+</code></pre>
+<p>上面的基类中f()是私有的，与<code>final</code>等价，下面继承的方法看作是个全新的方法，基类中的方法f()在导出类中不可见，不能被重载，<strong>只有非<code>private</code>方法才可以被覆盖</strong>。</p>
+<p>满足多态的条件:</p>
+<ul>
+<li>基类和子类中都有非<code>private</code>方法f().</li>
+<li>A a = new B()形式，其中B继承A。</li>
+</ul>
+<p>最终a.f()调用B的f()。</p>
+<p><strong>另外，向上转型后不能访问子类中存在但基类中不存在的方法。</strong></p>
+<p>3.“域”(类变量)访问</p>
+<p>如果你直接访问某个域，这个访问就会在编译期间进行解析，不具有多态性。</p>
+<pre><code class="lang-java">class Super {
+  public int field = 0;
+  public int getField() { return field; }
+}
+
+class Sub extends Super {
+  public int field = 1;
+  public int getField() { return field; }
+  public int getSuperField() { return super.field; }
+}
+
+public class FieldAccess {
+  public static void main(String[] args) {
+    Super sup = new Sub(); // Upcast
+    System.out.println(&quot;sup.field = &quot; + sup.field +
+      &quot;, sup.getField() = &quot; + sup.getField());
+    Sub sub = new Sub();
+    System.out.println(&quot;sub.field = &quot; +
+      sub.field + &quot;, sub.getField() = &quot; +
+      sub.getField() +
+      &quot;, sub.getSuperField() = &quot; +
+      sub.getSuperField());
+  }
+}
+/* Output:
+sup.field = 0, sup.getField() = 1
+sub.field = 1, sub.getField() = 1, sub.getSuperField() = 0
+*///:~
+</code></pre>
+<p>向上转型后，访问sup的域，因为sup是Super类，所以访问的是Super的类变量。</p>
+<p>如果某个方法是静态的，它的行为也不具有多态性。因为静态方法与类关联而不是单个对象。</p>
+<pre><code class="lang-java">class StaticSuper {
+  public static String staticGet() {
+    return &quot;Base staticGet()&quot;;
+  }
+  public String dynamicGet() {
+    return &quot;Base dynamicGet()&quot;;
+  }
+}
+
+class StaticSub extends StaticSuper {
+  public static String staticGet() {
+    return &quot;Derived staticGet()&quot;;
+  }
+  public String dynamicGet() {
+    return &quot;Derived dynamicGet()&quot;;
+  }
+}
+
+public class StaticPolymorphism {
+  public static void main(String[] args) {
+    StaticSuper sup = new StaticSub(); // Upcast
+    System.out.println(sup.staticGet());
+    System.out.println(sup.dynamicGet());
+  }
+} 
+/* Output:
+Base staticGet()
+Derived dynamicGet()
+*///:~
+</code></pre>
+<p>4.构造器和多态</p>
+<p>构造器是<code>static</code>的，因此不具有多态性。</p>
+<p>构造器调用顺序:</p>
+<p><strong>从上往下初始化基类构造器-&gt;初始化当前类的变量-&gt;初始化当前类的构造器。</strong></p>
+<p>5.清理</p>
+<p>如果需要显示地写辣鸡回收方法，子类覆盖父类的请理方法，子类的清理方法中一定要添加<code>super().请理()</code>方法，否则父类的清理方法一直不会执行。</p>
+<p>6.构造器中调用被覆盖的类</p>
+<pre><code class="lang-java">class Glyph {
+  void draw() { print(&quot;Glyph.draw()&quot;); }
+  Glyph() {
+    print(&quot;Glyph() before draw()&quot;);
+    draw();
+    print(&quot;Glyph() after draw()&quot;);
+  }
+}  
+
+class RoundGlyph extends Glyph {
+  private int radius = 1;
+  RoundGlyph(int r) {
+    radius = r;
+    print(&quot;RoundGlyph.RoundGlyph(), radius = &quot; + radius);
+  }
+  void draw() {
+    print(&quot;RoundGlyph.draw(), radius = &quot; + radius);
+  }
+}  
+
+public class PolyConstructors {
+  public static void main(String[] args) {
+    new RoundGlyph(5);
+  }
+} /* Output:
+Glyph() before draw()
+RoundGlyph.draw(), radius = 0
+Glyph() after draw()
+RoundGlyph.RoundGlyph(), radius = 5
+*///:~
+</code></pre>
+<p>可以看到基类的draw()方法被重写了，在基类构造器中调用draw()方法依旧调用的是子类的draw()方法，但由于子类还未初始化，所以radius为0.（之前编译器会给所有对象分配好空间，然后初始化成二进制的0.</p>
+<p>7.协变返回类型</p>
+<pre><code class="lang-java">class Grain {
+  public String toString() { return &quot;Grain&quot;; }
+}
+
+class Wheat extends Grain {
+  public String toString() { return &quot;Wheat&quot;; }
+}
+
+class Mill {
+  Grain process() { return new Grain(); }
+}
+
+class WheatMill extends Mill {
+  Wheat process() { return new Wheat(); }
+}
+
+public class CovariantReturn {
+  public static void main(String[] args) {
+    Mill m = new Mill();
+    Grain g = m.process();
+    System.out.println(g);
+    m = new WheatMill();
+    g = m.process();
+    System.out.println(g);
+  }
+} /* Output:
+Grain
+Wheat
+*///:~
+</code></pre>
+<p>8.向下转型</p>
+<pre><code class="lang-java">class Useful {
+  public void f() {}
+  public void g() {}
+}
+
+class MoreUseful extends Useful {
+  public void f() {}
+  public void g() {}
+  public void u() {}
+  public void v() {}
+  public void w() {}
+}  
+
+public class RTTI {
+  public static void main(String[] args) {
+    Useful[] x = {
+      new Useful(),
+      new MoreUseful()
+    };
+    x[0].f();
+    x[1].g();
+    // Compile time: method not found in Useful:
+    x[1].u();    //编译报错
+    ((MoreUseful)x[1]).u(); //通过
+    ((MoreUseful)x[0]).u(); // 抛出异常
+  }
+} ///:~
+</code></pre>
 
             </div>
             <hr>
@@ -795,6 +1069,11 @@ f(1)
               
                 <div class="post-prevnext row">
                   <div class="post-prev col-12 col-md-6">
+                    
+                      <a href="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/">
+                        <i class="fa fa-chevron-left"></i>
+                        <span>计算机图形学复习</span>
+                      </a>
                     
                   </div>
                   <div class="post-next col-12 col-md-6">
