@@ -133,7 +133,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    2.7k 字
+                    4.1k 字
                   </span>
                 
 
@@ -141,7 +141,7 @@
                   
                   <span class="post-meta">
                       <i class="far fa-clock"></i>
-                      10 分钟
+                      15 分钟
                   </span>
                 
 
@@ -169,17 +169,18 @@
           <div class="post-content mx-auto" id="post">
             
               <p
-                class="note note-warning">本文最后更新于：星期三, 八月 19日 2020, 9:13 晚上</p>
+                class="note note-warning">本文最后更新于：星期二, 八月 25日 2020, 11:41 晚上</p>
             
             <div class="markdown-body">
               <h1 id="计算机图形学复习"><a href="#计算机图形学复习" class="headerlink" title="计算机图形学复习"></a>计算机图形学复习</h1><h2 id="1-CG基础"><a href="#1-CG基础" class="headerlink" title="1.CG基础"></a>1.CG基础</h2><h3 id="1-1概念"><a href="#1-1概念" class="headerlink" title="1.1概念:"></a>1.1概念:</h3><p><strong>几何学(geometry)</strong>:几何学是研究在n维空间中物体之间关系的一门学科。</p>
 <p><strong>几何学原语(primitives)</strong>:构建复杂的物体需要的最基础的元素。</p>
 <p><strong>三个基本元素:</strong>标量(Scalars),向量(Vectors),点(Points)</p>
-<p><strong>标量</strong>:标量可以定义为集合的成员，可以通过两个操作（加法和乘法）结合一些基本公理（关联性，可交换性，逆函数）进行组合.标量没有几何属性。</p>
+<p><strong>标量</strong>:标量是服从一组规则的对象，标量可以定义为集合的成员，可以通过两个操作（加法和乘法）结合一些基本公理（关联性，可交换性，逆函数）进行组合.标量没有几何属性。</p>
 <p><strong>向量</strong>:向量由幅度和方向两个属性组成。</p>
 <h3 id="1-2-Coordinate-Free-Geometry-无坐标几何"><a href="#1-2-Coordinate-Free-Geometry-无坐标几何" class="headerlink" title="1.2 Coordinate-Free Geometry(无坐标几何)"></a>1.2 Coordinate-Free Geometry(无坐标几何)</h3><p><strong>笛卡尔坐标系</strong>:直角坐标系和斜坐标系的统称。</p>
 <p>物理上，点的存在与坐标系无关，如，如果两个三角形两条边及其夹角相等，则他们相同(全等)。</p>
 <h3 id="1-3-向量空间"><a href="#1-3-向量空间" class="headerlink" title="1.3 向量空间"></a>1.3 向量空间</h3><p>1.向量空间中，向量的起点不同，但方向和长度相同的向量为同一向量。</p>
+<p>欧几里得空间:是向量空间的扩展，增加了对大小或者距离的度量。</p>
 <p>2.仿射空间(Affine Spaces): 点的集合+向量空间。</p>
 <p>操作:</p>
 <ul>
@@ -229,7 +230,7 @@ P = P_0 + \beta_1 v_1 + \beta_2 v_2 + \beta_3 v_3 = [\beta_1 \beta_2  \beta_3 ][
 v = [\alpha_1 \alpha_2 \alpha_3 0]^T\\\
 p = [\beta_1 \beta_2 \beta_3 1]^T</script><p>15.同质坐标</p>
 <p>w != 1 &amp;&amp; w != 0</p>
-<h2 id="2-建模和渲染的Pipeline"><a href="#2-建模和渲染的Pipeline" class="headerlink" title="2. 建模和渲染的Pipeline"></a>2. 建模和渲染的Pipeline</h2><h3 id="2-1-Pipeline"><a href="#2-1-Pipeline" class="headerlink" title="2.1 Pipeline:"></a>2.1 Pipeline:</h3><ol>
+<h2 id="2-建模和渲染的Pipeline-amp-计算机观察"><a href="#2-建模和渲染的Pipeline-amp-计算机观察" class="headerlink" title="2. 建模和渲染的Pipeline&amp;计算机观察"></a>2. 建模和渲染的Pipeline&amp;计算机观察</h2><h3 id="2-1-Pipeline"><a href="#2-1-Pipeline" class="headerlink" title="2.1 Pipeline:"></a>2.1 Pipeline:</h3><ol>
 <li>几何建模</li>
 <li>将建模的物体放入世界坐标系。</li>
 <li>选择摄像机的位置和方向</li>
@@ -249,17 +250,21 @@ p = [\beta_1 \beta_2 \beta_3 1]^T</script><p>15.同质坐标</p>
 <li>测试可见性(z-buffer),更新帧缓冲区颜色。</li>
 </ol>
 <p><strong>2.经典图形学渲染管线</strong></p>
-<p>顶点-&gt;<code>顶点处理器</code>-&gt;<code>裁切和整合</code>-&gt;<code>栅格化</code>-&gt;<code>段处理器</code>-&gt;像素</p>
+<p>(几何绘制流水线)</p>
+<p>顶点-&gt;<code>顶点处理模块</code>-&gt;<code>裁剪和图元组装模块</code>-&gt;<code>光栅化模块</code>-&gt;<code>片元处理模块</code>-&gt;像素</p>
 <p><strong>Vertex Processor</strong>:</p>
-<p>负责顶点的坐标变换，把顶点从一个坐标系转换到另一个坐标系。另外还负责计算顶点的颜色。</p>
+<p>负责顶点的坐标变换，把顶点从一个坐标系转换到另一个坐标系。另外还负责计算每个顶点的颜色。</p>
 <p><code>物体坐标系</code>-&gt;<code>世界坐标系</code>-&gt;<code>视角坐标系</code>-&gt;<code>图像坐标系</code></p>
 <p><strong>Clipper and Primitive Assembler</strong>:</p>
-<p>将摄像机视角外的顶点裁剪掉。在裁剪和栅格化之前，必须将顶点收集到几何对象中。</p>
+<p>成像系统不可能一次对整个场景成像，所以需要将摄像机视角外的顶点裁剪掉。裁剪并须针对逐个图元进行，而不是针对逐个顶点，所以在裁剪之前必须把顶点组装成线段、多边形这样的对象，这一过程叫做图元组装。。</p>
 <p><strong>Rasterize</strong></p>
-<p>如果物体没有被裁剪出去，则必须为帧缓冲区中的适当像素分配颜色。光栅器为每个对象生成一组片段，片段是可能的像素，每个片段都在帧缓冲区中有位置，并且有颜色、深度等属性。顶点属性由光栅化器插值到对象上</p>
+<p>裁剪后的图元仍是用顶点表示的，为了生帧缓存中的像素还必须进一步处理。如果物体没有被裁剪出去，则必须为帧缓存区中的适当像素分配颜色。光栅化为每个图元生成一组片元(fragment)，片元是携带相关信息的潜在像素。每个片段都在帧缓存区中有位置，并且有颜色、深度等属性。</p>
 <p><strong>Fragment Processor</strong></p>
-<p>片段处理器确定帧缓冲区中相应像素的颜色，颜色可以通过纹理映射或顶点颜色的插值来确定，片段可能被更靠近相机的其他片段挡住。</p>
-<h3 id="2-3-投影-坐标变换"><a href="#2-3-投影-坐标变换" class="headerlink" title="2.3 投影/坐标变换"></a>2.3 投影/坐标变换</h3><p>1.简单变换</p>
+<p>利用光栅化模块生成的片元来更新帧缓存中的元素。</p>
+<p>片元确定帧缓冲区中相应像素的颜色，颜色可以通过纹理映射或顶点颜色的插值来确定，片元可能被更靠近相机的其他片段挡住。</p>
+<p> 可编程流水线:</p>
+<p>顶点处理模块和片元处理模块对于应用程序来说是可编程的，程序员只需要编写顶点着色器和片元着色器。</p>
+<h3 id="2-3-变换"><a href="#2-3-变换" class="headerlink" title="2.3 变换"></a>2.3 变换</h3><p>1.简单变换</p>
 <ul>
 <li>平移Translation</li>
 <li>旋转Rotation</li>
@@ -273,7 +278,7 @@ p = [\beta_1 \beta_2 \beta_3 1]^T</script><p>15.同质坐标</p>
 <p>保持角度不变，形状相同，只是比例，方向和位置不同.</p>
 <p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/similarity.png" srcset="/EruLv.github.io/img/loading.gif" alt="similarity"></p>
 <p>4.线性变换</p>
-<p>包括旋转，缩放，反射，剪切变换(shear)，shear变换直观理解就是把物体一边固定，然后拉另外一边，定义如下:</p>
+<p>包括旋转，缩放，反射，错切(shear)，直观理解就是把物体一边固定，然后拉另外一边，定义如下:</p>
 <script type="math/tex; mode=display">
 L(P + q) = L(p) + L(q)\\
 L(ap) = aL(p)</script><p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/Linear.png" srcset="/EruLv.github.io/img/loading.gif" alt="Linear"></p>
@@ -290,7 +295,7 @@ f(p+q) = p + q + t 不等于(p+t) + (q +t) = f(p) + f(q)</script><p>5.仿射变�
 <p>7.Transforms are groups</p>
 <p>你可以用一个变换来代替一连串变换。</p>
 <p>比如， object-to-world transformation, world-to-view transformation,view-to-image transformation能够用 object-to image transformation一个变换表示。</p>
-<h3 id="2-4坐标变换与齐次坐标系Homogeneous-Coordinates"><a href="#2-4坐标变换与齐次坐标系Homogeneous-Coordinates" class="headerlink" title="2.4坐标变换与齐次坐标系Homogeneous Coordinates"></a>2.4坐标变换与齐次坐标系Homogeneous Coordinates</h3><p>二维的线性变换可以用二维矩阵来表示，但是二维的仿射变换需要用一个额外的坐标系来表示平移。</p>
+<h3 id="2-4观察投影"><a href="#2-4观察投影" class="headerlink" title="2.4观察投影"></a>2.4观察投影</h3><p>二维的线性变换可以用二维矩阵来表示，但是二维的仿射变换需要用一个额外的坐标系来表示平移。</p>
 <p>其次坐标系就是在原来的向量空间中添加一个额外的维度，比如用三维坐标系就可以表示二维空间的仿射变换。</p>
 <p><strong>1.投影中的相等</strong>:</p>
 <p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/1.png" srcset="/EruLv.github.io/img/loading.gif" alt="1"></p>
@@ -302,9 +307,15 @@ f(p+q) = p + q + t 不等于(p+t) + (q +t) = f(p) + f(q)</script><p>5.仿射变�
 <p><strong>2.使用齐次坐标系的好处</strong></p>
 <p>以上所有的投影变换在其次坐标系中都是线性的。</p>
 <p><strong>3.投影 Orthographic vs. Perspective</strong></p>
-<p><strong>(1)正交投影Orthographic :</strong>其视景体为长方体，投影物体的大小不会随视点与远平面之间的距离而变.沿着z轴将所有点投影到z = 0的平面上。特点:变换矩阵中z所在行全为0.</p>
+<p>投影包括两个基本操作:<strong>模-视变换</strong>和<strong>投影变换</strong>。</p>
+<p><strong>模-视变换</strong>:将模型从对象坐标系变换到世界坐标系(模型变换)，最后变换到相机坐标系(视角变换)。</p>
+<p><strong>投影变换</strong>:把指定的投影应用于顶点，并把位于指定视见体内部的对象变换到位于裁剪坐标系中的裁剪立方体的内部。</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/view.png" srcset="/EruLv.github.io/img/loading.gif" alt="view"></p>
+<p><strong>4.两个主要投影</strong></p>
+<p><strong>(1)正交投影Orthographic :</strong>其视景体为长方体，投影物体的大小不会随视点与远平面之间的距离而变.沿着z轴将所有点投影到z = 0的平面上。特点:变换矩阵中z所在行全为0.视见体为正六边形(边长为2的正方体)，正投影只“看到”了视见体内的对象。距离和形状都没有失真，适合在工程中使用。</p>
 <p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/orthographic.png" srcset="/EruLv.github.io/img/loading.gif" alt="orthographic"></p>
-<p><strong>(2)透视投影Perspective:</strong> 将沿z轴的所有点投影到z = d的平面上，并在原点上放置视点。【变换矩阵推导】</p>
+<p><strong>(2)透视投影Perspective:</strong> 将沿z轴的所有点投影到z = d的平面上，并在原点上放置视点。特点:投影后距离观察者越远，成像越小。</p>
+<p>【变换矩阵推导】</p>
 <p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/prespective.png" srcset="/EruLv.github.io/img/loading.gif" alt="prespective"></p>
 <p>消失点(vanishing point)</p>
 <p>透视投影中，物体上的平行线（不平行于投影平面）会聚在投影中的单个点上，这个点就是消失点。</p>
@@ -315,7 +326,7 @@ f(p+q) = p + q + t 不等于(p+t) + (q +t) = f(p) + f(q)</script><p>5.仿射变�
 <li>只有与投影平面平行的平面上的角投影后角度不变。</li>
 <li>用手构造比平行投影更困难（但用计算机难度更大）。</li>
 </ul>
-<p><strong>4.计算机视图Computer Viewing</strong></p>
+<p><strong>5.计算机视图Computer Viewing</strong></p>
 <p>计算机中用到了3中视图处理:</p>
 <p>摄像机定位，设置model-view 矩阵</p>
 <p>选择镜头，设置投影方式</p>
@@ -357,13 +368,13 @@ u = v×t
 <p><code>gluLookAt(ex, ey, ez, cx, cy, cz, qx, qy, qz)</code>等价于上述两个矩阵的乘机。</p>
 <p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/eg1.png" srcset="/EruLv.github.io/img/loading.gif" alt="eg1"></p>
 <p>model-view变换是最后执行的，所以从渲染的角度，代码应该写在最前面。</p>
-<p><strong>3.正交变换Orthogonal Projection</strong></p>
+<p><strong>3.正投影Orthogonal Projection</strong></p>
 <pre><code class="lang-c++">void glOrtho(GLdouble left, GLdouble right,GLdouble bottom, GLdouble top, GLdouble near, GLdouble far);
 </code></pre>
 <p>设置一个矩形</p>
 <p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/Ortho.png" srcset="/EruLv.github.io/img/loading.gif" alt="Ortho"></p>
 <p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/Ortho2.png" srcset="/EruLv.github.io/img/loading.gif" alt="Ortho2"></p>
-<p><strong>4.透视变换Perspective Projection</strong></p>
+<p><strong>4.透视投影Perspective Projection</strong></p>
 <p><strong>Frustum视锥</strong></p>
 <p><code>glFrustum(GLdouble left,GLdouble Right,GLdouble bottom,GLdouble top,GLdouble near,GLdouble far)</code></p>
 <p>左右下上近远</p>
@@ -371,11 +382,54 @@ u = v×t
 <p>不过不太常用，因为很难得到想要的视角，所以要用到另一个函数:</p>
 <pre><code class="lang-c++">void gluPerspective (GLdouble fovy, GLdouble aspect,GLdouble zNear, GLdouble zFar)
 </code></pre>
-<p>fovy:视角，度数</p>
+<p>fovy:视角，度数,裁剪体的底面和顶面之间的夹角</p>
 <p>asp:x和y的比例(w/h)</p>
 <p>znear:相机到最近裁剪面的距离</p>
 <p>zfar:相机到最远裁剪面的距离</p>
 <p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/per.png" srcset="/EruLv.github.io/img/loading.gif" alt="per"></p>
+<p>透视投影的流水线:</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/proj.png" srcset="/EruLv.github.io/img/loading.gif" alt="proj"></p>
+<h3 id="2-6-重点，两种投影-函数-的原理"><a href="#2-6-重点，两种投影-函数-的原理" class="headerlink" title="2.6 重点，两种投影(函数)的原理"></a>2.6 重点，两种投影(函数)的原理</h3><h3 id="2-7-Z-Buffer原理"><a href="#2-7-Z-Buffer原理" class="headerlink" title="2.7 Z-Buffer原理"></a>2.7 Z-Buffer原理</h3><p>z-buffer 作用:消除不可见面</p>
+<h2 id="3-裁剪、光栅化和隐藏面消除"><a href="#3-裁剪、光栅化和隐藏面消除" class="headerlink" title="3.裁剪、光栅化和隐藏面消除"></a>3.裁剪、光栅化和隐藏面消除</h2><p>裁剪就是把位于视见体之外的对象删除，从而在最终显示的图像上这些对象是不可见的。</p>
+<p>光栅化是从裁剪后的对象生成片元的过程。</p>
+<p>隐藏面的消除就是确定可见对象的片元，即位于视见体之内且没有被阻挡的对象。</p>
+<h3 id="3-1图形绘制的四个主要任务"><a href="#3-1图形绘制的四个主要任务" class="headerlink" title="3.1图形绘制的四个主要任务"></a>3.1图形绘制的四个主要任务</h3><p><strong>建模</strong>，寻找一组用来定义几何对象的顶点数据，除生成几何对象外，建模还能完成一切其他任务，如裁剪。</p>
+<p><strong>几何处理</strong>， 几何处理包括四个处理过程:投影、图元装配、裁剪和明暗处理。</p>
+<p><strong>光栅化</strong>，</p>
+<p><strong>片元处理</strong></p>
+<h3 id="3-2裁剪"><a href="#3-2裁剪" class="headerlink" title="3.2裁剪"></a>3.2裁剪</h3><p><strong>规范化设备坐标系</strong>: 经过投影变换后，所有图元潜在可见部分都位于一个变长为2中心位于原点的立方体的内部，这个坐标系称为规范化设备坐标系。</p>
+<h4 id="3-2-1-线段的裁剪"><a href="#3-2-1-线段的裁剪" class="headerlink" title="3.2.1 线段的裁剪"></a>3.2.1 线段的裁剪</h4><p><strong>1.Cohen-Sutherland Algorithm</strong></p>
+<p>思想:排除尽可能多的不需要计算交点的线段，使用浮点数减法和位操作代替大量高开销的浮点数乘法和除法。</p>
+<p>步骤:</p>
+<p>(1)首先把裁剪窗口的4条边延长到无限远，把整个二维空间分割成9个区域。</p>
+<p>(2)给每个区域根据二进制编码。$y<em>{max}y</em>{min}x<em>{max}x</em>{min}$</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/code.png" srcset="/EruLv.github.io/img/loading.gif" alt="code"></p>
+<p>(3)根据一条线段的两个端点的编码值进行讨论:</p>
+<ul>
+<li>case 1: o1 = o2 = 0,线段的两个端点都位于裁剪窗口内部，需要把该线段送入光栅化模块进行光栅化处理。</li>
+<li>case 2: 一个为0，一个不为0，线段的一个端点位于裁剪窗口内，另一个位于裁剪窗口之外，必须进行裁剪处理，非0的端点编码说明了线段与裁剪窗口的哪条边或者哪两条边相交，必须计算一个或两个交点，需要注意的是，当计算完一个交点后，要计算该交点的编码，从而确定是否需要另一个求交运算。</li>
+<li>case 3: $o_1 \&amp; O_2 ≠ 0$， 线段两个端点按位与操作，可以确定这两个端点是否位于裁剪窗口某条裁剪边的同一侧。如果满足，则可以丢弃该条线段。</li>
+<li>case 4: $o_1 \&amp; o_2 = 0$,线段两个端点都为与裁剪窗口之外，但它们分别位于裁剪窗口的两条不同裁剪边的外侧，不能判断是否完全在窗口外，计算线段与裁剪窗口某边的交点，并根据新的交点编码重新进行上述判断。</li>
+</ul>
+<p>(4)根据上述判断该线段是接收还是裁剪，如果需要部分裁剪，找到位于窗口外的端点，然后寻找与线段相交的窗口边并且求出交点。</p>
+<p>(5)把位于窗口外的顶点替换成交点从而实现裁剪。</p>
+<p>推广到3维: 27个区域，6位编码。</p>
+<p><strong>优点</strong>:</p>
+<p>编码判断只需要进行布尔运算，大大减少了需要求交点的运算，当要处理的线段非常多而实际显示的线段非常少时，该算法很有效。可以有效地拓展到三维。</p>
+<p><strong>缺点</strong>:</p>
+<p>对某些线段，必须进行多次裁剪处理。在线段缩短过程中需要多次重复执行。</p>
+<p><strong>2.Cyrus-Berk算法</strong></p>
+<p><strong>3.Liang-Barsky裁剪算法</strong></p>
+<p>将得不错:</p>
+<p><a href="https://www.cnblogs.com/cnblog-wuran/p/9813841.html" target="_blank" rel="noopener">https://www.cnblogs.com/cnblog-wuran/p/9813841.html</a></p>
+<p>优点:</p>
+<p>不需要对线段进行多次裁剪处理，因此效率比Cohen-Sutherland算法效率高。</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/cmp.png" srcset="/EruLv.github.io/img/loading.gif" alt="cmp"></p>
+<h4 id="3-2-2-多边形裁剪"><a href="#3-2-2-多边形裁剪" class="headerlink" title="3.2.2 多边形裁剪"></a>3.2.2 多边形裁剪</h4><p>一般裁剪的对象时凸多边形，要么禁止使用凹多边形，要么将凹多边形剖分为一组凸多边形。</p>
+<p><strong>1.Surtherland-Hodgeman算法</strong></p>
+<p>思想:</p>
+<p>分别考虑左上右下四条边所在的直线，依次裁剪掉位多边形于它们不可见一侧的部分。</p>
+<p><a href="https://blog.csdn.net/damotiansheng/article/details/43274183" target="_blank" rel="noopener">https://blog.csdn.net/damotiansheng/article/details/43274183</a></p>
 
             </div>
             <hr>
