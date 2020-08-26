@@ -133,7 +133,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    4.1k 字
+                    5k 字
                   </span>
                 
 
@@ -141,7 +141,7 @@
                   
                   <span class="post-meta">
                       <i class="far fa-clock"></i>
-                      15 分钟
+                      18 分钟
                   </span>
                 
 
@@ -169,7 +169,7 @@
           <div class="post-content mx-auto" id="post">
             
               <p
-                class="note note-warning">本文最后更新于：星期二, 八月 25日 2020, 11:41 晚上</p>
+                class="note note-warning">本文最后更新于：星期三, 八月 26日 2020, 6:49 晚上</p>
             
             <div class="markdown-body">
               <h1 id="计算机图形学复习"><a href="#计算机图形学复习" class="headerlink" title="计算机图形学复习"></a>计算机图形学复习</h1><h2 id="1-CG基础"><a href="#1-CG基础" class="headerlink" title="1.CG基础"></a>1.CG基础</h2><h3 id="1-1概念"><a href="#1-1概念" class="headerlink" title="1.1概念:"></a>1.1概念:</h3><p><strong>几何学(geometry)</strong>:几何学是研究在n维空间中物体之间关系的一门学科。</p>
@@ -430,6 +430,63 @@ u = v×t
 <p>思想:</p>
 <p>分别考虑左上右下四条边所在的直线，依次裁剪掉位多边形于它们不可见一侧的部分。</p>
 <p><a href="https://blog.csdn.net/damotiansheng/article/details/43274183" target="_blank" rel="noopener">https://blog.csdn.net/damotiansheng/article/details/43274183</a></p>
+<h3 id="3-3-光栅化"><a href="#3-3-光栅化" class="headerlink" title="3.3 光栅化"></a>3.3 光栅化</h3><p>片元是潜在的像素，每个片元都具有一个颜色属性以及在屏幕坐标中的位置属性，还包括用于隐藏面消除的深度信息。</p>
+<p>OpenGL中，像素的中心位于半整数值的位置。</p>
+<h4 id="3-3-1线段光栅化"><a href="#3-3-1线段光栅化" class="headerlink" title="3.3.1线段光栅化"></a>3.3.1线段光栅化</h4><p><strong>1.DDA算法</strong></p>
+<p>思想:</p>
+<p>两个端点(x1,y1), (x2,y2)四舍五入后取整。</p>
+<p>根据两个端点求斜率$\delta$。</p>
+<p>$dy = \delta dx$</p>
+<p>假设$0&lt;=\delta &lt;=1$</p>
+<p>从x1开始$dx = 1$,$y = \delta$</p>
+<p>如果斜率大于1，由于两个像素之间间隔很大，生成的线段可能连续性不好，所以可以交换x和y，再进行上面步骤。</p>
+<p><strong>2.Bresenham 算法</strong></p>
+<p>$d = (x_2 - x_1)(a - b)$</p>
+<p>d&gt;0,选y，d&lt;0,选y+1.</p>
+<pre><code>if d_k &gt; 0:
+    q = 2*m;
+else:
+    q = 2(1-m);
+</code></pre><script type="math/tex; mode=display">
+d_{k+1} = d_k - q</script><p>每个连续的像素计算只需要一个加法运算和一个符号判断，所以该算法效率非常高。</p>
+<h4 id="3-3-2多边形光栅化"><a href="#3-3-2多边形光栅化" class="headerlink" title="3.3.2多边形光栅化"></a>3.3.2多边形光栅化</h4><p><strong>1.（xxx算法）</strong></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\Raster.png" srcset="/EruLv.github.io/img/loading.gif" alt="Raster"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\edge.png" srcset="/EruLv.github.io/img/loading.gif" alt="edge"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\smarter.png" srcset="/EruLv.github.io/img/loading.gif" alt="smarter"></p>
+<p><strong>2.Oldskool Rasterization</strong></p>
+<p>思想:</p>
+<p>使用线栅格化方法计算边界，然后从边界左边像素开始，从左向右填充内部像素，直到遇到右边边界。</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\oldskool.png" srcset="/EruLv.github.io/img/loading.gif" alt="oldskool"></p>
+<p><strong>3.Homogeneous Rasterization</strong></p>
+<p>跟第一个算法有啥区别？</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\hr.png" srcset="/EruLv.github.io/img/loading.gif" alt="hr"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\hjrr.png" srcset="/EruLv.github.io/img/loading.gif" alt="hjrr"></p>
+<h3 id="3-4隐藏面消除"><a href="#3-4隐藏面消除" class="headerlink" title="3.4隐藏面消除"></a>3.4隐藏面消除</h3><p><strong>Z-buffer算法</strong>Z</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\zbuffer.png" srcset="/EruLv.github.io/img/loading.gif" alt="zbuffer"></p>
+<p>算法描述:</p>
+<p>对多边形逐个进行光栅化处理，对某个多边形上的每个片元，进行光栅化处理，对片元内的每个像素，使用插值法计算深度值，再同一位置(x,y),如果z(x,y) &lt; zbuffer(x,y)，则更新zbuffer内的值。</p>
+<p><strong>插值</strong></p>
+<p>注意,在三维世界坐标系中的线性插值与投影后在屏幕坐标系中的线性插值不是等价的。</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\interpolation.png" srcset="/EruLv.github.io/img/loading.gif" alt="interpolation"></p>
+<p>插值方法:<strong>重力坐标插值(Barycentric Interpolation)</strong></p>
+<p>算法流程:</p>
+<p>计算重心$P = \alpha a + \beta b + \gamma c$,其中，a,b,c为点坐标，前面的为系数，我们求这三个系数，然后根据系数分配插值。</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\b.png" srcset="/EruLv.github.io/img/loading.gif" alt="b"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\bary.png" srcset="/EruLv.github.io/img/loading.gif" alt="bary"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\zbf.png" srcset="/EruLv.github.io/img/loading.gif" alt="zbf"></p>
+<h3 id="3-5走样Aliasing"><a href="#3-5走样Aliasing" class="headerlink" title="3.5走样Aliasing"></a>3.5走样Aliasing</h3><p><strong>走样</strong>:连续值转换为离散值导致图像出现视觉上可见的误差。</p>
+<p><a href="https://blog.csdn.net/qq_38065509/article/details/105598277" target="_blank" rel="noopener">https://blog.csdn.net/qq_38065509/article/details/105598277</a></p>
+<p><strong>1.超采样反走样(Super Sampling AA，SSAA)</strong></p>
+<p>思想:</p>
+<p>将每个像素点细分成多个采样点，使用更多的采样点采样，求每个像素点对应采样点的颜色的平均值，作为像素点的颜色。</p>
+<p>先上采样，后降采样。</p>
+<p><strong>2.多重采样MSAA</strong></p>
+<p>Multi-sampling或者说Multi-sample Anti-Alias (简称MSAA)是一种抗锯齿的技术，它通过在一个像素上进行多次采样多次计算并最终汇总(Resolve to single-sample)，可使绘制的图像边缘更加平滑。通过这种方式绘制出来的图片质量更高，显得更真实。但同时，它对绘制的性能也会产生负面影响。所以，是否使用这项技术，需要开发者在图片质量(Quality)和性能(Performance)之间进行权衡。</p>
+<p>MSAA其实是对SSAA的一个改进，显然SSAA的计算量是非常大的，每个像素点分成4个采样点，我们就要进行4次的shading来计算颜色，额外多了4倍的计算量。</p>
+<p>MSAA的思路:</p>
+<p>同样一个像素分为多个采样点，每个采样点判断是否被三角形覆盖，最后求颜色的平均值？（只计算被覆盖的采样点，最后用颜色乘以被覆盖采样点比例？）</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\muti.png" srcset="/EruLv.github.io/img/loading.gif" alt="muti"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\mass.png" srcset="/EruLv.github.io/img/loading.gif" alt="mass"></p>
 
             </div>
             <hr>
