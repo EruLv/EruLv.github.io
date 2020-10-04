@@ -133,7 +133,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    5k 字
+                    9.3k 字
                   </span>
                 
 
@@ -141,7 +141,7 @@
                   
                   <span class="post-meta">
                       <i class="far fa-clock"></i>
-                      18 分钟
+                      34 分钟
                   </span>
                 
 
@@ -169,15 +169,15 @@
           <div class="post-content mx-auto" id="post">
             
               <p
-                class="note note-warning">本文最后更新于：星期三, 八月 26日 2020, 6:49 晚上</p>
+                class="note note-warning">本文最后更新于：星期六, 九月 5日 2020, 11:24 上午</p>
             
             <div class="markdown-body">
               <h1 id="计算机图形学复习"><a href="#计算机图形学复习" class="headerlink" title="计算机图形学复习"></a>计算机图形学复习</h1><h2 id="1-CG基础"><a href="#1-CG基础" class="headerlink" title="1.CG基础"></a>1.CG基础</h2><h3 id="1-1概念"><a href="#1-1概念" class="headerlink" title="1.1概念:"></a>1.1概念:</h3><p><strong>几何学(geometry)</strong>:几何学是研究在n维空间中物体之间关系的一门学科。</p>
-<p><strong>几何学原语(primitives)</strong>:构建复杂的物体需要的最基础的元素。</p>
+<p><strong>几何学原语/图元(primitives)</strong>:构建复杂的物体需要的最基础的元素。</p>
 <p><strong>三个基本元素:</strong>标量(Scalars),向量(Vectors),点(Points)</p>
 <p><strong>标量</strong>:标量是服从一组规则的对象，标量可以定义为集合的成员，可以通过两个操作（加法和乘法）结合一些基本公理（关联性，可交换性，逆函数）进行组合.标量没有几何属性。</p>
-<p><strong>向量</strong>:向量由幅度和方向两个属性组成。</p>
-<h3 id="1-2-Coordinate-Free-Geometry-无坐标几何"><a href="#1-2-Coordinate-Free-Geometry-无坐标几何" class="headerlink" title="1.2 Coordinate-Free Geometry(无坐标几何)"></a>1.2 Coordinate-Free Geometry(无坐标几何)</h3><p><strong>笛卡尔坐标系</strong>:直角坐标系和斜坐标系的统称。</p>
+<p><strong>向量</strong>:向量由幅度(Magnitude)和方向(Direction)两个属性组成。</p>
+<h3 id="1-2-Coordinate-Free-Geometry-无坐标几何"><a href="#1-2-Coordinate-Free-Geometry-无坐标几何" class="headerlink" title="1.2 Coordinate-Free Geometry(无坐标几何)"></a>1.2 Coordinate-Free Geometry(无坐标几何)</h3><p><strong>笛卡尔坐标系Cartesian Coordinate</strong>:直角坐标系和斜坐标系的统称。</p>
 <p>物理上，点的存在与坐标系无关，如，如果两个三角形两条边及其夹角相等，则他们相同(全等)。</p>
 <h3 id="1-3-向量空间"><a href="#1-3-向量空间" class="headerlink" title="1.3 向量空间"></a>1.3 向量空间</h3><p>1.向量空间中，向量的起点不同，但方向和长度相同的向量为同一向量。</p>
 <p>欧几里得空间:是向量空间的扩展，增加了对大小或者距离的度量。</p>
@@ -197,7 +197,7 @@
 <p>如果该物体内部任意两个点之间组成的线段上的所有点均在该物体内部，则称该物体为凸的(convex).</p>
 <p>5.点的仿射和(Affine Sum)</p>
 <p>$P = a_1P_1 + a_2P_2 + …+a_nP_n$</p>
-<p>当且仅当$a1+a2 + …a_n = 1$,则称这是点$P_1,…P_n$的仿射和。如果$a_i &gt; 0$则我们得到$P_i$的一个凸包(convex hull)</p>
+<p>当且仅当$a1+a2 + …a_n = 1$,则称这是点$P_1,…P_n$的仿射和(Affine Sum)。如果$a_i ≥ 0$则我们得到$P_i$的一个凸包(convex hull)，即可用这样的和为1的$\alpha$表示凸多边形内部任意一点。</p>
 <p>6.向量乘</p>
 <p>点乘，叉乘(右手准则)</p>
 <p>7.曲线和面</p>
@@ -217,20 +217,22 @@ iff \alpha_1 = \alpha_2 = ... = 0</script><p>11.维度</p>
 <p>12.坐标系中坐标的表示</p>
 <p>设$v_1，v2,…v_n$是向量空间的一组基，一个向量可以表示为$v = \alpha_1v_1 + \alpha_2v_2 +… + \alpha_nv_n$</p>
 <p>其中$\alpha_i$为标量</p>
-<p>13.框架</p>
+<p>13.框架Frames</p>
 <p>因为坐标系只能表示向量而不能表示点，所以加上原点。即</p>
 <p>原点+坐标系构成框架Frame,可以表示向量空间中的点。一个三维Frame的形式:$(P_0,v_1,v2,v3)$</p>
 <p>每个点可以记作:</p>
 <script type="math/tex; mode=display">
 P = P_0 + \beta_1 v_1 + \beta_2 v_2 + ... + \beta_n v_n</script><p>14.三维空间的四维表示</p>
 <script type="math/tex; mode=display">
-v = \alpha_1 v_1 + \alpha_2 v_2 + \alpha_3 v_3 = [\alpha_1\alpha_2 \alpha_3][v_1 v_2 v_3 P_0]^T</script><script type="math/tex; mode=display">
-P = P_0 + \beta_1 v_1 + \beta_2 v_2 + \beta_3 v_3 = [\beta_1 \beta_2  \beta_3 ][v_1 v_2 v_3 P_0]^T</script><p>所以向量可以表示为:</p>
+v = \alpha_1 v_1 + \alpha_2 v_2 + \alpha_3 v_3 = [\alpha_1\alpha_2 \alpha_3 1][v_1 v_2 v_3 P_0]^T</script><script type="math/tex; mode=display">
+P = P_0 + \beta_1 v_1 + \beta_2 v_2 + \beta_3 v_3 = [\beta_1 \beta_2  \beta_3  0][v_1 v_2 v_3 P_0]^T</script><p>所以向量可以表示为:</p>
 <script type="math/tex; mode=display">
 v = [\alpha_1 \alpha_2 \alpha_3 0]^T\\\
-p = [\beta_1 \beta_2 \beta_3 1]^T</script><p>15.同质坐标</p>
-<p>w != 1 &amp;&amp; w != 0</p>
-<h2 id="2-建模和渲染的Pipeline-amp-计算机观察"><a href="#2-建模和渲染的Pipeline-amp-计算机观察" class="headerlink" title="2. 建模和渲染的Pipeline&amp;计算机观察"></a>2. 建模和渲染的Pipeline&amp;计算机观察</h2><h3 id="2-1-Pipeline"><a href="#2-1-Pipeline" class="headerlink" title="2.1 Pipeline:"></a>2.1 Pipeline:</h3><ol>
+p = [\beta_1 \beta_2 \beta_3 1]^T</script><p>15.齐次坐标系</p>
+<p>三维空间用四维坐标系表示[x,y,z,w]</p>
+<p>vector: w=  0;</p>
+<p>point: w !=0, x = x/w, y = y/w, z = z/w;</p>
+<h2 id="2-建模和渲染的Pipeline-amp-计算机观察"><a href="#2-建模和渲染的Pipeline-amp-计算机观察" class="headerlink" title="2. 建模和渲染的Pipeline&amp;计算机观察"></a>2. 建模和渲染的Pipeline&amp;计算机观察</h2><h3 id="2-1-坐标变换Pipeline"><a href="#2-1-坐标变换Pipeline" class="headerlink" title="2.1 坐标变换Pipeline:"></a>2.1 坐标变换Pipeline:</h3><ol>
 <li>几何建模</li>
 <li>将建模的物体放入世界坐标系。</li>
 <li>选择摄像机的位置和方向</li>
@@ -242,28 +244,29 @@ p = [\beta_1 \beta_2 \beta_3 1]^T</script><p>15.同质坐标</p>
 <p>视点(ViewPoint)+投影平面(Projection Plane)</p>
 <p><strong>输出:</strong></p>
 <p>渲染好的彩色(深度)图片。</p>
-<h3 id="2-2图形学渲染管线-Modern-Graphics-Pipeline"><a href="#2-2图形学渲染管线-Modern-Graphics-Pipeline" class="headerlink" title="2.2图形学渲染管线(Modern Graphics Pipeline)"></a>2.2图形学渲染管线(Modern Graphics Pipeline)</h3><p><strong>1.现代图形学渲染管线</strong></p>
+<p>将模型从Object坐标系变换到Image坐标系。</p>
+<h3 id="2-2图形学渲染管线-Modern-Graphics-Pipeline"><a href="#2-2图形学渲染管线-Modern-Graphics-Pipeline" class="headerlink" title="2.2图形学渲染管线(Modern Graphics Pipeline)"></a>2.2图形学渲染管线(Modern Graphics Pipeline)</h3><p><strong>1.现代图形学渲染管线Modern Graphics Pipeline</strong></p>
 <ol>
 <li>把顶点投影到2D平面</li>
-<li>三角形栅格化，查找对应的像素</li>
-<li>计算每个像素的颜色</li>
-<li>测试可见性(z-buffer),更新帧缓冲区颜色。</li>
+<li>栅格化处理，找到每个像素对应的位置。</li>
+<li>计算每个像素的颜色。</li>
+<li>测试可见性(z-buffer),更新帧缓冲区(frame buffer)颜色。</li>
 </ol>
 <p><strong>2.经典图形学渲染管线</strong></p>
 <p>(几何绘制流水线)</p>
 <p>顶点-&gt;<code>顶点处理模块</code>-&gt;<code>裁剪和图元组装模块</code>-&gt;<code>光栅化模块</code>-&gt;<code>片元处理模块</code>-&gt;像素</p>
 <p><strong>Vertex Processor</strong>:</p>
-<p>负责顶点的坐标变换，把顶点从一个坐标系转换到另一个坐标系。另外还负责计算每个顶点的颜色。</p>
+<p>负责顶点的坐标变换，把顶点从一个坐标系转换到另一个坐标系(涉及两个重要矩阵:model-view矩阵和projection矩阵)。另外还负责计算每个顶点的颜色。</p>
 <p><code>物体坐标系</code>-&gt;<code>世界坐标系</code>-&gt;<code>视角坐标系</code>-&gt;<code>图像坐标系</code></p>
 <p><strong>Clipper and Primitive Assembler</strong>:</p>
-<p>成像系统不可能一次对整个场景成像，所以需要将摄像机视角外的顶点裁剪掉。裁剪并须针对逐个图元进行，而不是针对逐个顶点，所以在裁剪之前必须把顶点组装成线段、多边形这样的对象，这一过程叫做图元组装。。</p>
+<p>成像系统不可能一次对整个场景成像，所以需要将摄像机视角外的顶点裁剪掉。裁剪必须针对逐个图元进行，而不是针对逐个顶点，所以在裁剪之前必须把顶点组装成线段、多边形这样的对象，这一过程叫做图元组装。</p>
 <p><strong>Rasterize</strong></p>
-<p>裁剪后的图元仍是用顶点表示的，为了生帧缓存中的像素还必须进一步处理。如果物体没有被裁剪出去，则必须为帧缓存区中的适当像素分配颜色。光栅化为每个图元生成一组片元(fragment)，片元是携带相关信息的潜在像素。每个片段都在帧缓存区中有位置，并且有颜色、深度等属性。</p>
+<p>裁剪后的图元仍是用顶点表示的，为了生成frame buffer中的像素还必须进一步处理。如果物体没有被裁剪出去，则必须为frame buffer中的像素分配合适的颜色。光栅化为每个图元生成一组片元(fragments)，片元是携带相关信息的潜在像素。每个片段都在frame buffer中有位置，并且有颜色、深度等属性。</p>
 <p><strong>Fragment Processor</strong></p>
-<p>利用光栅化模块生成的片元来更新帧缓存中的元素。</p>
+<p>利用光栅化模块生成的片元（Fragments）来更新Frame buffer中的元素(计算Frame buffer中的颜色)。</p>
 <p>片元确定帧缓冲区中相应像素的颜色，颜色可以通过纹理映射或顶点颜色的插值来确定，片元可能被更靠近相机的其他片段挡住。</p>
-<p> 可编程流水线:</p>
-<p>顶点处理模块和片元处理模块对于应用程序来说是可编程的，程序员只需要编写顶点着色器和片元着色器。</p>
+<p>3.可编程流水线:</p>
+<p>顶点处理模块和片元处理模块对于应用程序来说是可编程的，程序员只需要编写<strong>顶点着色器</strong>和<strong>片元着色器</strong>。</p>
 <h3 id="2-3-变换"><a href="#2-3-变换" class="headerlink" title="2.3 变换"></a>2.3 变换</h3><p>1.简单变换</p>
 <ul>
 <li>平移Translation</li>
@@ -271,58 +274,64 @@ p = [\beta_1 \beta_2 \beta_3 1]^T</script><p>15.同质坐标</p>
 <li>等比例(各向同性)缩放Isotropic scaling</li>
 </ul>
 <p>简单变换是可逆的。</p>
-<p>2.欧式变换/刚体变换</p>
+<p>2.欧几里得变换/刚体变换</p>
 <p>变换后角度不变，距离不变</p>
-<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/rigidbody.png" srcset="/EruLv.github.io/img/loading.gif" alt="rigidbody"></p>
-<p>3.相似度变换</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\rigidbody.png" srcset="/EruLv.github.io/img/loading.gif" alt="rigidbody"></p>
+<p>3.相似度变换Similarity Transforms</p>
 <p>保持角度不变，形状相同，只是比例，方向和位置不同.</p>
-<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/similarity.png" srcset="/EruLv.github.io/img/loading.gif" alt="similarity"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\similarity.png" srcset="/EruLv.github.io/img/loading.gif" alt="similarity"></p>
 <p>4.线性变换</p>
-<p>包括旋转，缩放，反射，错切(shear)，直观理解就是把物体一边固定，然后拉另外一边，定义如下:</p>
+<p>包括旋转，缩放，反射，</p>
+<p>错切(shear)，直观理解就是把物体一边固定，然后拉另外一边,二维坐标系中，y坐标保持不变，x坐标平移。</p>
+<p>线性变换定义如下:</p>
 <script type="math/tex; mode=display">
-L(P + q) = L(p) + L(q)\\
-L(ap) = aL(p)</script><p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/Linear.png" srcset="/EruLv.github.io/img/loading.gif" alt="Linear"></p>
-<p><strong>注意，平移变换不是线性变换，</strong></p>
+L(p + q) = L(p) + L(q)\\
+L(ap) = aL(p)</script><p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\Linear.png" srcset="/EruLv.github.io/img/loading.gif" alt="Linear"></p>
+<p><strong>注意，平移变换不是线性变换，因此3D平移变换不能用三维矩阵实现</strong></p>
 <script type="math/tex; mode=display">
 f(p) = p + t\\
-f(ap) = ap + t 不等于a(p + t) = af(p)\\
-f(p+q) = p + q + t 不等于(p+t) + (q +t) = f(p) + f(q)</script><p>5.仿射变换</p>
+f(ap) = ap + t ≠ a(p + t) = af(p)\\
+f(p+q) = p + q + t ≠(p+t) + (q +t) = f(p) + f(q)</script><p>5.仿射变换Affine Transformations</p>
 <p>变换之前平行的边，变换后依旧平行</p>
-<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/affine.png" srcset="/EruLv.github.io/img/loading.gif" alt="affine"></p>
-<p>6.投影变换</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\affine.png" srcset="/EruLv.github.io/img/loading.gif" alt="affine"></p>
+<p>6.投影变换Projective Transformations</p>
 <p>线依旧是线</p>
-<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/projective.png" srcset="/EruLv.github.io/img/loading.gif" alt="projective"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\projective.png" srcset="/EruLv.github.io/img/loading.gif" alt="projective"></p>
 <p>7.Transforms are groups</p>
 <p>你可以用一个变换来代替一连串变换。</p>
 <p>比如， object-to-world transformation, world-to-view transformation,view-to-image transformation能够用 object-to image transformation一个变换表示。</p>
 <h3 id="2-4观察投影"><a href="#2-4观察投影" class="headerlink" title="2.4观察投影"></a>2.4观察投影</h3><p>二维的线性变换可以用二维矩阵来表示，但是二维的仿射变换需要用一个额外的坐标系来表示平移。</p>
 <p>其次坐标系就是在原来的向量空间中添加一个额外的维度，比如用三维坐标系就可以表示二维空间的仿射变换。</p>
 <p><strong>1.投影中的相等</strong>:</p>
-<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/1.png" srcset="/EruLv.github.io/img/loading.gif" alt="1"></p>
-<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/2.png" srcset="/EruLv.github.io/img/loading.gif" alt="2"></p>
-<p>w的值(不为0)归一化后不影响最终成像的位置。</p>
-<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/why.png" srcset="/EruLv.github.io/img/loading.gif" alt="why"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\1.png" srcset="/EruLv.github.io/img/loading.gif" alt="1"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\2.png" srcset="/EruLv.github.io/img/loading.gif" alt="2"></p>
+<p>w的值(不为0)归一化后不影响最终成像的位置(对应像素还是一样的)。</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\why.png" srcset="/EruLv.github.io/img/loading.gif" alt="why"></p>
 <p>从相机的角度来看，线上的所有3D点都位于图像中相同的2D坐标上。从这个意义上讲，所有这些3D点都是“相同的”。</p>
 <p>警告⚠:当我们把w归一化后，由于我们将场景展平到z = 1平面上，因此我们丢失了有关到相机距离的所有信息。(Z-buffer来解决这个问题)</p>
 <p><strong>2.使用齐次坐标系的好处</strong></p>
 <p>以上所有的投影变换在其次坐标系中都是线性的。</p>
 <p><strong>3.投影 Orthographic vs. Perspective</strong></p>
-<p>投影包括两个基本操作:<strong>模-视变换</strong>和<strong>投影变换</strong>。</p>
+<p>投影包括两个基本操作:<strong>模-视变换(model-view matirx)</strong>和<strong>投影变换(projection matrix)</strong></p>
 <p><strong>模-视变换</strong>:将模型从对象坐标系变换到世界坐标系(模型变换)，最后变换到相机坐标系(视角变换)。</p>
 <p><strong>投影变换</strong>:把指定的投影应用于顶点，并把位于指定视见体内部的对象变换到位于裁剪坐标系中的裁剪立方体的内部。</p>
-<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/view.png" srcset="/EruLv.github.io/img/loading.gif" alt="view"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\view.png" srcset="/EruLv.github.io/img/loading.gif" alt="view"></p>
 <p><strong>4.两个主要投影</strong></p>
 <p><strong>(1)正交投影Orthographic :</strong>其视景体为长方体，投影物体的大小不会随视点与远平面之间的距离而变.沿着z轴将所有点投影到z = 0的平面上。特点:变换矩阵中z所在行全为0.视见体为正六边形(边长为2的正方体)，正投影只“看到”了视见体内的对象。距离和形状都没有失真，适合在工程中使用。</p>
-<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/orthographic.png" srcset="/EruLv.github.io/img/loading.gif" alt="orthographic"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\orthographic.png" srcset="/EruLv.github.io/img/loading.gif" alt="orthographic"></p>
 <p><strong>(2)透视投影Perspective:</strong> 将沿z轴的所有点投影到z = d的平面上，并在原点上放置视点。特点:投影后距离观察者越远，成像越小。</p>
 <p>【变换矩阵推导】</p>
-<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/prespective.png" srcset="/EruLv.github.io/img/loading.gif" alt="prespective"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\prespective.png" srcset="/EruLv.github.io/img/loading.gif" alt="prespective"></p>
+<script type="math/tex; mode=display">
+相似三角形\frac{x}{z} = \frac{x'}{d}\\
+投影到z = d平面上的坐标x' = \frac{x}{z/d}</script><p>投影到z = 0上。</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\pers.png" srcset="/EruLv.github.io/img/loading.gif" alt="pers"></p>
 <p>消失点(vanishing point)</p>
 <p>透视投影中，物体上的平行线（不平行于投影平面）会聚在投影中的单个点上，这个点就是消失点。</p>
 <p>透视投影的优缺点:</p>
 <ul>
 <li>物体离观察者越远成像越小，与人的现实感受相符。</li>
-<li>不均匀缩短:沿线的相等距离投影后距离不一定相等。</li>
+<li>不均匀缩放:沿线的相等距离投影后距离不一定相等。</li>
 <li>只有与投影平面平行的平面上的角投影后角度不变。</li>
 <li>用手构造比平行投影更困难（但用计算机难度更大）。</li>
 </ul>
@@ -356,7 +365,7 @@ glRotatef(-90.0, 0.0, 1.0, 0.0); //P2
 <p><strong>2.LookAt</strong></p>
 <p><code>gluLookAt(ex, ey, ez, cx, cy, cz, qx, qy, qz)</code>用于确定相机的位置和姿态。</p>
 <p>分别表示<strong>相机位置、相机朝向、朝上向量(up vector)</strong></p>
-<p><code>glLookAt</code>将世界坐标系转换为视角坐标系。</p>
+<p><code>glLookAt</code>将世界坐标系转换为视角坐标系tuv。</p>
 <p>已知世界坐标系x-y-z，求t-u-v</p>
 <pre><code class="lang-c++">v = (ex-cx,ey-cy,ez-cz)
 t = q×v
@@ -364,21 +373,21 @@ u = v×t
 //最后需要Normalize t, u and v
 </code></pre>
 <p>变换矩阵,先将相机移动到原点，然后将x-y-z变换为t-u-v</p>
-<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/lookAt.png" srcset="/EruLv.github.io/img/loading.gif" alt="lookAt"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\lookAt.png" srcset="/EruLv.github.io/img/loading.gif" alt="lookAt"></p>
 <p><code>gluLookAt(ex, ey, ez, cx, cy, cz, qx, qy, qz)</code>等价于上述两个矩阵的乘机。</p>
-<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/eg1.png" srcset="/EruLv.github.io/img/loading.gif" alt="eg1"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\eg1.png" srcset="/EruLv.github.io/img/loading.gif" alt="eg1"></p>
 <p>model-view变换是最后执行的，所以从渲染的角度，代码应该写在最前面。</p>
 <p><strong>3.正投影Orthogonal Projection</strong></p>
 <pre><code class="lang-c++">void glOrtho(GLdouble left, GLdouble right,GLdouble bottom, GLdouble top, GLdouble near, GLdouble far);
 </code></pre>
 <p>设置一个矩形</p>
-<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/Ortho.png" srcset="/EruLv.github.io/img/loading.gif" alt="Ortho"></p>
-<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/Ortho2.png" srcset="/EruLv.github.io/img/loading.gif" alt="Ortho2"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\Ortho.png" srcset="/EruLv.github.io/img/loading.gif" alt="Ortho"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\Ortho2.png" srcset="/EruLv.github.io/img/loading.gif" alt="Ortho2"></p>
 <p><strong>4.透视投影Perspective Projection</strong></p>
 <p><strong>Frustum视锥</strong></p>
 <p><code>glFrustum(GLdouble left,GLdouble Right,GLdouble bottom,GLdouble top,GLdouble near,GLdouble far)</code></p>
 <p>左右下上近远</p>
-<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/frus.png" srcset="/EruLv.github.io/img/loading.gif" alt="frus"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\frus.png" srcset="/EruLv.github.io/img/loading.gif" alt="frus"></p>
 <p>不过不太常用，因为很难得到想要的视角，所以要用到另一个函数:</p>
 <pre><code class="lang-c++">void gluPerspective (GLdouble fovy, GLdouble aspect,GLdouble zNear, GLdouble zFar)
 </code></pre>
@@ -386,10 +395,22 @@ u = v×t
 <p>asp:x和y的比例(w/h)</p>
 <p>znear:相机到最近裁剪面的距离</p>
 <p>zfar:相机到最远裁剪面的距离</p>
-<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/per.png" srcset="/EruLv.github.io/img/loading.gif" alt="per"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\per.png" srcset="/EruLv.github.io/img/loading.gif" alt="per"></p>
 <p>透视投影的流水线:</p>
-<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/proj.png" srcset="/EruLv.github.io/img/loading.gif" alt="proj"></p>
-<h3 id="2-6-重点，两种投影-函数-的原理"><a href="#2-6-重点，两种投影-函数-的原理" class="headerlink" title="2.6 重点，两种投影(函数)的原理"></a>2.6 重点，两种投影(函数)的原理</h3><h3 id="2-7-Z-Buffer原理"><a href="#2-7-Z-Buffer原理" class="headerlink" title="2.7 Z-Buffer原理"></a>2.7 Z-Buffer原理</h3><p>z-buffer 作用:消除不可见面</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\proj.png" srcset="/EruLv.github.io/img/loading.gif" alt="proj"></p>
+<h3 id="2-6-重点，两种投影-函数-的原理"><a href="#2-6-重点，两种投影-函数-的原理" class="headerlink" title="2.6 重点，两种投影(函数)的原理"></a>2.6 重点，两种投影(函数)的原理</h3><p><strong>Ortho:</strong></p>
+<p>$P = MST$,</p>
+<p>T：将矩形中心移动到原点</p>
+<p>S:缩放，使得$x = ±1，y=±1，z =±1 $</p>
+<p>M:将z分量为0.</p>
+<p><strong>Projective</strong>:</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/Users\hp\AppData\Roaming\Typora\typora-user-images\image-20200903204800536.png" srcset="/EruLv.github.io/img/loading.gif" alt="image-20200903204800536"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/Users\hp\AppData\Roaming\Typora\typora-user-images\image-20200903205034574.png" srcset="/EruLv.github.io/img/loading.gif" alt="image-20200903205034574"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/Users\hp\AppData\Roaming\Typora\typora-user-images\image-20200903210518052.png" srcset="/EruLv.github.io/img/loading.gif" alt="image-20200903210518052"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/Users\hp\AppData\Roaming\Typora\typora-user-images\image-20200903210917747.png" srcset="/EruLv.github.io/img/loading.gif" alt="image-20200903210917747"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/Users\hp\AppData\Roaming\Typora\typora-user-images\image-20200903210840701.png" srcset="/EruLv.github.io/img/loading.gif" alt="image-20200903210840701"></p>
+<p><a href="https://blog.csdn.net/popy007/article/details/1797121" target="_blank" rel="noopener">https://blog.csdn.net/popy007/article/details/1797121</a></p>
+<h3 id="2-7-Z-Buffer原理"><a href="#2-7-Z-Buffer原理" class="headerlink" title="2.7 Z-Buffer原理"></a>2.7 Z-Buffer原理</h3><p>z-buffer 作用:消除不可见面</p>
 <h2 id="3-裁剪、光栅化和隐藏面消除"><a href="#3-裁剪、光栅化和隐藏面消除" class="headerlink" title="3.裁剪、光栅化和隐藏面消除"></a>3.裁剪、光栅化和隐藏面消除</h2><p>裁剪就是把位于视见体之外的对象删除，从而在最终显示的图像上这些对象是不可见的。</p>
 <p>光栅化是从裁剪后的对象生成片元的过程。</p>
 <p>隐藏面的消除就是确定可见对象的片元，即位于视见体之内且没有被阻挡的对象。</p>
@@ -397,18 +418,18 @@ u = v×t
 <p><strong>几何处理</strong>， 几何处理包括四个处理过程:投影、图元装配、裁剪和明暗处理。</p>
 <p><strong>光栅化</strong>，</p>
 <p><strong>片元处理</strong></p>
-<h3 id="3-2裁剪"><a href="#3-2裁剪" class="headerlink" title="3.2裁剪"></a>3.2裁剪</h3><p><strong>规范化设备坐标系</strong>: 经过投影变换后，所有图元潜在可见部分都位于一个变长为2中心位于原点的立方体的内部，这个坐标系称为规范化设备坐标系。</p>
+<h3 id="3-2裁剪"><a href="#3-2裁剪" class="headerlink" title="3.2裁剪"></a>3.2裁剪</h3><p><strong>规范化设备坐标系(Canonical View Volume)</strong>: 经过投影变换后，所有图元潜在可见部分都位于一个变长为2中心位于原点的立方体的内部，这个坐标系称为规范化设备坐标系。</p>
 <h4 id="3-2-1-线段的裁剪"><a href="#3-2-1-线段的裁剪" class="headerlink" title="3.2.1 线段的裁剪"></a>3.2.1 线段的裁剪</h4><p><strong>1.Cohen-Sutherland Algorithm</strong></p>
 <p>思想:排除尽可能多的不需要计算交点的线段，使用浮点数减法和位操作代替大量高开销的浮点数乘法和除法。</p>
 <p>步骤:</p>
 <p>(1)首先把裁剪窗口的4条边延长到无限远，把整个二维空间分割成9个区域。</p>
 <p>(2)给每个区域根据二进制编码。$y<em>{max}y</em>{min}x<em>{max}x</em>{min}$</p>
-<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/code.png" srcset="/EruLv.github.io/img/loading.gif" alt="code"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\code.png" srcset="/EruLv.github.io/img/loading.gif" alt="code"></p>
 <p>(3)根据一条线段的两个端点的编码值进行讨论:</p>
 <ul>
 <li>case 1: o1 = o2 = 0,线段的两个端点都位于裁剪窗口内部，需要把该线段送入光栅化模块进行光栅化处理。</li>
-<li>case 2: 一个为0，一个不为0，线段的一个端点位于裁剪窗口内，另一个位于裁剪窗口之外，必须进行裁剪处理，非0的端点编码说明了线段与裁剪窗口的哪条边或者哪两条边相交，必须计算一个或两个交点，需要注意的是，当计算完一个交点后，要计算该交点的编码，从而确定是否需要另一个求交运算。</li>
-<li>case 3: $o_1 \&amp; O_2 ≠ 0$， 线段两个端点按位与操作，可以确定这两个端点是否位于裁剪窗口某条裁剪边的同一侧。如果满足，则可以丢弃该条线段。</li>
+<li>case 2: 一个为0，一个不为0，线段的一个端点位于裁剪窗口内，另一个位于裁剪窗口之外，必须进行裁剪处理，非0的端点编码说明了线段与裁剪窗口的哪条边或者哪两条边相交，必须计算一个或两个交点(交点可能在延长线上)，需要注意的是，当计算完一个交点后，要计算该交点的编码，从而确定是否需要另一个求交运算。</li>
+<li>case 3: $o_1 \&amp; o_2 ≠ 0$， 线段两个端点按位与操作，可以确定这两个端点是否位于裁剪窗口某条裁剪边的同一侧。如果满足，则可以丢弃该条线段。</li>
 <li>case 4: $o_1 \&amp; o_2 = 0$,线段两个端点都为与裁剪窗口之外，但它们分别位于裁剪窗口的两条不同裁剪边的外侧，不能判断是否完全在窗口外，计算线段与裁剪窗口某边的交点，并根据新的交点编码重新进行上述判断。</li>
 </ul>
 <p>(4)根据上述判断该线段是接收还是裁剪，如果需要部分裁剪，找到位于窗口外的端点，然后寻找与线段相交的窗口边并且求出交点。</p>
@@ -419,18 +440,37 @@ u = v×t
 <p><strong>缺点</strong>:</p>
 <p>对某些线段，必须进行多次裁剪处理。在线段缩短过程中需要多次重复执行。</p>
 <p><strong>2.Cyrus-Berk算法</strong></p>
+<p>可以处理任意凸多面体对线段的裁剪。</p>
+<p>思路:</p>
+<ul>
+<li>用向量形式表示线段$P(t) = P_0 + t(P_1-P_0)$,</li>
+<li>将多边形的边延长为直线，求线段与凸多边形各个边的延长线的交点。</li>
+<li>判断交点是inside还是outside的，假设所有边的法向量都指向多边形内部，N是其中一条边的法向量，A是边上一点，则如果$N·(P_1- P_0)<0$,则是leaving points, $n·(p_1 - p_0)>0$,则是entering point. 如果$N·(P_1 - P_0) =0$,需要判断该线段是否跟多边形有交点，设A是边i上的任意一点，$N_i·(P_0 - A_i) &lt;0$,则线段和多边形没有交点，else,跳到多边形的下一条边计算计算交点。</0$,则是leaving></li>
+<li>当交点处于射入多边形位置时，取$t<em>{s} = max{0,max{t_i|N_i·(P_1-P_0)&gt;0}}$,$t</em>{e} = min{1,min{t_i|N_i·(P_1-P_0)&lt;0}}$,</li>
+</ul>
+<p>求交点:</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/Users\hp\AppData\Roaming\Typora\typora-user-images\image-20200903214014183.png" srcset="/EruLv.github.io/img/loading.gif" alt="image-20200903214014183"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/Users\hp\AppData\Roaming\Typora\typora-user-images\image-20200903215633186.png" srcset="/EruLv.github.io/img/loading.gif" alt="image-20200903215633186"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/Users\hp\AppData\Roaming\Typora\typora-user-images\image-20200903215839482.png" srcset="/EruLv.github.io/img/loading.gif" alt="image-20200903215839482"></p>
 <p><strong>3.Liang-Barsky裁剪算法</strong></p>
-<p>将得不错:</p>
+<p>讲的不错:</p>
 <p><a href="https://www.cnblogs.com/cnblog-wuran/p/9813841.html" target="_blank" rel="noopener">https://www.cnblogs.com/cnblog-wuran/p/9813841.html</a></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/Users\hp\AppData\Roaming\Typora\typora-user-images\image-20200903221641125.png" srcset="/EruLv.github.io/img/loading.gif" alt="image-20200903221641125"></p>
+<p>入射点求最大的t，出射点求最小的t。</p>
 <p>优点:</p>
 <p>不需要对线段进行多次裁剪处理，因此效率比Cohen-Sutherland算法效率高。</p>
-<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/cmp.png" srcset="/EruLv.github.io/img/loading.gif" alt="cmp"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\cmp.png" srcset="/EruLv.github.io/img/loading.gif" alt="cmp"></p>
 <h4 id="3-2-2-多边形裁剪"><a href="#3-2-2-多边形裁剪" class="headerlink" title="3.2.2 多边形裁剪"></a>3.2.2 多边形裁剪</h4><p>一般裁剪的对象时凸多边形，要么禁止使用凹多边形，要么将凹多边形剖分为一组凸多边形。</p>
 <p><strong>1.Surtherland-Hodgeman算法</strong></p>
 <p>思想:</p>
-<p>分别考虑左上右下四条边所在的直线，依次裁剪掉位多边形于它们不可见一侧的部分。</p>
+<p>分别考虑左上右下四条边所在的直线，依次裁剪掉位多边形于它们不可见一侧的部分,当做完所有边之后，多边形裁剪就完成了。</p>
 <p><a href="https://blog.csdn.net/damotiansheng/article/details/43274183" target="_blank" rel="noopener">https://blog.csdn.net/damotiansheng/article/details/43274183</a></p>
-<h3 id="3-3-光栅化"><a href="#3-3-光栅化" class="headerlink" title="3.3 光栅化"></a>3.3 光栅化</h3><p>片元是潜在的像素，每个片元都具有一个颜色属性以及在屏幕坐标中的位置属性，还包括用于隐藏面消除的深度信息。</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\sutherland.png" srcset="/EruLv.github.io/img/loading.gif" alt="sutherland"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\sth.png" srcset="/EruLv.github.io/img/loading.gif" alt="sth"></p>
+<p>保持顺序，输出的始终是终点。</p>
+<p>使用bounding box提高速度。</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\bbox.png" srcset="/EruLv.github.io/img/loading.gif" alt="bbox"></p>
+<h3 id="3-3-光栅化"><a href="#3-3-光栅化" class="headerlink" title="3.3 光栅化"></a>3.3 光栅化</h3><p>Fragment片元是潜在的像素，每个片元都具有一个颜色属性以及在屏幕坐标中的位置属性，还包括用于隐藏面消除的深度信息。</p>
 <p>OpenGL中，像素的中心位于半整数值的位置。</p>
 <h4 id="3-3-1线段光栅化"><a href="#3-3-1线段光栅化" class="headerlink" title="3.3.1线段光栅化"></a>3.3.1线段光栅化</h4><p><strong>1.DDA算法</strong></p>
 <p>思想:</p>
@@ -438,15 +478,21 @@ u = v×t
 <p>根据两个端点求斜率$\delta$。</p>
 <p>$dy = \delta dx$</p>
 <p>假设$0&lt;=\delta &lt;=1$</p>
-<p>从x1开始$dx = 1$,$y = \delta$</p>
+<p>从其中一个端点x1开始$dx = 1$,$dy = \delta$</p>
 <p>如果斜率大于1，由于两个像素之间间隔很大，生成的线段可能连续性不好，所以可以交换x和y，再进行上面步骤。</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/Users\hp\AppData\Roaming\Typora\typora-user-images\image-20200904153756128.png" srcset="/EruLv.github.io/img/loading.gif" alt="image-20200904153756128"></p>
 <p><strong>2.Bresenham 算法</strong></p>
-<p>$d = (x_2 - x_1)(a - b)$</p>
+<p>相比DDA,没有浮点数加法运算。</p>
+<p>类似于DDA,斜率满足$0≤m≤1$，x += 1时，y要么是y，要么是y+1.</p>
+<p>假设a表示y方向上直线距离上方像素(y+1)的位置,b表示距离下方像素(y)的位置。</p>
+<p>$d = (x_2 - x_1)(a - b)$为判定向量，</p>
 <p>d&gt;0,选y，d&lt;0,选y+1.</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/Users\hp\AppData\Roaming\Typora\typora-user-images\image-20200904154554146.png" srcset="/EruLv.github.io/img/loading.gif" alt="image-20200904154554146"></p>
+<p>d的取值是有规律的，可以发现当值增加1时，a要么增加m，要么减少m-1,b要么减少-m,要么增加1-m.可以通过迭代方法获得下一个位置的d值:</p>
 <pre><code>if d_k &gt; 0:
-    q = 2*m;
+    q = 2*dy;
 else:
-    q = 2(1-m);
+    q = 2(dy-dx);
 </code></pre><script type="math/tex; mode=display">
 d_{k+1} = d_k - q</script><p>每个连续的像素计算只需要一个加法运算和一个符号判断，所以该算法效率非常高。</p>
 <h4 id="3-3-2多边形光栅化"><a href="#3-3-2多边形光栅化" class="headerlink" title="3.3.2多边形光栅化"></a>3.3.2多边形光栅化</h4><p><strong>1.（xxx算法）</strong></p>
@@ -455,16 +501,17 @@ d_{k+1} = d_k - q</script><p>每个连续的像素计算只需要一个加法运
 <p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\smarter.png" srcset="/EruLv.github.io/img/loading.gif" alt="smarter"></p>
 <p><strong>2.Oldskool Rasterization</strong></p>
 <p>思想:</p>
-<p>使用线栅格化方法计算边界，然后从边界左边像素开始，从左向右填充内部像素，直到遇到右边边界。</p>
+<p>使用线栅格化方法计算边界，然后从边界左边像素开始，从左向右填充内部像素，直到遇到右边边界像素。</p>
 <p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\oldskool.png" srcset="/EruLv.github.io/img/loading.gif" alt="oldskool"></p>
 <p><strong>3.Homogeneous Rasterization</strong></p>
+<p>思想: 在3D空间种执行栅格化来避免投影。用3D中的平面来代替2D中的线，平面要通过平面上的线和viewpoint.</p>
 <p>跟第一个算法有啥区别？</p>
 <p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\hr.png" srcset="/EruLv.github.io/img/loading.gif" alt="hr"></p>
 <p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\hjrr.png" srcset="/EruLv.github.io/img/loading.gif" alt="hjrr"></p>
-<h3 id="3-4隐藏面消除"><a href="#3-4隐藏面消除" class="headerlink" title="3.4隐藏面消除"></a>3.4隐藏面消除</h3><p><strong>Z-buffer算法</strong>Z</p>
+<h3 id="3-4隐藏面消除"><a href="#3-4隐藏面消除" class="headerlink" title="3.4隐藏面消除"></a>3.4隐藏面消除</h3><p><strong>Z-buffer算法</strong></p>
 <p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\zbuffer.png" srcset="/EruLv.github.io/img/loading.gif" alt="zbuffer"></p>
 <p>算法描述:</p>
-<p>对多边形逐个进行光栅化处理，对某个多边形上的每个片元，进行光栅化处理，对片元内的每个像素，使用插值法计算深度值，再同一位置(x,y),如果z(x,y) &lt; zbuffer(x,y)，则更新zbuffer内的值。</p>
+<p>对多边形逐个进行光栅化处理，对某个多边形上的每个片元，进行光栅化处理，对片元内的每个像素，使用插值法计算深度值，在同一位置(x,y),如果z(x,y) &lt; zbuffer(x,y)，则更新zbuffer内的值。最后更新frame buffer内的值。</p>
 <p><strong>插值</strong></p>
 <p>注意,在三维世界坐标系中的线性插值与投影后在屏幕坐标系中的线性插值不是等价的。</p>
 <p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\interpolation.png" srcset="/EruLv.github.io/img/loading.gif" alt="interpolation"></p>
@@ -476,17 +523,389 @@ d_{k+1} = d_k - q</script><p>每个连续的像素计算只需要一个加法运
 <p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\zbf.png" srcset="/EruLv.github.io/img/loading.gif" alt="zbf"></p>
 <h3 id="3-5走样Aliasing"><a href="#3-5走样Aliasing" class="headerlink" title="3.5走样Aliasing"></a>3.5走样Aliasing</h3><p><strong>走样</strong>:连续值转换为离散值导致图像出现视觉上可见的误差。</p>
 <p><a href="https://blog.csdn.net/qq_38065509/article/details/105598277" target="_blank" rel="noopener">https://blog.csdn.net/qq_38065509/article/details/105598277</a></p>
+<p><strong>0.MIPSampling</strong></p>
 <p><strong>1.超采样反走样(Super Sampling AA，SSAA)</strong></p>
 <p>思想:</p>
-<p>将每个像素点细分成多个采样点，使用更多的采样点采样，求每个像素点对应采样点的颜色的平均值，作为像素点的颜色。</p>
+<p>将每个像素点细分成多个采样点，使用更多的采样点采样，分别计算每个采样点的颜色，求每个像素点对应采样点的颜色的平均值，作为像素点的颜色。</p>
 <p>先上采样，后降采样。</p>
 <p><strong>2.多重采样MSAA</strong></p>
 <p>Multi-sampling或者说Multi-sample Anti-Alias (简称MSAA)是一种抗锯齿的技术，它通过在一个像素上进行多次采样多次计算并最终汇总(Resolve to single-sample)，可使绘制的图像边缘更加平滑。通过这种方式绘制出来的图片质量更高，显得更真实。但同时，它对绘制的性能也会产生负面影响。所以，是否使用这项技术，需要开发者在图片质量(Quality)和性能(Performance)之间进行权衡。</p>
 <p>MSAA其实是对SSAA的一个改进，显然SSAA的计算量是非常大的，每个像素点分成4个采样点，我们就要进行4次的shading来计算颜色，额外多了4倍的计算量。</p>
 <p>MSAA的思路:</p>
-<p>同样一个像素分为多个采样点，每个采样点判断是否被三角形覆盖，最后求颜色的平均值？（只计算被覆盖的采样点，最后用颜色乘以被覆盖采样点比例？）</p>
+<p>同样一个像素分为多个采样点，每个采样点判断是否被三角形覆盖，如果被覆盖，直接把三角形的颜色赋值给采样点而不需要去单独计算每个采样点的颜色，最后求平均值作为像素点颜色。</p>
 <p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\muti.png" srcset="/EruLv.github.io/img/loading.gif" alt="muti"></p>
 <p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\mass.png" srcset="/EruLv.github.io/img/loading.gif" alt="mass"></p>
+<h2 id="4-光线投射Ray-Casting和光照模型"><a href="#4-光线投射Ray-Casting和光照模型" class="headerlink" title="4.光线投射Ray Casting和光照模型"></a>4.光线投射Ray Casting和光照模型</h2><p>光线投射和光栅化的关系？</p>
+<p><strong>渲染Rendering</strong>:由三维场景计算每个像素的颜色并最终得到二维图像的过程。</p>
+<p>每个像素都对应一个射线Ray。</p>
+<h3 id="3-1-Ray-Casting算法"><a href="#3-1-Ray-Casting算法" class="headerlink" title="3.1 Ray Casting算法"></a>3.1 Ray Casting算法</h3><p>1.主要作用:寻找交点和法向量。</p>
+<p>流程:</p>
+<pre><code>对每个像素:
+
+    构造一个从观察点射出的射线；
+
+    对场景中的每个物体:
+
+        求出它们与射线的交点；
+
+        如果是最近的就保留；
+
+        基于光照和法向量着色；
+</code></pre><p><strong>2.Ray Casting vs. Ray Tracing</strong></p>
+<p>光线投射只有摄像机(or eye)发出光线，光线追踪还包括其他光线(阳光，灯光，反射光等)。 </p>
+<p><strong>3.Ray射线的表示</strong></p>
+<p>$起点+t*方向向量$</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\ratt.png" srcset="/EruLv.github.io/img/loading.gif" alt="ratt"></p>
+<p>确定D：利用条件$-1&lt;x&lt;1$和$\alpha$</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\ray.png" srcset="/EruLv.github.io/img/loading.gif" alt="ray"></p>
+<p>给定平面上的一点，确定从相机射出的射线的方向向量r.</p>
+<p>最终得到的结果:</p>
+<p>$r = (x<em>u, asp</em>y<em>v,D</em>w)$</p>
+<p><strong>4.正投影</strong></p>
+<p>原点随着像素位置改变，方向是常数。</p>
+<p>$Origin = e + x<em>size</em>u + y<em>size</em>v$</p>
+<p>Direction is constant: w</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/Users\hp\AppData\Roaming\Typora\typora-user-images\image-20200904162649380.png" srcset="/EruLv.github.io/img/loading.gif" alt="image-20200904162649380" style="zoom:80%;"></p>
+<p><strong>5.射线与平面的交点</strong></p>
+<p> Ray Representation:$P(t) = R_o + t * R_d$</p>
+<p>(无限的)3D平面表示:隐式表示，点+法向量</p>
+<p>P0 = (x0 , y0 , z0 )，n = (A,B,C)</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\3D.png" srcset="/EruLv.github.io/img/loading.gif" alt="3D"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\3DD.png" srcset="/EruLv.github.io/img/loading.gif" alt="3D"></p>
+<p>射线和平面的交点意味着点既在射线上，又在平面上。</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\3DDD.png" srcset="/EruLv.github.io/img/loading.gif" alt="3D"></p>
+<p><strong>6.球体的表示</strong></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\sphere.png" srcset="/EruLv.github.io/img/loading.gif" alt="sphere"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\sph.png" srcset="/EruLv.github.io/img/loading.gif" alt="sph"></p>
+<p>求得最后的t，取正实数。</p>
+<p>球体表面的法向量反向延长线经过球心。</p>
+<p><strong>7.Ray-Triangle Intersection</strong></p>
+<p>三角形表示:barycentric定义</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\alpha.png" srcset="/EruLv.github.io/img/loading.gif" alt></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\triii.png" srcset="/EruLv.github.io/img/loading.gif" alt="triii"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\t.png" srcset="/EruLv.github.io/img/loading.gif" alt="t"></p>
+<p>重心坐标系插值法优点:</p>
+<ul>
+<li>高效</li>
+<li>不需要额外存储平面的表达式，可以通过三个点直接计算t</li>
+<li>很方便地与插值结合，对于颜色、深度插值，纹理映射很有用</li>
+</ul>
+<p>8.光线变换</p>
+<p>从世界坐标系变换到物体坐标系</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\raytrans.png" srcset="/EruLv.github.io/img/loading.gif" alt="raytrans"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\tt.png" srcset="/EruLv.github.io/img/loading.gif" alt="tt"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/Users\hp\AppData\Roaming\Typora\typora-user-images\image-20200904165535339.png" srcset="/EruLv.github.io/img/loading.gif" alt="image-20200904165535339" style="zoom:80%;"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/Users\hp\AppData\Roaming\Typora\typora-user-images\image-20200904165543109.png" srcset="/EruLv.github.io/img/loading.gif" alt="image-20200904165543109" style="zoom:80%;"></p>
+<h3 id="3-2-光照"><a href="#3-2-光照" class="headerlink" title="3.2 光照"></a>3.2 光照</h3><p>3.2.1.光源性质</p>
+<p>当光照照射到一个物体表面时，光照一部分被吸收，一部分被反射，反射的那部分决定物体的颜色和亮度。</p>
+<p>光照强度衰减，一般不使用反比例函数，因为靠近光源光照强度会变得无穷大。</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\light.png" srcset="/EruLv.github.io/img/loading.gif" alt="asd"></p>
+<p>入射角越小（越接近法向量），表面接收到的能量越多。</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\angle.png" srcset="/EruLv.github.io/img/loading.gif" alt></p>
+<p><strong>全局光照和局部光照</strong></p>
+<ul>
+<li>局部光照(local illumination) 简单说就是只考虑光源到模型表面的照射效果。</li>
+<li>全局光照(Global illumination) 简单的说就是考虑到环境中所有表面和光源相互作用的照射效果 。</li>
+</ul>
+<p><strong>光照的分类:</strong></p>
+<p>点光源(Point Lights)，</p>
+<p>平行光(Directional Lights), 无穷远的点光源</p>
+<p>聚光灯(Spolt Lights)，圆锥体，关于中心对称，角度衰减。</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\Pl.png" srcset="/EruLv.github.io/img/loading.gif" alt="Pl"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\image-20200827134810339.png" srcset="/EruLv.github.io/img/loading.gif" alt="image-20200827134810339"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/Users\hp\AppData\Roaming\Typora\typora-user-images\image-20200827134832079.png" srcset="/EruLv.github.io/img/loading.gif" alt="image-20200827134832079"></p>
+<p> <strong>材质表面的性质</strong></p>
+<p>1.表面越光滑，反射越集中；粗糙的表面反射后的光线是四面八方的。</p>
+<p><strong>各向同性（isotropic ） vs.各向异性(Anisotropic)</strong></p>
+<p>各向同性:如果保持光源和观察视角的位置不变，如果以法向量为中心旋转表面，并不改变反射结果，则称该材料为各向同性的。</p>
+<p>各向异性:具有强烈的微几何元素的表面是各向异性的。</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\iso.png" srcset="/EruLv.github.io/img/loading.gif" alt="iso"></p>
+<p>3.2.2光照模型</p>
+<p>1.BRDF(Bidirectional Reflectance Distribution Function,双向反射分布函数)，phong model就是其中一种。</p>
+<p>BRDF的形式:</p>
+<p>$I<em>{out} = I</em>{in}(l)f_r(v,l)$</p>
+<p>$I_{in}$表面某点的接收的光照强度。</p>
+<p>$fr(v,l)$,观察者和光源的相对位置(角度)对最最终看到的光照的影响。</p>
+<p><strong>理想漫反射</strong></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\diffuse.png" srcset="/EruLv.github.io/img/loading.gif" alt="diffuse"></p>
+<p><strong>非理想镜面反射</strong></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\Specular.png" srcset="/EruLv.github.io/img/loading.gif" alt="Specular"></p>
+<p> <strong>术语:Specular Lobe</strong>:大多数高光BRDF，都是在半角向量接近宏表面法线时反射亮度最大。图象像叶片，故称为lobe。</p>
+<p><strong>Ambient环境光</strong></p>
+<p>在场景中的物体至少会接收一些微量的光，可以理解为没有光源情况下物体本身就有的光。</p>
+<p><strong>1.Phong Model</strong></p>
+<p>材质的属性:</p>
+<ul>
+<li>漫反射光Diffuse,漫反射光对物体的着色产生显著影响，光照方向和物体表面越倾向与垂直，物体就越能获取到更大的亮度。</li>
+<li>环境光Ambient,光线来自四面八方，光源通常也是有多个，物体之间也有光线的反射。环境光可以描述环境中的全局照明效果，它和入射角度没有关系。</li>
+<li>镜面光Specular.当我们看物体时，看的方向是物体对光源反射光方向时，会有一个高光。物体对光源的反射光方向与看的方向夹角越小，看到的点镜面光亮度越高。</li>
+</ul>
+<p>用到四个向量：</p>
+<ul>
+<li>指向光源的向量</li>
+<li>指向观察者的向量</li>
+<li>法向量</li>
+<li>完美反射的向量</li>
+</ul>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\phong.png" srcset="/EruLv.github.io/img/loading.gif" alt="phong"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/Users\hp\AppData\Roaming\Typora\typora-user-images\image-20200827173010211.png" srcset="/EruLv.github.io/img/loading.gif" alt="image-20200827173010211"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\ph.png" srcset="/EruLv.github.io/img/loading.gif" alt="ph"></p>
+<script type="math/tex; mode=display">
+L_o = [k_a + k_d（n·l）+(v·r)^q]\frac{L_i}{R^2}</script><p>$k_a$:Ambient coefficient</p>
+<p>$k_d$:diffuse reflection coefficient</p>
+<p>$k_s$:specular reflection coefficient</p>
+<p>$q$:specular reflection  exponent</p>
+<p>$L$:光源的光照强度</p>
+<p>$n$:normal vector</p>
+<p>$l$:指向光源的向量</p>
+<p>$v$:指向摄像机的向量</p>
+<p>$r$:理想反射向量</p>
+<p>后面哪个r是光源到物体表面的距离</p>
+<p><strong>Blinn-Phong</strong>（phong模型的改进）:</p>
+<p>把$vr$换成了$vh$,因为理想反射向量计算比较麻烦。</p>
+<script type="math/tex; mode=display">
+L_o = [k_a + k_d（n·l）+(v·h)^q]\frac{L_i}{R^2}\\
+h = \frac{l+v}{||l+v||}</script><p>避免了计算ideal reflection vector.</p>
+<p>h是光源向量和相机向量的中间的向量</p>
+<h3 id="3-3-法向量"><a href="#3-3-法向量" class="headerlink" title="3.3 法向量"></a>3.3 法向量</h3><p>1.三个点组成的平面</p>
+<script type="math/tex; mode=display">
+n = (p_2-p_0)×(p_1 - p_0)</script><p>2.球体</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\phere.png" srcset="/EruLv.github.io/img/loading.gif" alt="phere"></p>
+<h3 id="3-4-OpenGL-Shade"><a href="#3-4-OpenGL-Shade" class="headerlink" title="3.4 OpenGL Shade"></a>3.4 OpenGL Shade</h3><p>OpenGL着色的步骤</p>
+<ul>
+<li>启用着色并选择模型</li>
+<li>确定法向量</li>
+<li>确定材质属性</li>
+<li>确定光照</li>
+</ul>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\Gou.png" srcset="/EruLv.github.io/img/loading.gif" alt="Gou"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\cmpx.png" srcset="/EruLv.github.io/img/loading.gif" alt="j"></p>
+<p>Phong Shading 和Gouraud Shading算法比较:</p>
+<p>相同点:</p>
+<ul>
+<li>都是明暗处理技术。</li>
+<li>用要先应用多边形法线计算出顶点的法线。</li>
+<li>都应用Phong局部反射模型计算多边形顶点处的光强</li>
+</ul>
+<p>不同点:</p>
+<ul>
+<li>Gouraud明暗处理只在多边形顶点处采用Phong局部反射模型计算光强，而在多边形内的其他点采用双向线性插值，这样做的优点是高效，但是无法很好的处理镜面高光问题，依赖于其所在多面形的相对位置；</li>
+<li>而Phong明暗处理，通过差值计算每个顶点的法向量（3次差值，在x，y，z三个方向分别进行差值计算），然后计算每个点上的光强值，这样效果好，但计算复杂，需要付出比Gouraud 4-5 倍的时间。</li>
+</ul>
+<p>给每个顶点赋予不同的法向量，可以通过周围平面法向量的和来确定方向，然后通过插值确定内部的法向量，达到平滑的效果。</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/Users\hp\AppData\Roaming\Typora\typora-user-images\image-20200904171609440.png" srcset="/EruLv.github.io/img/loading.gif" alt="image-20200904171609440"></p>
+<h2 id="5-纹理映射"><a href="#5-纹理映射" class="headerlink" title="5.纹理映射"></a>5.纹理映射</h2><p>1.UV 坐标系</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\uv.png" srcset="/EruLv.github.io/img/loading.gif" alt="uv">包含纹理映射的Ray Casting的伪代码</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\pseudocode.png" srcset="/EruLv.github.io/img/loading.gif" alt="pseudocode"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\uvv.png" srcset="/EruLv.github.io/img/loading.gif" alt="uvv"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\tm.png" srcset="/EruLv.github.io/img/loading.gif" alt="tm"></p>
+<p>可以把获得的颜色用于光照模型的一些常量参数，如$k_d,k_s,q$等，通过normal mapping可以获得更精细的法向量。</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\nm.png" srcset="/EruLv.github.io/img/loading.gif" alt="nm"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\NormalMapping.png" srcset="/EruLv.github.io/img/loading.gif" alt="NormalMapping"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\GeneratingNM.png" srcset="/EruLv.github.io/img/loading.gif" alt="GeneratingNM"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\opgl.png" srcset="/EruLv.github.io/img/loading.gif" alt="opgl"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\Magnification.png" srcset="/EruLv.github.io/img/loading.gif" alt="Magnification"></p>
+<p>走样Aliasing: 纹理映射后，在栅格化过程中，因为透视投影，距离eye越远成像越小，采样率不够，所以有可能一个像素对应多个颜色值，当像素的颜色近似取值时导致视觉上的偏差叫做走样。</p>
+<p>解决Aliasing的方法有:</p>
+<p>Mip-mapping, super-sampling(SSAA), multi-sampling(MSAA).</p>
+<p>Mipmapped:</p>
+<p>通过pre-filtering将原来的texture图像进行低通滤波(卷积)操作，得到一系列不同尺寸的图像金字塔(1/2,1/4,1/8…)</p>
+<p>计算每个片元的投影后的缩小比例，在Rasterization时，根据缩小比例选择不同尺寸的贴图，其中有nearest和tri-linear等方法。    </p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\mip.png" srcset="/EruLv.github.io/img/loading.gif" alt="mip"></p>
+<h2 id="5-曲线和表面"><a href="#5-曲线和表面" class="headerlink" title="5.曲线和表面"></a>5.曲线和表面</h2><h3 id="5-1-曲线和曲面的参数形式"><a href="#5-1-曲线和曲面的参数形式" class="headerlink" title="5.1 曲线和曲面的参数形式"></a>5.1 曲线和曲面的参数形式</h3><p>曲线的参数形式</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\curve.png" srcset="/EruLv.github.io/img/loading.gif" alt="curve"></p>
+<p>曲面的参数形式，有两个参数</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\surface.png" srcset="/EruLv.github.io/img/loading.gif" alt="surface"></p>
+<p>参数多项式曲线</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\curefun.png" srcset="/EruLv.github.io/img/loading.gif" alt="curefun"></p>
+<p>参数多项式曲面</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\parasuface.png" srcset="/EruLv.github.io/img/loading.gif" alt="parasuface"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\sur.png" srcset="/EruLv.github.io/img/loading.gif" alt="sur"></p>
+<p>表示面的方法:</p>
+<ul>
+<li>三角形网格。(工业界喜欢用四边形网格)。</li>
+<li>样条曲线构成样条曲面(CAD，计算机辅助造型，工业制造领域)。</li>
+<li>曲面细分。</li>
+<li>公式隐式表示。(医疗图像处理)</li>
+<li>过程化表示(2D线通过旋转生成3D图像，Swept Surfaces)。</li>
+<li>volume data.</li>
+</ul>
+<p>切线Tangent:一阶导</p>
+<p>曲率Curvature:二阶导，圆的曲率1/r;</p>
+<h3 id="5-2-三次参数多项式曲线"><a href="#5-2-三次参数多项式曲线" class="headerlink" title="5.2 三次参数多项式曲线"></a>5.2 三次参数多项式曲线</h3><p>次数太高，需要的方程多，计算开销大，光滑性也会变差。</p>
+<p>次数太低，不构灵活，没有足够的参数进行设计。</p>
+<p>所以三次比较合适。</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\cubic.png" srcset="/EruLv.github.io/img/loading.gif" alt="cubic"></p>
+<h3 id="5-3-Hermite几何"><a href="#5-3-Hermite几何" class="headerlink" title="5.3 Hermite几何"></a>5.3 Hermite几何</h3><p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\heimite.png" srcset="/EruLv.github.io/img/loading.gif" alt="heimite"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\hermite2.png" srcset="/EruLv.github.io/img/loading.gif" alt="hermite2"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\hermite3.png" srcset="/EruLv.github.io/img/loading.gif" alt="hermite3"></p>
+<h3 id="5-4-几何与参数连续性"><a href="#5-4-几何与参数连续性" class="headerlink" title="5.4 几何与参数连续性"></a>5.4 几何与参数连续性</h3><p>$C^0 $参数连续性：continuous, 连接处的值相等。</p>
+<p>$C^1$参数连续性: 在连接点参数方程值和一阶导数都对应相等(切线相同)。</p>
+<p>$C^2$参数连续: 参数方程连接点一阶导、二阶导都对应相等。</p>
+<p>$G^1$几何连续性:两个曲线连接处切线向量成比例，方向相同，但是模不同。</p>
+<h3 id="5-5-三次贝塞尔曲线Cubic-Bezier"><a href="#5-5-三次贝塞尔曲线Cubic-Bezier" class="headerlink" title="5.5 三次贝塞尔曲线Cubic Bezier"></a>5.5 三次贝塞尔曲线Cubic Bezier</h3><p>贝塞尔曲线只有$C^0$连续性，没有C1连续性。</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\bezier.png" srcset="/EruLv.github.io/img/loading.gif" alt="bezier"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\bezier2.png" srcset="/EruLv.github.io/img/loading.gif" alt="bezier2"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\bezier3.png" srcset="/EruLv.github.io/img/loading.gif" alt="bezier3"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\bezier4.png" srcset="/EruLv.github.io/img/loading.gif" alt="bezier4"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\general.png" srcset="/EruLv.github.io/img/loading.gif" alt="general"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\trans.png" srcset="/EruLv.github.io/img/loading.gif" alt="trans"></p>
+<p>对曲线进行变换相当于对控制点进行相应的变换。</p>
+<p>一条三次贝塞尔曲线可以被从中间细分为两条三次贝塞尔曲线的连接。</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\De.png" srcset="/EruLv.github.io/img/loading.gif" alt="De"></p>
+<h3 id="5-6-三次B样条Cubic-B-Splines"><a href="#5-6-三次B样条Cubic-B-Splines" class="headerlink" title="5.6 三次B样条Cubic B-Splines"></a>5.6 三次B样条Cubic B-Splines</h3><p>不要求多项式插值任何点，采用曲线逼近的方式，可以在连接点获得更高的平滑性。具有C2连续性。</p>
+<p>思想:$p<em>{i-1},p_i.p</em>{i+1},p<em>{i+2}$定义$P_i,P</em>{i+1}$之间的一段曲线，</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\spline0.png" srcset="/EruLv.github.io/img/loading.gif" alt="spline0"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\spline.png" srcset="/EruLv.github.io/img/loading.gif" alt="spline"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\Bspline.png" srcset="/EruLv.github.io/img/loading.gif" alt="Bspline"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\convert.png" srcset="/EruLv.github.io/img/loading.gif" alt="convert"></p>
+<h3 id="5-7-NURBS（Non-Uniform-Rational-B-Spline）"><a href="#5-7-NURBS（Non-Uniform-Rational-B-Spline）" class="headerlink" title="5.7 NURBS（Non-Uniform Rational B-Spline）"></a>5.7 NURBS（Non-Uniform Rational B-Spline）</h3><p>非均匀分布，（每段路径可以长度不等）</p>
+<p>增加了一个参数w,决定每个点的影响度(齐次坐标)。</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\NURBS.png" srcset="/EruLv.github.io/img/loading.gif" alt="NURBS"></p>
+<h3 id="5-8-表面"><a href="#5-8-表面" class="headerlink" title="5.8 表面"></a>5.8 表面</h3><p>1.多边形网格</p>
+<p>多边形叠加在一起组成表面。如三角形网格。</p>
+<p>不够平滑。</p>
+<p>2.向量乘积</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\tensor.png" srcset="/EruLv.github.io/img/loading.gif" alt="tensor"></p>
+<p>二维的贝塞尔曲线u和v，相对独立，如上图，一共16个控制点。这个面称为Bézier Patches。只有最外面的四个顶点插值，其他接近。</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\bicubic.png" srcset="/EruLv.github.io/img/loading.gif" alt="bicubic"></p>
+<p>法向量:是两个方向的偏导的叉乘。</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\tangent.png" srcset="/EruLv.github.io/img/loading.gif" alt="tangent"></p>
+<p>矩阵形式</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\matirx.png" srcset="/EruLv.github.io/img/loading.gif" alt="matirx"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\matrix2.png" srcset="/EruLv.github.io/img/loading.gif" alt="matrix2"></p>
+<p>优点:</p>
+<ul>
+<li>平滑</li>
+<li>只需要16个点就可以定义。</li>
+</ul>
+<p>缺点:</p>
+<ul>
+<li>不方便渲染。</li>
+<li>在边界的连续性处理棘手。</li>
+</ul>
+<p><strong>Displacement（扰动） Mapping</strong></p>
+<p>加一些扰动，使表面不光滑，更加真实。</p>
+<h3 id="5-9-Surface-Subdivision"><a href="#5-9-Surface-Subdivision" class="headerlink" title="5.9 Surface Subdivision"></a>5.9 Surface Subdivision</h3><p>Face split:一个多边形生成多个多边形。</p>
+<p>Vertex split: 一个点生成多个顶点。</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\subdivison.png" srcset="/EruLv.github.io/img/loading.gif" alt="subdivison"></p>
+<p><strong>1.Doo-Sabin Subdivision</strong></p>
+<p>vertex split</p>
+<p>每个面加一个face vertex;</p>
+<p>该面上的顶点分别和face vertex取中点作为新加入的点，把新加的点连接。</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\subd.png" srcset="/EruLv.github.io/img/loading.gif" alt="subd"></p>
+<p><strong>2.Loop Subdivision</strong></p>
+<p>Face Subdivision针对三角形Mesh.</p>
+<p>分两步：</p>
+<p>添加新点: (每条边上加一个点)</p>
+<p>​    内部边(有两个相邻三角形)；</p>
+<p>​    边缘边（只有一个相邻三角形）。</p>
+<p>调整旧点；(主要依据自己和相邻的顶点)</p>
+<p>​    边缘；相邻两个点，相邻边是边缘</p>
+<p>​    内部；</p>
+<p>一个面变成4个面。</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/Users\hp\AppData\Roaming\Typora\typora-user-images\image-20200829172024730.png" srcset="/EruLv.github.io/img/loading.gif" alt="image-20200829172024730"></p>
+<p><strong>3.Modified Butterfly Subdivision</strong></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\butterfly.png" srcset="/EruLv.github.io/img/loading.gif" alt="butterfly"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\butterfly2.png" srcset="/EruLv.github.io/img/loading.gif" alt="butterfly2"></p>
+<p><strong>4.Catmull-Clark Subdivision</strong></p>
+<p>处理四边形网格quad-meshes，每个面分成4个小四边形。</p>
+<p>加新点，调整旧点。</p>
+<p>k:相邻的点数。</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\ca.png" srcset="/EruLv.github.io/img/loading.gif" alt="ca"></p>
+<p>拓展到任意多边形。</p>
+<p>新加点:与相邻两个顶点和新加的面点有关。</p>
+<p>调整旧点: 与自己的位置和相邻点的位置和新家面点有关。</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\cat.png" srcset="/EruLv.github.io/img/loading.gif" alt="cat"></p>
+<h3 id="5-10-数据结构"><a href="#5-10-数据结构" class="headerlink" title="5.10 数据结构"></a>5.10 数据结构</h3><h3 id="5-11-其他"><a href="#5-11-其他" class="headerlink" title="5.11 其他"></a>5.11 其他</h3><p>1.Swept Surfaces求法向量:两组切线叉乘。</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\Swept.png" srcset="/EruLv.github.io/img/loading.gif" alt="Swept"></p>
+<p>2.隐式曲面Implicit Surfaces</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\Implicit.png" srcset="/EruLv.github.io/img/loading.gif" alt="Implicit"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/Users\hp\AppData\Roaming\Typora\typora-user-images\image-20200829182345211.png" srcset="/EruLv.github.io/img/loading.gif" alt="image-20200829182345211"></p>
+<p>3.水平集方法Level Set</p>
+<p>面对Evolving interfaces（不断变化的面）</p>
+<p>添加一个新的维度(时间)</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\levelset.png" srcset="/EruLv.github.io/img/loading.gif" alt="levelset"></p>
+<p>4.Marching Cubes</p>
+<p>建模的一种方法</p>
+<h2 id="6-Meshes"><a href="#6-Meshes" class="headerlink" title="6.Meshes"></a>6.Meshes</h2><h3 id="1-名词解释"><a href="#1-名词解释" class="headerlink" title="1.名词解释"></a>1.名词解释</h3><p><strong>Manifold</strong>:流形，是一般的几何对象的总称。surfaces where the neighborhood of each point is topologically equivalent to a disk; edges are always shared by two faces？</p>
+<p><strong>nonintersecting simple closed curves</strong>:不相交闭合曲线</p>
+<p><strong>genus</strong>:亏格，图形表面孔洞个数。</p>
+<p><strong>Orientable</strong>:可定向的，物体表面的法向量始终朝外或者朝内，在表面移动时不会改变方向。</p>
+<p><strong>Euler’s Formula</strong>:欧拉公式$v-e+f = 2 - 2g$, <em>v</em> / <em>e</em> / <em>f</em> : number of vertices / edges / facets ,–<em>g</em> : genus</p>
+<p><strong>Dihedral Angle</strong>:二面角，两个三角形面的平面之间的角度。</p>
+<p><strong>Valence(a.k.a. degree)</strong>:顶点所连边数。</p>
+<p><strong>adjacency</strong>：邻接</p>
+<p><strong>connectivity</strong>：连通性</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\unk.png" srcset="/EruLv.github.io/img/loading.gif" alt="unk"></p>
+<h3 id="2-Mehes的数据结构"><a href="#2-Mehes的数据结构" class="headerlink" title="2.Mehes的数据结构"></a>2.Mehes的数据结构</h3><p>1.Simple Adjacency</p>
+<p>每个元素(顶点、边、面)都有一系列指向所有与它邻接的元素的指针。</p>
+<p>点的指针:指向边，面；</p>
+<p>边的指针:指向顶点、面。</p>
+<p>面的指针:指向点、边。</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\Adjacency.png" srcset="/EruLv.github.io/img/loading.gif" alt="Adjacency" style="zoom:80%;"></p>
+<p>缺点:数据结构大小不固定，查询慢，存储空间大，很难维护。</p>
+<p>2.Winged Edge </p>
+<p>每个边存储指向4条临界边、两个面、两个顶点的指针，每个顶点和面都存储<strong>一个</strong>邻接面的指针。</p>
+<p>数据结构大小是固定的，但是因为指针没有固定的顺序，所以访问周围元素是很困难。</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\Winged.png" srcset="/EruLv.github.io/img/loading.gif" alt="Winged" style="zoom:80%;"></p>
+<p>3.half edge</p>
+<p>每条边用两个不同方向的半边结构表示。</p>
+<p>每个半边存储:</p>
+<ul>
+<li>有向边终点位置的顶点。</li>
+<li>另一个相对(<strong>symmetric</strong>)的半边。</li>
+<li>位于半边左边的面。</li>
+<li>位于沿着半边左边的面的逆时针方向(counter-clockwise)的下一条半边。</li>
+</ul>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\Loop.png" srcset="/EruLv.github.io/img/loading.gif" alt="Loop" style="zoom:80%;"></p>
+<p>数据结构大小:固定</p>
+<p>时间复杂与与目标信息量呈线性。</p>
+<p>优点:</p>
+<ul>
+<li>大多数的邻接查询都能在$O(1)$时间内完成。</li>
+<li>Local Operating 通常是$O(1)$的。</li>
+</ul>
+<p>缺点:</p>
+<ul>
+<li>只适用于流形网格。</li>
+</ul>
+<p>4.SplitEdge</p>
+<p>SplitEdge和HalfEdge是对偶(dual)的。</p>
+<p>每个边分为两个相反方向的半边。</p>
+<p>每个半边存储:</p>
+<ul>
+<li>有向边终点位置的顶点。</li>
+<li>另一个相对(<strong>symmetric</strong>)的半边。</li>
+<li>位于半边左边的面。</li>
+<li><strong>沿着顺时针指向相同顶点的半边。</strong></li>
+</ul>
+<pre><code class="lang-c++">SplitEdgeMesh::FaceLoop() = HalfEdgeMesh::VertexLoop();
+SplitEdgeMesh::VertexLoop() = HalfEdgeMesh::FaceLoop();
+</code></pre>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/Users\hp\AppData\Roaming\Typora\typora-user-images\image-20200831204203497.png" srcset="/EruLv.github.io/img/loading.gif" alt="image-20200831204203497"></p>
+<p>5.Corner Data Structure</p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\corner.png" srcset="/EruLv.github.io/img/loading.gif" alt="corner"></p>
+<ol>
+<li><p>QuadEdge</p>
+<p><a href="https://www.cs.cmu.edu/afs/andrew/scs/cs/15-463/2001/pub/src/a2/quadedge.html" target="_blank" rel="noopener">https://www.cs.cmu.edu/afs/andrew/scs/cs/15-463/2001/pub/src/a2/quadedge.html</a></p>
+<p>Org:边的起点。</p>
+<p>Dest:边的终点。</p>
+<p>Left:左边的面。</p>
+<p>Right:右边的面。</p>
+<p>Rnext:右边面ccw(逆时针方向)的下一条边。</p>
+<p>Lnext:左边面ccw(逆时针方向)的下一条边。</p>
+<p>Onext:围绕起点的ccw(逆时针方向)的下一条边。</p>
+<p>Dnext:围绕终点的ccw(逆时针方向)的下一条边。</p>
+<p>X(R/L/O/D)prev:顺时针方向的下一条边。</p>
+<p>Rot:逆时针旋转90°。</p>
+<p>Sym:旋转180°.</p>
+<p>Flip:上下翻转？</p>
+</li>
+</ol>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/blog\source\_posts\计算机图形学复习\quad.png" srcset="/EruLv.github.io/img/loading.gif" alt="quad"></p>
+<h2 id="7-代码"><a href="#7-代码" class="headerlink" title="7.代码"></a>7.代码</h2><p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/Users\hp\AppData\Roaming\Typora\typora-user-images\image-20200904210304587.png" srcset="/EruLv.github.io/img/loading.gif" alt="image-20200904210304587"></p>
+<p><img src="/EruLv.github.io/2020/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%A4%8D%E4%B9%A0/Users\hp\AppData\Roaming\Typora\typora-user-images\image-20200904210518210.png" srcset="/EruLv.github.io/img/loading.gif" alt="image-20200904210518210"></p>
 
             </div>
             <hr>

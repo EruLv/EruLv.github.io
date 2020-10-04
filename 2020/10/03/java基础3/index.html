@@ -1,0 +1,1898 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/EruLv.github.io/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/EruLv.github.io/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Eru Lv">
+  <meta name="keywords" content="">
+  <title>java基础3 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css" />
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+
+  <link  rel="stylesheet" href="/EruLv.github.io/lib/prettify/tomorrow-night-eighties.min.css" />
+
+<link  rel="stylesheet" href="/EruLv.github.io/css/main.css" />
+
+
+  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+<!-- 自定义样式保持在最底部 -->
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/EruLv.github.io/">&nbsp;<strong>HwLv's blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/EruLv.github.io/">首页</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/EruLv.github.io/archives/">归档</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/EruLv.github.io/categories/">分类</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/EruLv.github.io/tags/">标签</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/EruLv.github.io/about/">关于</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/EruLv.github.io/img/bg2.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+                <p class="mt-3 post-meta">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                  星期六, 十月 3日 2020, 3:31 下午
+                </p>
+              
+
+              <p class="mt-1">
+                
+                  
+                  <span class="post-meta">
+                    <i class="far fa-chart-bar"></i>
+                    10.5k 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta">
+                      <i class="far fa-clock"></i>
+                      47 分钟
+                  </span>
+                
+
+                
+              </p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5 z-depth-3" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+              <p
+                class="note note-warning">本文最后更新于：星期日, 十月 4日 2020, 7:32 晚上</p>
+            
+            <div class="markdown-body">
+              <h1 id="java基础3"><a href="#java基础3" class="headerlink" title="java基础3"></a>java基础3</h1><h2 id="13-异常"><a href="#13-异常" class="headerlink" title="13.异常"></a>13.异常</h2><p>当抛出异常后，有几件事会随之发生。首先，同 Java 中其他对象的创建一样，将<strong>使用 new 在堆上创建异常对象</strong>。然后，当前的执行路径（它不能继续下去了）被终止，并且从当前环境中弹出对异常对象的引用。此时，<strong>异常处理机制接管程序</strong>，并开始寻找一个恰当的地方来继续执行程序。这个恰当的地方就是异常处理程序，它的任务是将程序从错误状态中恢复，以使程序能要么换一种方式运行，要么继续运行下去。</p>
+<p>与使用 Java 中的其他对象一样，我们总是用 new 在堆上创建异常对象，这也伴随着存储空间的分配和构造器的调用。所有标准异常类都有两个java构造器：一个是无参构造器；另一个是接受字符串作为参数，以便能把相关信息放入异常对象的构造器：</p>
+<pre><code class="lang-java">if(t == null)
+    throw new NullPointerException();
+</code></pre>
+<pre><code class="lang-java">throw new NullPointerException(&quot;t = null&quot;);
+</code></pre>
+<h3 id="1-异常捕获"><a href="#1-异常捕获" class="headerlink" title="1.异常捕获"></a>1.异常捕获</h3><pre><code class="lang-java">try {
+    // Code that might generate exceptions
+} catch(Type1 id1) {
+    // Handle exceptions of Type1
+} catch(Type2 id2) {
+    // Handle exceptions of Type2
+} catch(Type3 id3) {
+    // Handle exceptions of Type3
+}
+// etc.
+</code></pre>
+<p>异常处理程序必须紧跟在 try 块之后。当异常被抛出时，异常处理机制将负责搜寻参数与异常类型相匹配的第一个处理程序。然后进入 catch 子句执行，此时认为异常得到了处理。一旦 catch 子句结束，则处理程序的查找过程结束。注意，只有匹配的 catch 子句才能得到执行；这与 switch 语句不同，switch 语句需要在每一个 case 后面跟一个 break，以避免执行后续的 case 子句。</p>
+<h3 id="2-自定义异常"><a href="#2-自定义异常" class="headerlink" title="2.自定义异常"></a>2.自定义异常</h3><p>要自己定义异常类，必须从已有的异常类继承，最好是选择意思相近的异常类继承（不过这样的异常并不容易找）。建立新的异常类型最简单的方法就是让编译器为你产生无参构造器，所以这几乎不用写多少代码：</p>
+<pre><code class="lang-java">class SimpleException extends Exception {}    //自定义异常
+
+public class InheritingExceptions {
+  public void f() throws SimpleException {
+    System.out.println(
+      &quot;Throw SimpleException from f()&quot;);
+    throw new SimpleException();
+  }
+  public static void main(String[] args) {
+    InheritingExceptions sed = new InheritingExceptions();
+    try {
+      sed.f();
+    } catch(SimpleException e) {
+      System.out.println(&quot;Caught it!&quot;);
+    }
+  }
+}
+/* Output:
+Throw SimpleException from f()
+Caught it!
+*/
+</code></pre>
+<p>你也可以为异常类创建一个接受字符串参数的构造器：</p>
+<p>使用<code>e.printStackTrace(System.out);</code>来打印异常。</p>
+<pre><code class="lang-java">class MyException extends Exception {
+  MyException() {}
+  MyException(String msg) { super(msg); }
+}
+
+public class FullConstructors {
+  public static void f() throws MyException {
+    System.out.println(&quot;Throwing MyException from f()&quot;);
+    throw new MyException();
+  }
+  public static void g() throws MyException {
+    System.out.println(&quot;Throwing MyException from g()&quot;);
+    throw new MyException(&quot;Originated in g()&quot;);
+  }
+  public static void main(String[] args) {
+    try {
+      f();
+    } catch(MyException e) {
+      e.printStackTrace(System.out);
+    }
+    try {
+      g();
+    } catch(MyException e) {
+      e.printStackTrace(System.out);
+    }
+  }
+}
+/* Output:
+Throwing MyException from f()
+MyException
+        at FullConstructors.f(FullConstructors.java:11)
+        at
+FullConstructors.main(FullConstructors.java:19)
+Throwing MyException from g()
+MyException: Originated in g()
+        at FullConstructors.g(FullConstructors.java:15)
+        at
+FullConstructors.main(FullConstructors.java:24)
+*/
+</code></pre>
+<p>在异常处理程序中，调用了在 Throwable 类声明（Exception 即从此类继承）的 printStackTrace() 方法。就像从输出中看到的，它将打印“从方法调用处直到异常抛出处”的方法调用序列。这里，信息被发送到了 System.out，并自动地被捕获和显示在输出中。但是，如果调用默认版本：</p>
+<pre><code class="lang-java">e.printStackTrace();
+</code></pre>
+<p>信息就会被输出到标准错误流(红色的)。</p>
+<pre><code class="lang-java">import java.util.logging.*;
+import java.io.*;
+
+class LoggingException extends Exception {
+  private static Logger logger =
+    Logger.getLogger(&quot;LoggingException&quot;);
+  LoggingException() {
+    StringWriter trace = new StringWriter();
+    printStackTrace(new PrintWriter(trace));
+    logger.severe(trace.toString());
+  }
+}
+
+public class LoggingExceptions {
+  public static void main(String[] args) {
+    try {
+      throw new LoggingException();
+    } catch(LoggingException e) {
+      System.err.println(&quot;Caught &quot; + e);
+    }
+    try {
+      throw new LoggingException();
+    } catch(LoggingException e) {
+      System.err.println(&quot;Caught &quot; + e);
+    }
+  }
+}
+
+/* Output:
+___[ Error Output ]___
+May 09, 2017 6:07:17 AM LoggingException &lt;init&gt;
+SEVERE: LoggingException
+        at
+LoggingExceptions.main(LoggingExceptions.java:20)
+
+Caught LoggingException
+May 09, 2017 6:07:17 AM LoggingException &lt;init&gt;
+SEVERE: LoggingException
+        at
+LoggingExceptions.main(LoggingExceptions.java:25)
+
+Caught LoggingException
+*/
+</code></pre>
+<p>静态的 Logger.getLogger() 方法创建了一个 String 参数相关联的 Logger 对象（通常与错误相关的包名和类名），这个 Logger 对象会将其输出发送到 System.err。</p>
+<p>向 Logger 写入的最简单方式就是直接调用与日志记录消息的级别相关联的方法，这里使用的是 severe()，表示异常的级别。</p>
+<p>各级别按降序排列如下：</p>
+<ul>
+<li>SEVERE（最高值）</li>
+<li>WARNING</li>
+<li>INFO</li>
+<li>CONFIG</li>
+<li>FINE</li>
+<li>FINER</li>
+<li>FINEST（最低值）</li>
+</ul>
+<p>另外，自定义异常可以添加构造器和重写<code>getMessage()</code>方法，类似于<code>toString()</code>。</p>
+<h3 id="3-异常声明"><a href="#3-异常声明" class="headerlink" title="3.异常声明"></a>3.异常声明</h3><p>异常声明告知程序员某个方法可能会抛出的异常类型。异常说明使用了附加的关键字 throws，后面接一个所有潜在异常类型的列表，所以方法定义可能看起来像这样：</p>
+<pre><code class="lang-java">void f() throws TooBig, TooSmall, DivZero { // ...
+</code></pre>
+<p>代码必须与异常说明保持一致。如果方法里的代码产生了异常却没有进行处理，编译器会发现这个问题并提醒你：要么处理这个异常，要么就在异常说明中表明此方法将产生异常。通过这种自顶向下强制执行的异常说明机制，Java 在编译时就可以保证一定水平的异常正确性。</p>
+<p>可以声明可能抛出的异常但实际却并没有该异常，相当于为异常占个位子。在定义抽象基类和接口时这种能力很重要，这样派生类或接口实现就能够抛出这些预先声明的异常。</p>
+<h3 id="4-异常捕获"><a href="#4-异常捕获" class="headerlink" title="4.异常捕获"></a>4.异常捕获</h3><p>可以<code>catch</code>异常基类Exception来捕获所有类型异常。</p>
+<pre><code class="lang-java">catch(Exception e) {
+    System.out.println(&quot;Caught an exception&quot;);
+}
+</code></pre>
+<p>这将捕获所有异常，所以最好把它放在处理程序列表的末尾，以防它抢在其他处理程序之前先把异常捕获了。</p>
+<p><code>Exception</code>继承<code>Throwable</code>,主要有两个获取异常信息的方法:</p>
+<pre><code class="lang-java">String getMessage()
+String getLocalizedMessage()
+</code></pre>
+<pre><code class="lang-java">public class ExceptionMethods {
+  public static void main(String[] args) {
+    try {
+      throw new Exception(&quot;My Exception&quot;);
+    } catch(Exception e) {
+      System.out.println(&quot;Caught Exception&quot;);
+      System.out.println(
+        &quot;getMessage():&quot; + e.getMessage());
+      System.out.println(&quot;getLocalizedMessage():&quot; +
+        e.getLocalizedMessage());
+      System.out.println(&quot;toString():&quot; + e);
+      System.out.println(&quot;printStackTrace():&quot;);
+      e.printStackTrace(System.out);
+    }
+  }
+}
+/* Output:
+Caught Exception
+getMessage():My Exception
+getLocalizedMessage():My Exception
+toString():java.lang.Exception: My Exception
+printStackTrace():
+java.lang.Exception: My Exception
+        at
+ExceptionMethods.main(ExceptionMethods.java:7)
+*/
+</code></pre>
+<p>可以发现每个方法都比前一个提供了更多的信息一一实际上它们每一个都是前一个的超集。</p>
+<p><strong>多重捕获</strong></p>
+<p>java7 之前的写法:</p>
+<pre><code class="lang-java">class EBase1 extends Exception {}
+class Except1 extends EBase1 {}
+class EBase2 extends Exception {}
+class Except2 extends EBase2 {}
+class EBase3 extends Exception {}
+class Except3 extends EBase3 {}
+class EBase4 extends Exception {}
+class Except4 extends EBase4 {}
+
+public class SameHandler {
+  void x() throws Except1, Except2, Except3, Except4 {}
+  void process() {}
+  void f() {
+    try {
+      x();
+    } catch(Except1 e) {
+      process();
+    } catch(Except2 e) {
+      process();
+    } catch(Except3 e) {
+      process();
+    } catch(Except4 e) {
+      process();
+    }
+  }
+}
+</code></pre>
+<p>java7 加入了多重捕获机制,你可以使用“或”将不同类型的异常组合起来，只需要一行 catch 语句：:</p>
+<pre><code class="lang-java">// exceptions/MultiCatch.java
+public class MultiCatch {
+    void x() throws Except1, Except2, Except3, Except4 {}
+    void process() {}
+    void f() {
+        try {
+            x();
+        } catch(Except1 | Except2 | Except3 | Except4 e) {
+            process();
+        }
+    }
+}
+</code></pre>
+<pre><code class="lang-java">// exceptions/MultiCatch2.java
+public class MultiCatch2 {
+    void x() throws Except1, Except2, Except3, Except4 {}
+    void process1() {}
+    void process2() {}
+    void f() {
+        try {
+            x();
+        } catch(Except1 | Except2 e) {
+            process1();
+        } catch(Except3 | Except4 e) {
+            process2();
+        }
+    }
+}
+</code></pre>
+<h3 id="5-栈轨迹"><a href="#5-栈轨迹" class="headerlink" title="5.栈轨迹"></a>5.栈轨迹</h3><p>可以通过<code>e.getStackTrace()</code>来访问栈轨迹信息，你将得到一个StackTraceElement数组，可以使用<code>.getMethodName()</code>获取先后经过的方法名。</p>
+<pre><code class="lang-java">package exceptions;// exceptions/WhoCalled.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// Programmatic access to stack trace information
+
+public class WhoCalled {
+  static void f() {
+    // Generate an exception to fill in the stack trace
+    try {
+      throw new Exception();
+    } catch(Exception e) {
+      for(StackTraceElement ste : e.getStackTrace())
+        System.out.println(ste.getMethodName());
+    }
+  }
+  static void g() { f(); }
+  static void h() { g(); }
+  public static void main(String[] args) {
+    f();
+    System.out.println(&quot;*******&quot;);
+    g();
+    System.out.println(&quot;*******&quot;);
+    h();
+  }
+}
+/* Output:
+f
+main
+*******
+f
+g
+main
+*******
+f
+g
+h
+main
+*/
+</code></pre>
+<p>这里，我们只打印了方法名，但实际上还可以打印整个 StackTraceElement，它包含其他附加的信息。</p>
+<h3 id="6-抛出异常"><a href="#6-抛出异常" class="headerlink" title="6.抛出异常"></a>6.抛出异常</h3><p><strong>重新抛出异常</strong></p>
+<p>有时希望把刚捕获的异常重新抛出，尤其是在使用 Exception 捕获所有异常的时候。既然已经得到了对当前异常对象的引用，可以直接把它重新抛出,这样，他的上级也会捕获该异常：</p>
+<pre><code class="lang-java">catch(Exception e) {
+    System.out.println(&quot;An exception was thrown&quot;);
+    throw e;
+}
+</code></pre>
+<p>如果只是把当前异常对象重新抛出，那么 printStackTrace() 方法显示的将是<strong>原来异常抛出点的调用栈信息</strong>，而并非重新抛出点的信息。要想更新这个信息，可以调用 <strong>fillInStackTrace()</strong> 方法，这将返回一个 Throwable 对象，它是通过把当前调用栈信息填入原来那个异常对象而建立的，就像这样：</p>
+<pre><code class="lang-java">package exceptions;// exceptions/Rethrowing.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// Demonstrating fillInStackTrace()
+
+public class Rethrowing {
+  public static void f() throws Exception {
+    System.out.println(
+      &quot;originating the exception in f()&quot;);
+    throw new Exception(&quot;thrown from f()&quot;);
+  }
+  public static void g() throws Exception {
+    try {
+      f();
+    } catch(Exception e) {
+      System.out.println(
+        &quot;Inside g(), e.printStackTrace()&quot;);
+      e.printStackTrace(System.out);
+      throw e;
+    }
+  }
+  public static void h() throws Exception {
+    try {
+      f();
+    } catch(Exception e) {
+      System.out.println(
+        &quot;Inside h(), e.printStackTrace()&quot;);
+      e.printStackTrace(System.out);
+      throw (Exception)e.fillInStackTrace();    //此时，上级从这里捕获，这个地方变成了异常的新发地
+    }
+  }
+  public static void main(String[] args) {
+    try {
+      g();
+    } catch(Exception e) {
+      System.out.println(&quot;main: printStackTrace()&quot;);
+      e.printStackTrace(System.out);
+    }
+    System.out.println(&quot;-----------------&quot;);
+    try {
+      h();
+    } catch(Exception e) {
+      System.out.println(&quot;main: printStackTrace()&quot;);
+      e.printStackTrace(System.out);
+    }
+  }
+}
+/* Output:
+originating the exception in f()
+Inside g(), e.printStackTrace()
+java.lang.Exception: thrown from f()
+        at Rethrowing.f(Rethrowing.java:8)
+        at Rethrowing.g(Rethrowing.java:12)
+        at Rethrowing.main(Rethrowing.java:32)
+main: printStackTrace()
+java.lang.Exception: thrown from f()
+        at Rethrowing.f(Rethrowing.java:8)
+        at Rethrowing.g(Rethrowing.java:12)
+        at Rethrowing.main(Rethrowing.java:32)
+originating the exception in f()
+Inside h(), e.printStackTrace()
+java.lang.Exception: thrown from f()
+        at Rethrowing.f(Rethrowing.java:8)
+        at Rethrowing.h(Rethrowing.java:22)
+        at Rethrowing.main(Rethrowing.java:38)
+main: printStackTrace()
+java.lang.Exception: thrown from f()
+        at Rethrowing.h(Rethrowing.java:27)
+        at Rethrowing.main(Rethrowing.java:38)
+*/
+</code></pre>
+<p>有可能在捕获异常之后抛出<strong>另一种异常</strong>。这么做的话，得到的效果类似于使用 fillInStackTrace()，有关原来异常发生点的信息会丢失，剩下的是与新的抛出点有关的信息。</p>
+<p>java7以后，异常可以被他的基类捕获。</p>
+<h3 id="7-异常链"><a href="#7-异常链" class="headerlink" title="7.异常链"></a>7.异常链</h3><p>常常会想要在捕获一个异常后抛出另一个异常，并且希望把原始异常的信息保存下来，这被称为异常链。 Throwable 的子类在构造器中都可以接受一个 cause（因由）对象作为参数。这个 cause 就用来表示原始异常，这样通过把原始异常传递给新的异常，使得即使在当前位置创建并抛出了新的异常，也能通过这个异常链追踪到异常最初发生的位置。</p>
+<p>有趣的是，在 Throwable 的子类中，只有三种基本的异常类提供了带 cause 参数的构造器。它们是 Error（用于 Java 虚拟机报告系统错误）、Exception 以及 RuntimeException。如果要把其他类型的异常链接起来，应该使用 initCause() 方法而不是构造器。</p>
+<h3 id="8-java标准异常"><a href="#8-java标准异常" class="headerlink" title="8.java标准异常"></a>8.java标准异常</h3><p>Throwable 这个 Java 类被用来表示任何可以作为异常被抛出的类。Throwable 对象可分为两种类型（指从 Throwable 继承而得到的类型）：</p>
+<p>Error 用来表示编译时和系统错误（除特殊情况外，一般不用你关心）；Exception 是可以被抛出的基本类型，在 Java 类库、用户方法以及运行时故障中都可能抛出 Exception 型异常。</p>
+<p>异常并非全是在 java.lang 包里定义的；有些异常是用来支持其他像 util、net 和 io 这样的程序包，这些异常可以通过它们的完整名称或者从它们的父类中看出端倪。比如，所有的输入/输出异常都是从 java.io.IOException 继承而来的。</p>
+<p><strong>RuntimeException</strong></p>
+<p>有的异常不必你手写，比如检查每个对象的引用是否为空，空指针异常。属于运行时异常的类型有很多，它们被 java 自动抛出，所以不必在异常说明中把它们列出来。非常方便的是，通过将这些异常设置为 <code>RuntimeException</code>的子类而把它们归类起来，这是继承的一个绝佳例子：建立具有相同特征和行为的一组类型。</p>
+<p>RuntimeException 代表的是编程错误：</p>
+<ol>
+<li>无法预料的错误。比如从你控制范围之外传递进来的 null 引用。</li>
+<li>作为程序员，应该在代码中进行检查的错误。（比如对于 ArrayIndexOutOfBoundsException，就得注意一下数组的大小了。）在一个地方发生的异常，常常会在另一个地方导致错误。</li>
+</ol>
+<p>如果 RuntimeException 没有被捕获而直达 main()，那么在程序退出前将调用异常的 printStackTrace() 方法。</p>
+<pre><code class="lang-java">public class NeverCaught {
+  static void f() {
+    throw new RuntimeException(&quot;From f()&quot;);
+  }
+  static void g() {
+    f();
+  }
+  public static void main(String[] args) {
+    g();
+  }
+}
+/* Output:
+___[ Error Output ]___
+Exception in thread &quot;main&quot; java.lang.RuntimeException:
+From f()
+        at NeverCaught.f(NeverCaught.java:7)
+        at NeverCaught.g(NeverCaught.java:10)
+        at NeverCaught.main(NeverCaught.java:13)
+*/
+</code></pre>
+<p>请务必记住：代码中只有 RuntimeException（及其子类）类型的异常可以被忽略，因为编译器强制要求处理所有受检查类型的异常。</p>
+<h3 id="9-finally"><a href="#9-finally" class="headerlink" title="9.finally"></a>9.finally</h3><p>有一些代码片段，可能会希望<strong>无论 try 块中的异常是否抛出，它们都能得到执行。</strong>这通常适用于内存回收之外的情况（因为回收由垃圾回收器完成），为了达到这个效果，可以在异常处理程序后面加上 finally 子句。完整的异常处理程序看起来像这样：</p>
+<pre><code class="lang-java">try {
+// The guarded region: Dangerous activities
+// that might throw A, B, or C
+} catch(A a1) {
+// Handler for situation A
+} catch(B b1) {
+// Handler for situation B
+} catch(C c1) {
+// Handler for situation C
+} finally {
+// Activities that happen every time
+}
+</code></pre>
+<p>finally的另类用法,在return后使用finally:</p>
+<pre><code class="lang-java">package exceptions;// exceptions/MultipleReturns.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+
+public class MultipleReturns {
+  public static void f(int i) {
+    System.out.println(
+      &quot;Initialization that requires cleanup&quot;);
+    try {
+      System.out.println(&quot;Point 1&quot;);
+      if(i == 1) return;
+      System.out.println(&quot;Point 2&quot;);
+      if(i == 2) return;
+      System.out.println(&quot;Point 3&quot;);
+      if(i == 3) return;
+      System.out.println(&quot;End&quot;);
+      return;
+    } finally {
+      System.out.println(&quot;Performing cleanup&quot;);
+    }
+  }
+  public static void main(String[] args) {
+    for(int i = 1; i &lt;= 4; i++)
+      f(i);
+  }
+}
+/* Output:
+Initialization that requires cleanup
+Point 1
+Performing cleanup
+Initialization that requires cleanup
+Point 1
+Point 2
+Performing cleanup
+Initialization that requires cleanup
+Point 1
+Point 2
+Point 3
+Performing cleanup
+Initialization that requires cleanup
+Point 1
+Point 2
+Point 3
+End
+Performing cleanup
+*/
+</code></pre>
+<p>从输出中可以看出，从何处返回无关紧要，finally 子句永远会执行。</p>
+<h3 id="10-异常丢失"><a href="#10-异常丢失" class="headerlink" title="10.异常丢失"></a>10.异常丢失</h3><p>遗憾的是，Java 的异常实现也有瑕疵。异常作为程序出错的标志，决不应该被忽略，但它还是有可能被轻易地忽略。用某些特殊的方式使用 finally 子句，就会发生这种情况：</p>
+<pre><code class="lang-java">// exceptions/LostMessage.java
+// How an exception can be lost
+class VeryImportantException extends Exception {
+    @Override
+    public String toString() {
+        return &quot;A very important exception!&quot;;
+    }
+}
+class HoHumException extends Exception {
+    @Override
+    public String toString() {
+        return &quot;A trivial exception&quot;;
+    }
+}
+public class LostMessage {
+    void f() throws VeryImportantException {
+        throw new VeryImportantException();
+    }
+    void dispose() throws HoHumException {
+        throw new HoHumException();
+    }
+    public static void main(String[] args) {
+        try {
+            LostMessage lm = new LostMessage();
+            try {
+                lm.f();    //该异常丢失
+            } finally {
+                lm.dispose();
+            }
+        } catch(VeryImportantException | HoHumException e) {
+            System.out.println(e);
+        }
+    }
+}
+//A trivial exception
+</code></pre>
+<h3 id="11-异常限制"><a href="#11-异常限制" class="headerlink" title="11.异常限制"></a>11.异常限制</h3><p>在抽线基类和接口中定义抛出的异常，可以限制子类只能抛出已经声明的异常。</p>
+<pre><code class="lang-java">class BaseballException extends Exception {}
+class Foul extends BaseballException {}
+class Strike extends BaseballException {}
+
+abstract class Inning {
+  Inning() throws BaseballException {}
+  public void event() throws BaseballException {
+    // Doesn&#39;t actually have to throw anything
+  }
+  public abstract void atBat() throws Strike, Foul;
+  public void walk() {} // Throws no checked exceptions
+}
+
+class StormException extends Exception {}
+class RainedOut extends StormException {}
+class PopFoul extends Foul {}
+
+interface Storm {
+  void event() throws RainedOut;
+  void rainHard() throws RainedOut;
+}
+</code></pre>
+<h3 id="12-Try-With-Resources用法"><a href="#12-Try-With-Resources用法" class="headerlink" title="12.Try-With-Resources用法"></a>12.Try-With-Resources用法</h3><p>java7前处理文件流的可能做法:</p>
+<pre><code class="lang-java">// exceptions/MessyExceptions.java
+import java.io.*;
+public class MessyExceptions {
+    public static void main(String[] args) {
+        InputStream in = null;
+        try {
+            in = new FileInputStream(
+                    new File(&quot;MessyExceptions.java&quot;));
+            int contents = in.read();
+            // Process contents
+        } catch(IOException e) {
+            // Handle the error
+        } finally {
+            if(in != null) {
+                try {
+                    in.close();
+                } catch(IOException e) {
+                    // Handle the close() error
+                }
+            }
+        }
+    }
+}
+</code></pre>
+<p>幸运的是，Java 7 引入了 try-with-resources 语法，它可以非常清楚地简化上面的代码：</p>
+<pre><code class="lang-java">// exceptions/TryWithResources.java
+import java.io.*;
+public class TryWithResources {
+    public static void main(String[] args) {
+        try(
+                InputStream in = new FileInputStream(
+                        new File(&quot;TryWithResources.java&quot;))
+        ) {
+            int contents = in.read();
+            // Process contents
+        } catch(IOException e) {
+            // Handle the error
+        }
+    }
+}
+</code></pre>
+<p>在 Java 7 之前，try 后面总是跟着一个 {，但是现在可以跟一个带括号的定义 ——这里是我们创建的 FileInputStream 对象。括号内的部分称为资源规范头（resource specification header）。现在 <code>in</code> 在整个 try 块的其余部分都是可用的。</p>
+<p> try-with-resources 定义子句中创建的对象（在括号内）必须实现 <code>java.lang.AutoCloseable</code> 接口，这个接口只有一个方法：<code>close()</code>。查看 Javadocs 中的 AutoCloseable，可以找到所有实现该接口的类列表，其中包括 <code>Stream</code> 对象：</p>
+<pre><code class="lang-java">// exceptions/StreamsAreAutoCloseable.java
+import java.io.*;
+import java.nio.file.*;
+import java.util.stream.*;
+public class StreamsAreAutoCloseable {
+    public static void
+    main(String[] args) throws IOException{
+        try(
+                Stream&lt;String&gt; in = Files.lines(
+                        Paths.get(&quot;StreamsAreAutoCloseable.java&quot;));
+                PrintWriter outfile = new PrintWriter(
+                        &quot;Results.txt&quot;); // [1]
+        ) {
+            in.skip(5)
+                    .limit(1)
+                    .map(String::toLowerCase)
+                    .forEachOrdered(outfile::println);
+        } // [2]
+    }
+}
+</code></pre>
+<ul>
+<li>[1] 你在这里可以看到其他的特性：资源规范头中可以包含多个定义，并且通过分号进行分割（最后一个分号是可选的）。规范头中定义的每个对象都会在 try 语句块运行结束之后调用 close() 方法。</li>
+<li>[2] try-with-resources 里面的 try 语句块可以不包含 catch 或者 finally 语句而独立存在。在这里，IOException 被 main() 方法抛出，所以这里并不需要在 try 后面跟着一个 catch 语句块。</li>
+</ul>
+<p><strong>自定义AutoCloseable类</strong></p>
+<pre><code class="lang-java">package exceptions;// exceptions/AutoCloseableDetails.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+
+class Reporter implements AutoCloseable {
+  String name = getClass().getSimpleName();
+  Reporter() {
+    System.out.println(&quot;Creating &quot; + name);
+  }
+  @Override
+  public void close() {
+    System.out.println(&quot;Closing &quot; + name);
+  }
+}
+
+class First extends Reporter {}
+class Second extends Reporter {}
+
+public class AutoCloseableDetails {
+  public static void main(String[] args) {
+    try(
+      First f = new First();
+      Second s = new Second()
+    ) {
+      System.out.println(&quot;do something !&quot;);
+    }
+  }
+}
+
+/* Output:
+Creating First
+Creating Second
+do something !
+Closing Second
+Closing First
+*/
+</code></pre>
+<p>退出 try 块会调用两个对象的 close() 方法，并以与创建顺序<strong>相反的顺序关闭它们</strong>。顺序很重要，因为在这种情况下，Second 对象可能依赖于 First 对象，因此如果 First 在第 Second 关闭时已经关闭。 Second 的 close() 方法可能会尝试访问 First 中不再可用的某些功能。</p>
+<p>如果中间某个对象创建时异常怎么办:</p>
+<pre><code class="lang-java">package exceptions;// exceptions/ConstructorException.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+
+class CE extends Exception {}
+
+class SecondExcept extends Reporter {
+  SecondExcept() throws CE {
+    super();
+    throw new CE();
+  }
+}
+
+public class ConstructorException {
+  public static void main(String[] args) {
+    try(
+      First f = new First();
+      SecondExcept s = new SecondExcept();
+      Second s2 = new Second()
+    ) {
+      System.out.println(&quot;In body&quot;);
+    } catch(CE e) {
+      System.out.println(&quot;Caught: &quot; + e);
+    }
+  }
+}
+/* Output:
+Creating First
+Creating SecondExcept
+Closing First
+Caught: CE
+*/
+</code></pre>
+<p>正如预期的那样，First 创建时没有发生意外，SecondExcept 在创建期间抛出异常。请注意，不会为 SecondExcept 调用 close()，因为如果构造函数失败，则无法假设你可以安全地对该对象执行任何操作，包括关闭它。由于 SecondExcept 的异常，Second 对象实例 s2 不会被创建，因此也不会有清除事件发生。</p>
+<p>如果没有构造函数抛出异常，但在 try 的主体中可能抛出异常，那么你将再次被强制要求提供一个catch 子句：</p>
+<pre><code class="lang-java">// exceptions/BodyException.java
+class Third extends Reporter {}
+public class BodyException {
+    public static void main(String[] args) {
+        try(
+                First f = new First();
+                Second s2 = new Second()
+        ) {
+            System.out.println(&quot;In body&quot;);
+            Third t = new Third();
+            new SecondExcept();
+            System.out.println(&quot;End of body&quot;);
+        } catch(CE e) {
+            System.out.println(&quot;Caught: &quot; + e);
+        }
+    }
+}
+</code></pre>
+<p>请注意，第 3 个对象永远不会被清除。那是因为它不是在资源规范头中创建的，所以它没有被保护。</p>
+<p><strong>closed中抛出异常</strong></p>
+<pre><code class="lang-java">package exceptions;// exceptions/CloseExceptions.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+
+class CloseException extends Exception {}
+
+class Reporter2 implements AutoCloseable {
+  String name = getClass().getSimpleName();
+  Reporter2() {
+    System.out.println(&quot;Creating &quot; + name);
+  }
+  public void close() throws CloseException {
+    System.out.println(&quot;Closing &quot; + name);
+  }
+}
+
+class Closer extends Reporter2 {
+  @Override
+  public void close() throws CloseException {
+    super.close();
+    throw new CloseException();
+  }
+}
+
+public class CloseExceptions {
+  public static void main(String[] args) {
+    try(
+            First f = new First();
+            Closer c = new Closer();
+            Second s = new Second()
+    ) {
+      System.out.println(&quot;In body&quot;);
+    } catch(CloseException e) {
+      System.out.println(&quot;Caught: &quot; + e);
+    }
+  }
+}
+/* Output:
+Creating First
+Creating Closer
+Creating Second
+In body
+Closing Second
+Closing Closer
+Closing First
+Caught: CloseException
+*/
+</code></pre>
+<p>请注意，因为所有三个对象都已创建，所以它们都以相反的顺序关闭 - 即使 Closer.close() 抛出异常也是如此。</p>
+<h3 id="13-异常指南"><a href="#13-异常指南" class="headerlink" title="13.异常指南"></a>13.异常指南</h3><p>应该在下列情况下使用异常：</p>
+<ol>
+<li>尽可能使用 try-with-resource。</li>
+<li>在恰当的级别处理问题。（在知道该如何处理的情况下才捕获异常。）</li>
+<li>解决问题并且重新调用产生异常的方法。</li>
+<li>进行少许修补，然后绕过异常发生的地方继续执行。</li>
+<li>用别的数据进行计算，以代替方法预计会返回的值。</li>
+<li>把当前运行环境下能做的事情尽量做完，然后把相同的异常重抛到更高层。</li>
+<li>把当前运行环境下能做的事情尽量做完，然后把不同的异常抛到更高层。</li>
+<li>终止程序。</li>
+<li>进行简化。（如果你的异常模式使问题变得太复杂，那用起来会非常痛苦也很烦人。）</li>
+<li>让类库和程序更安全。（这既是在为调试做短期投资，也是在为程序的健壮性做长期投资。）</li>
+</ol>
+<h2 id="17-文件"><a href="#17-文件" class="headerlink" title="17.文件"></a>17.文件</h2><p><strong>java.nio.file</strong> 库终于将 Java 文件操作带到与其他编程语言相同的水平。最重要的是 Java8 新增的 streams 与文件结合使得文件操作编程变得更加优雅。我们将看一下文件操作的两个基本组件：</p>
+<ol>
+<li>文件或者目录的路径；</li>
+<li>文件本身。</li>
+</ol>
+<h3 id="1-文件和目录路径"><a href="#1-文件和目录路径" class="headerlink" title="1.文件和目录路径"></a>1.文件和目录路径</h3><p><strong>java.nio.file.Paths</strong> 类包含一个重载方法 <strong>static get()</strong>，该方法接受一系列 <strong>String</strong> 字符串或一个<em>统一资源标识符</em>(URI)作为参数，并且进行转换返回一个 <strong>Path</strong> 对象：Path对象里包含了很多有用信息:</p>
+<pre><code class="lang-java">import java.nio.file.*;
+import java.net.URI;
+import java.io.File;
+import java.io.IOException;
+
+public class PathInfo {
+  static void show(String id, Object p) {
+    System.out.println(id + &quot;: &quot; + p);
+  }
+  static void info(Path p) {
+    show(&quot;toString&quot;, p);    //获得完整路径
+    show(&quot;Exists&quot;, Files.exists(p));    //文件或路径是否存在
+    show(&quot;RegularFile&quot;, Files.isRegularFile(p));    //是文件？
+    show(&quot;Directory&quot;, Files.isDirectory(p));    //是路径？
+    show(&quot;Absolute&quot;, p.isAbsolute());
+    show(&quot;FileName&quot;, p.getFileName());    //文件名
+    show(&quot;Parent&quot;, p.getParent());    //获得上一级目录
+    show(&quot;Root&quot;, p.getRoot());    //获得根目录
+    System.out.println(&quot;******************&quot;);
+  }
+  public static void main(String[] args) {
+    System.out.println(System.getProperty(&quot;os.name&quot;));
+    info(Paths.get(
+      &quot;F:\\work\\thinkinjava&quot;));    //目录
+    Path p = Paths.get(&quot;src\\files\\PathInfo.java&quot;);    //相对路径
+    info(p);
+    Path ap = p.toAbsolutePath();    //转换到绝对路径
+    info(ap);
+    info(ap.getParent());
+    try {
+      info(p.toRealPath());
+    } catch(IOException e) {
+      System.out.println(e);
+    }
+    URI u = p.toUri();
+    System.out.println(&quot;URI: &quot; + u);
+    Path puri = Paths.get(u);
+    System.out.println(Files.exists(puri));
+    File f = ap.toFile(); // Don&#39;t be fooled
+  }
+}
+</code></pre>
+<h3 id="2-选取路径部分片段"><a href="#2-选取路径部分片段" class="headerlink" title="2.选取路径部分片段"></a>2.选取路径部分片段</h3><pre><code class="lang-java">import java.nio.file.*;
+
+public class PartsOfPaths {
+  public static void main(String[] args) {
+    System.out.println(System.getProperty(&quot;os.name&quot;));
+    Path p =
+      Paths.get(&quot;src/files/PartsOfPaths.java&quot;).toAbsolutePath();
+    for(int i = 0; i &lt; p.getNameCount(); i++)    //获取目录名字
+      System.out.println(p.getName(i));
+    System.out.println(&quot;ends with &#39;.java&#39;: &quot; +
+      p.endsWith(&quot;.java&quot;));    //后缀
+    for(Path pp : p) {
+      System.out.print(pp + &quot;: &quot;);
+      System.out.print(p.startsWith(pp) + &quot; : &quot;);
+      System.out.println(p.endsWith(pp));
+    }
+    System.out.println(&quot;Starts with &quot; + p.getRoot() +
+      &quot; &quot; + p.startsWith(p.getRoot()));
+  }
+}
+
+/*
+Windows 10
+work
+thinkinjava
+src
+files
+PartsOfPaths.java
+ends with &#39;.java&#39;: false
+work: false : false
+thinkinjava: false : false
+src: false : false
+files: false : false
+PartsOfPaths.java: false : true
+Starts with F:\ true
+*/
+</code></pre>
+<p><strong>Path</strong> 也实现了 <strong>Iterable</strong> 接口，因此我们也可以通过增强的 for-each 进行遍历。请注意，即使路径以 <strong>.java</strong> 结尾，使用 <strong>endsWith()</strong> 方法也会返回 <strong>false</strong>。这是因为使用 <strong>endsWith()</strong> 比较的是整个路径部分，而不会包含文件路径的后缀。通过使用 <strong>startsWith()</strong> 和 <strong>endsWith()</strong> 也可以完成路径的遍历。但是我们可以看到，遍历 <strong>Path</strong> 对象并不包含根路径，只有使用 <strong>startsWith()</strong> 检测根路径时才会返回 <strong>true</strong>。</p>
+<h3 id="3-路径分析"><a href="#3-路径分析" class="headerlink" title="3.路径分析"></a>3.路径分析</h3><p><strong>Files</strong> 工具类包含一系列完整的方法用于获得 <strong>Path</strong> 相关的信息。</p>
+<pre><code class="lang-java">// files/PathAnalysis.java
+import java.nio.file.*;
+import java.io.IOException;
+
+public class PathAnalysis {
+    static void say(String id, Object result) {
+        System.out.print(id + &quot;: &quot;);
+        System.out.println(result);
+    }
+
+    public static void main(String[] args) throws IOException {
+        System.out.println(System.getProperty(&quot;os.name&quot;));
+        Path p = Paths.get(&quot;PathAnalysis.java&quot;).toAbsolutePath();
+        say(&quot;Exists&quot;, Files.exists(p));
+        say(&quot;Directory&quot;, Files.isDirectory(p));
+        say(&quot;Executable&quot;, Files.isExecutable(p));
+        say(&quot;Readable&quot;, Files.isReadable(p));
+        say(&quot;RegularFile&quot;, Files.isRegularFile(p));
+        say(&quot;Writable&quot;, Files.isWritable(p));
+        say(&quot;notExists&quot;, Files.notExists(p));
+        say(&quot;Hidden&quot;, Files.isHidden(p));
+        say(&quot;size&quot;, Files.size(p));
+        say(&quot;FileStore&quot;, Files.getFileStore(p));
+        say(&quot;LastModified: &quot;, Files.getLastModifiedTime(p));
+        say(&quot;Owner&quot;, Files.getOwner(p));
+        say(&quot;ContentType&quot;, Files.probeContentType(p));
+        say(&quot;SymbolicLink&quot;, Files.isSymbolicLink(p));
+        if(Files.isSymbolicLink(p))
+            say(&quot;SymbolicLink&quot;, Files.readSymbolicLink(p));
+        if(FileSystems.getDefault().supportedFileAttributeViews().contains(&quot;posix&quot;))
+            say(&quot;PosixFilePermissions&quot;,
+        Files.getPosixFilePermissions(p));
+    }
+}
+</code></pre>
+<p><strong>Paths的增减修改</strong></p>
+<p>我们必须能通过对 <strong>Path</strong> 对象增加或者删除一部分来构造一个新的 <strong>Path</strong> 对象。我们使用 <strong>relativize()</strong> 移除 <strong>Path</strong> 的根路径，使用 <strong>resolve()</strong> 添加 <strong>Path</strong> 的尾路径(不一定是“可发现”的名称)</p>
+<h3 id="4-目录"><a href="#4-目录" class="headerlink" title="4.目录"></a>4.目录</h3><p> <strong>createDirectory()</strong> 创建单极路径。</p>
+<p><strong>createTempFile()</strong> 生成一个临时文件。</p>
+<h3 id="5-文件系统"><a href="#5-文件系统" class="headerlink" title="5.文件系统"></a>5.文件系统</h3><p>为了完整起见，我们需要一种方法查找文件系统相关的其他信息。在这里，我们使用静态的 <strong>FileSystems</strong> 工具类获取”默认”的文件系统，但你同样也可以在 <strong>Path</strong> 对象上调用 <strong>getFileSystem()</strong> 以获取创建该 <strong>Path</strong> 的文件系统。你可以获得给定 <em>URI</em> 的文件系统，还可以构建新的文件系统(对于支持它的操作系统)。</p>
+<pre><code class="lang-java">// files/FileSystemDemo.java
+import java.nio.file.*;
+
+public class FileSystemDemo {
+    static void show(String id, Object o) {
+        System.out.println(id + &quot;: &quot; + o);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(System.getProperty(&quot;os.name&quot;));
+        FileSystem fsys = FileSystems.getDefault();
+        for(FileStore fs : fsys.getFileStores())
+            show(&quot;File Store&quot;, fs);
+        for(Path rd : fsys.getRootDirectories())
+            show(&quot;Root Directory&quot;, rd);
+        show(&quot;Separator&quot;, fsys.getSeparator());
+        show(&quot;UserPrincipalLookupService&quot;,
+            fsys.getUserPrincipalLookupService());
+        show(&quot;isOpen&quot;, fsys.isOpen());
+        show(&quot;isReadOnly&quot;, fsys.isReadOnly());
+        show(&quot;FileSystemProvider&quot;, fsys.provider());
+        show(&quot;File Attribute Views&quot;,
+        fsys.supportedFileAttributeViews());
+    }
+}
+/* 输出:
+Windows 10
+File Store: SSD (C:)
+Root Directory: C:\
+Root Directory: D:\
+Separator: \
+UserPrincipalLookupService:
+sun.nio.fs.WindowsFileSystem$LookupService$1@15db9742
+isOpen: true
+isReadOnly: false
+FileSystemProvider:
+sun.nio.fs.WindowsFileSystemProvider@6d06d69c
+File Attribute Views: [owner, dos, acl, basic, user]
+*/
+</code></pre>
+<p>一个 <strong>FileSystem</strong> 对象也能生成 <strong>WatchService</strong> 和 <strong>PathMatcher</strong> 对象。</p>
+<h3 id="6-路径监听"><a href="#6-路径监听" class="headerlink" title="6.路径监听"></a>6.路径监听</h3><p>通过 <strong>WatchService</strong> 可以设置一个进程对目录中的更改做出响应。在这个例子中，<strong>delTxtFiles()</strong> 作为一个单独的任务执行，该任务将遍历整个目录并删除以 <strong>.txt</strong> 结尾的所有文件，<strong>WatchService</strong> 会对文件删除操作做出反应：</p>
+<pre><code class="lang-java">// files/PathWatcher.java
+// {ExcludeFromGradle}
+import java.io.IOException;
+import java.nio.file.*;
+import static java.nio.file.StandardWatchEventKinds.*;
+import java.util.concurrent.*;
+
+public class PathWatcher {
+    static Path test = Paths.get(&quot;test&quot;);
+
+    static void delTxtFiles() {
+        try {
+            Files.walk(test)
+            .filter(f -&gt;
+                f.toString()
+                .endsWith(&quot;.txt&quot;))
+                .forEach(f -&gt; {
+                try {
+                    System.out.println(&quot;deleting &quot; + f);
+                    Files.delete(f);
+                } catch(IOException e) {
+                    throw new RuntimeException(e);
+                }
+            });
+        } catch(IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void main(String[] args) throws Exception {
+        Directories.refreshTestDir();
+        Directories.populateTestDir();
+        Files.createFile(test.resolve(&quot;Hello.txt&quot;));
+        WatchService watcher = FileSystems.getDefault().newWatchService();
+        test.register(watcher, ENTRY_DELETE);
+        Executors.newSingleThreadScheduledExecutor().schedule(PathWatcher::delTxtFiles,
+        250, TimeUnit.MILLISECONDS);
+        WatchKey key = watcher.take();
+        for(WatchEvent evt : key.pollEvents()) {
+            System.out.println(&quot;evt.context(): &quot; + evt.context() +
+            &quot;\nevt.count(): &quot; + evt.count() +
+            &quot;\nevt.kind(): &quot; + evt.kind());
+            System.exit(0);
+        }
+    }
+}
+/* Output:
+deleting test\bag\foo\bar\baz\File.txt
+deleting test\bar\baz\bag\foo\File.txt
+deleting test\baz\bag\foo\bar\File.txt
+deleting test\foo\bar\baz\bag\File.txt
+deleting test\Hello.txt
+evt.context(): Hello.txt
+evt.count(): 1
+evt.kind(): ENTRY_DELETE
+*/
+</code></pre>
+<p>一旦我们从 <strong>FileSystem</strong> 中得到了 <strong>WatchService</strong> 对象，我们将其注册到 <strong>test</strong> 路径以及我们感兴趣的项目的变量参数列表中，可以选择 <strong>ENTRY_CREATE</strong>，<strong>ENTRY_DELETE</strong> 或 <strong>ENTRY_MODIFY</strong>(其中创建和删除不属于修改)。</p>
+<h3 id="7-文件查找"><a href="#7-文件查找" class="headerlink" title="7.文件查找"></a>7.文件查找</h3><p>通过在 <code>FileSystem</code> 对象上调用 <code>getPathMatcher()</code> 获得一个 <code>PathMatcher</code>，然后传入您感兴趣的模式。模式有两个选项：<code>glob</code> 和 <code>regex</code>。<code>glob</code> 比较简单，实际上功能非常强大，因此您可以使用 <code>glob</code> 解决许多问题。如果您的问题更复杂，可以使用 <code>regex</code>，这将在接下来的 <code>Strings</code> 一章中解释。</p>
+<p>在这里，我们使用 <code>glob</code> 查找以 <code>.tmp</code> 或 <code>.txt</code> 结尾的所有 <code>Path</code>：</p>
+<pre><code class="lang-java">// files/Find.java
+// {ExcludeFromGradle}
+import java.nio.file.*;
+
+public class Find {
+    public static void main(String[] args) throws Exception {
+        Path test = Paths.get(&quot;test&quot;);
+        Directories.refreshTestDir();
+        Directories.populateTestDir();
+        // Creating a *directory*, not a file:
+        Files.createDirectory(test.resolve(&quot;dir.tmp&quot;));
+
+        PathMatcher matcher = FileSystems.getDefault()
+          .getPathMatcher(&quot;glob:**/*.{tmp,txt}&quot;);
+        Files.walk(test)
+          .filter(matcher::matches)
+          .forEach(System.out::println);
+        System.out.println(&quot;***************&quot;);
+
+        PathMatcher matcher2 = FileSystems.getDefault()
+          .getPathMatcher(&quot;glob:*.tmp&quot;);
+        Files.walk(test)
+          .map(Path::getFileName)
+          .filter(matcher2::matches)
+          .forEach(System.out::println);
+        System.out.println(&quot;***************&quot;);
+
+        Files.walk(test) // Only look for files
+          .filter(Files::isRegularFile)
+          .map(Path::getFileName)
+          .filter(matcher2::matches)
+          .forEach(System.out::println);
+    }
+}
+</code></pre>
+<p>在 <code>matcher</code> 中，<code>glob</code> 表达式开头的 <code>**/</code> 表示“当前目录及所有子目录”，这在当你不仅仅要匹配当前目录下特定结尾的 <code>Path</code> 时非常有用。单 <code>*</code> 表示“任何东西”，然后是一个点，然后大括号表示一系列的可能性—-我们正在寻找以 <code>.tmp</code> 或 <code>.txt</code> 结尾的东西。您可以在 <code>getPathMatcher()</code> 文档中找到更多详细信息。</p>
+<p><code>matcher2</code> 只使用 <code>*.tmp</code>，通常不匹配任何内容，但是添加 <code>map()</code> 操作会将完整路径减少到末尾的名称。</p>
+<p>注意，在这两种情况下，输出中都会出现 <code>dir.tmp</code>，即使它是一个目录而不是一个文件。要只查找文件，必须像在最后 <code>files.walk()</code> 中那样对其进行筛选。</p>
+<h3 id="8-文件读写"><a href="#8-文件读写" class="headerlink" title="8.文件读写"></a>8.文件读写</h3><p><code>Files.readAllLines()</code> 一次读取整个文件（因此，“小”文件很有必要），产生一个<code>List&lt;String&gt;</code>。 对于示例文件，我们将重用<code>streams/Cheese.dat</code>：</p>
+<pre><code class="lang-java">// files/ListOfLines.java
+import java.util.*;
+import java.nio.file.*;
+
+public class ListOfLines {
+    public static void main(String[] args) throws Exception {
+        Files.readAllLines(
+        Paths.get(&quot;../streams/Cheese.dat&quot;))
+        .stream()
+        .filter(line -&gt; !line.startsWith(&quot;//&quot;))
+        .map(line -&gt;
+            line.substring(0, line.length()/2))
+        .forEach(System.out::println);
+    }
+}
+/* Output:
+Not much of a cheese
+Finest in the
+And what leads you
+Well, it&#39;s
+It&#39;s certainly uncon
+*/
+</code></pre>
+<p>跳过注释行，其余的内容每行只打印一半。 这实现起来很简单：你只需将 <code>Path</code> 传递给 <code>readAllLines()</code> （以前的 java 实现这个功能很复杂）。<code>readAllLines()</code> 有一个重载版本，包含一个 <code>Charset</code> 参数来存储文件的 Unicode 编码。</p>
+<p><code>Files.write()</code> 被重载以写入 <code>byte</code> 数组或任何 <code>Iterable</code> 对象（它也有 <code>Charset</code> 选项）：</p>
+<pre><code class="lang-java">// files/Writing.java
+import java.util.*;
+import java.nio.file.*;
+
+public class Writing {
+    static Random rand = new Random(47);
+    static final int SIZE = 1000;
+
+    public static void main(String[] args) throws Exception {
+        // Write bytes to a file:
+        byte[] bytes = new byte[SIZE];
+        rand.nextBytes(bytes);
+        Files.write(Paths.get(&quot;bytes.dat&quot;), bytes);
+        System.out.println(&quot;bytes.dat: &quot; + Files.size(Paths.get(&quot;bytes.dat&quot;)));
+
+        // Write an iterable to a file:
+        List&lt;String&gt; lines = Files.readAllLines(Paths.get(&quot;../streams/Cheese.dat&quot;));
+        Files.write(Paths.get(&quot;Cheese.txt&quot;), lines);
+        System.out.println(&quot;Cheese.txt: &quot; + Files.size(Paths.get(&quot;Cheese.txt&quot;)));
+    }
+}
+/* Output:
+bytes.dat: 1000
+Cheese.txt: 199
+*/
+</code></pre>
+<p>一个 <code>List</code> 被写入文件，任何 <code>Iterable</code> 对象也可以这么做。</p>
+<p>如果文件大小有问题怎么办？ 比如说：</p>
+<ol>
+<li>文件太大，如果你一次性读完整个文件，你可能会耗尽内存。</li>
+<li>您只需要在文件的中途工作以获得所需的结果，因此读取整个文件会浪费时间。</li>
+</ol>
+<p><code>Files.lines()</code> 方便地将文件转换为行的 <code>Stream</code>：</p>
+<pre><code class="lang-java">// files/ReadLineStream.java
+import java.nio.file.*;
+
+public class ReadLineStream {
+    public static void main(String[] args) throws Exception {
+        Files.lines(Paths.get(&quot;PathInfo.java&quot;))
+          .skip(13)
+          .findFirst()
+          .ifPresent(System.out::println);
+    }
+}
+/* Output:
+    show(&quot;RegularFile&quot;, Files.isRegularFile(p));
+*
+</code></pre>
+<p><code>Files.lines()</code> 对于把文件处理行的传入流时非常有用，但是如果你想在 <code>Stream</code> 中读取，处理或写入怎么办？这就需要稍微复杂的代码：</p>
+<pre><code class="lang-java">// files/StreamInAndOut.java
+import java.io.*;
+import java.nio.file.*;
+import java.util.stream.*;
+
+public class StreamInAndOut {
+    public static void main(String[] args) {
+        try(
+          Stream&lt;String&gt; input = Files.lines(Paths.get(&quot;StreamInAndOut.java&quot;));
+          PrintWriter output =  new PrintWriter(&quot;StreamInAndOut.txt&quot;)
+        ) {
+            input.map(String::toUpperCase)
+              .forEachOrdered(output::println);
+        } catch(Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+}
+</code></pre>
+<p>因为我们在同一个块中执行所有操作，所以这两个文件都可以在相同的 try-with-resources 语句中打开。<code>PrintWriter</code> 是一个旧式的 <code>java.io</code> 类，允许你“打印”到一个文件，所以它是这个应用的理想选择。如果你看一下 <code>StreamInAndOut.txt</code>，你会发现它里面的内容确实是大写的。</p>
+<h2 id="18-字符串"><a href="#18-字符串" class="headerlink" title="18.字符串"></a>18.字符串</h2><p><code>String</code> 对象是不可变的。查看 JDK 文档你就会发现，<code>String</code> 类中每一个看起来会修改 <code>String</code> 值的方法，实际上都是创建了一个全新的 <code>String</code> 对象，以包含修改后的字符串内容。而最初的 <code>String</code> 对象则丝毫未动，将一个字符串复制给一个新的字符串时，是浅复制。</p>
+<p>Java中对String对象进行的操作实际上是一个不断创建新的对象并且将旧的对象回收的一个过程，所以执行速度很慢。而StringBuilder和StringBuffer的对象是变量，对变量进行操作就是直接对该对象进行更改，而不进行创建和回收的操作，所以速度要比String快很多。</p>
+<h3 id="1-String、StringBuilder和StringBuffer"><a href="#1-String、StringBuilder和StringBuffer" class="headerlink" title="1.String、StringBuilder和StringBuffer"></a>1.String、StringBuilder和StringBuffer</h3><p>三者共同之处:都是final类,不允许被继承，主要是从性能和安全性上考虑的，因为这几个类都是经常被使用着，且考虑到防止其中的参数被参数修改影响到其他的应用。</p>
+<ul>
+<li>StringBuffer是<strong>线程安全</strong>，可以不需要额外的同步用于多线程中;</li>
+<li>StringBuilder是非同步,运行于多线程中就需要使用着单独同步处理，但是速度就比StringBuffer快多了;</li>
+<li>StringBuffer与StringBuilder两者共同之处:可以通过append、indert进行字符串的操作。</li>
+</ul>
+<p>运行速度: <strong>StringBuilder &gt; StringBuffer &gt; String</strong></p>
+<p><strong>在线程安全上，StringBuilder是线程不安全的，而StringBuffer是线程安全的</strong>,所以如果要进行的操作是多线程的，那么就要使用StringBuffer，但是在单线程的情况下，还是建议使用速度比较快的StringBuilder。</p>
+<h3 id="2-字符串操作"><a href="#2-字符串操作" class="headerlink" title="2.字符串操作"></a>2.字符串操作</h3><p>以下是 <code>String</code> 对象具备的一些基本方法。重载的方法归纳在同一行中：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>参数，重载版本</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>构造方法</td>
+<td>默认版本，<code>String</code>，<code>StringBuilder</code>，<code>StringBuffer</code>，<code>char</code>数组，<code>byte</code>数组</td>
+<td>创建<code>String</code>对象</td>
+</tr>
+<tr>
+<td><code>length()</code></td>
+<td></td>
+<td><code>String</code>中字符的个数</td>
+</tr>
+<tr>
+<td><code>charAt()</code></td>
+<td><code>int</code>索引</td>
+<td>获取<code>String</code>中索引位置上的<code>char</code></td>
+</tr>
+<tr>
+<td><code>getChars()</code>，<code>getBytes()</code></td>
+<td>待复制部分的开始和结束索引，复制的目标数组，目标数组的开始索引</td>
+<td>复制<code>char</code>或<code>byte</code>到一个目标数组中</td>
+</tr>
+<tr>
+<td><code>toCharArray()</code></td>
+<td></td>
+<td>生成一个<code>char[]</code>，包含<code>String</code>中的所有字符</td>
+</tr>
+<tr>
+<td><code>equals()</code>，<code>equalsIgnoreCase()</code></td>
+<td>与之进行比较的<code>String</code></td>
+<td>比较两个<code>String</code>的内容是否相同。如果相同，结果为<code>true</code></td>
+</tr>
+<tr>
+<td><code>compareTo()</code>，<code>compareToIgnoreCase()</code></td>
+<td>与之进行比较的<code>String</code></td>
+<td>按词典顺序比较<code>String</code>的内容，比较结果为负数、零或正数。注意，大小写不等价</td>
+</tr>
+<tr>
+<td><code>contains()</code></td>
+<td>要搜索的<code>CharSequence</code></td>
+<td>如果该<code>String</code>对象包含参数的内容，则返回<code>true</code></td>
+</tr>
+<tr>
+<td><code>contentEquals()</code></td>
+<td>与之进行比较的<code>CharSequence</code>或<code>StringBuffer</code></td>
+<td>如果该<code>String</code>对象与参数的内容完全一致，则返回<code>true</code></td>
+</tr>
+<tr>
+<td><code>isEmpty()</code></td>
+<td></td>
+<td>返回<code>boolean</code>结果，以表明<code>String</code>对象的长度是否为0</td>
+</tr>
+<tr>
+<td><code>regionMatches()</code></td>
+<td>该<code>String</code>的索引偏移量，另一个<code>String</code>及其索引偏移量，要比较的长度。重载版本增加了“忽略大小写”功能</td>
+<td>返回<code>boolean</code>结果，以表明所比较区域是否相等</td>
+</tr>
+<tr>
+<td><code>startsWith()</code></td>
+<td>可能的起始<code>String</code>。重载版本在参数中增加了偏移量</td>
+<td>返回<code>boolean</code>结果，以表明该<code>String</code>是否以传入参数开始</td>
+</tr>
+<tr>
+<td><code>endsWith()</code></td>
+<td>该<code>String</code>可能的后缀<code>String</code></td>
+<td>返回<code>boolean</code>结果，以表明此参数是否是该字符串的后缀</td>
+</tr>
+<tr>
+<td><code>indexOf()</code>，<code>lastIndexOf()</code></td>
+<td>重载版本包括：<code>char</code>，<code>char</code>与起始索引，<code>String</code>，<code>String</code>与起始索引</td>
+<td>如果该<code>String</code>并不包含此参数，就返回-1；否则返回此参数在<code>String</code>中的起始索引。<code>lastIndexOf</code>()是从后往前搜索</td>
+</tr>
+<tr>
+<td><code>matches()</code></td>
+<td>一个正则表达式</td>
+<td>返回<code>boolean</code>结果，以表明该<code>String</code>和给出的正则表达式是否匹配</td>
+</tr>
+<tr>
+<td><code>split()</code></td>
+<td>一个正则表达式。可选参数为需要拆分的最大数量</td>
+<td>按照正则表达式拆分<code>String</code>，返回一个结果数组</td>
+</tr>
+<tr>
+<td><code>join()</code>（Java8引入的）</td>
+<td>分隔符，待拼字符序列。用分隔符将字符序列拼接成一个新的<code>String</code></td>
+<td>用分隔符拼接字符片段，产生一个新的<code>String</code></td>
+</tr>
+<tr>
+<td><code>substring()</code>（即<code>subSequence()</code>）</td>
+<td>重载版本：起始索引；起始索引+终止索引</td>
+<td>返回一个新的<code>String</code>对象，以包含参数指定的子串</td>
+</tr>
+<tr>
+<td><code>concat()</code></td>
+<td>要连接的<code>String</code></td>
+<td>返回一个新的<code>String</code>对象，内容为原始<code>String</code>连接上参数<code>String</code></td>
+</tr>
+<tr>
+<td><code>replace()</code></td>
+<td>要替换的字符，用来进行替换的新字符。也可以用一个<code>CharSequence</code>替换另一个<code>CharSequence</code></td>
+<td>返回替换字符后的新<code>String</code>对象。如果没有替换发生，则返回原始的<code>String</code>对象</td>
+</tr>
+<tr>
+<td><code>replaceFirst()</code></td>
+<td>要替换的正则表达式，用来进行替换的<code>String</code></td>
+<td>返回替换首个目标字符串后的<code>String</code>对象</td>
+</tr>
+<tr>
+<td><code>replaceAll()</code></td>
+<td>要替换的正则表达式，用来进行替换的<code>String</code></td>
+<td>返回替换所有目标字符串后的<code>String</code>对象</td>
+</tr>
+<tr>
+<td><code>toLowerCase()</code>，<code>toUpperCase()</code></td>
+<td></td>
+<td>将字符的大小写改变后，返回一个新的<code>String</code>对象。如果没有任何改变，则返回原始的<code>String</code>对象</td>
+</tr>
+<tr>
+<td><code>trim()</code></td>
+<td></td>
+<td>将<code>String</code>两端的空白符删除后，返回一个新的<code>String</code>对象。如果没有任何改变，则返回原始的<code>String</code>对象</td>
+</tr>
+<tr>
+<td><code>valueOf()</code>（<code>static</code>）</td>
+<td>重载版本：<code>Object</code>；<code>char[]</code>；<code>char[]</code>，偏移量，与字符个数；<code>boolean</code>；<code>char</code>；<code>int</code>；<code>long</code>；<code>float</code>；<code>double</code></td>
+<td>返回一个表示参数内容的<code>String</code></td>
+</tr>
+<tr>
+<td><code>intern()</code></td>
+<td></td>
+<td>为每个唯一的字符序列生成一个且仅生成一个<code>String</code>引用</td>
+</tr>
+<tr>
+<td><code>format()</code></td>
+<td>要格式化的字符串，要替换到格式化字符串的参数</td>
+<td>返回格式化结果<code>String</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="3-格式化输出"><a href="#3-格式化输出" class="headerlink" title="3.格式化输出"></a>3.格式化输出</h3><p><strong>printf()</strong></p>
+<pre><code class="lang-java">System.out.printf(&quot;Row 1: [%d %f]%n&quot;, x, y);
+</code></pre>
+<p><strong>System.out.format()</strong></p>
+<p>Java SE5 引入了 <code>format()</code> 方法，可用于 <code>PrintStream</code> 或者 <code>PrintWriter</code> 对象,其中也包括 <code>System.out</code> 对象。<code>format()</code> 方法模仿了 C 语言的 <code>printf()</code>。</p>
+<pre><code class="lang-java">// strings/SimpleFormat.java 
+
+public class SimpleFormat {   
+    public static void main(String[] args) {     
+        int x = 5;     
+        double y = 5.332542;     
+        // The old way: 
+        System.out.println(&quot;Row 1: [&quot; + x + &quot; &quot; + y + &quot;]&quot;);     
+        // The new way:     
+        System.out.format(&quot;Row 1: [%d %f]%n&quot;, x, y);     
+        // or     
+        System.out.printf(&quot;Row 1: [%d %f]%n&quot;, x, y);   
+    } 
+} 
+/* Output: 
+Row 1: [5 5.332542] 
+Row 1: [5 5.332542] 
+Row 1: [5 5.332542] 
+*/
+</code></pre>
+<p>可以看到，<code>format()</code> 和 <code>printf()</code> 是等价的，它们只需要一个简单的格式化字符串，加上一串参数即可，每个参数对应一个格式修饰符。</p>
+<p><strong>Formatter</strong>类</p>
+<p>在 Java 中，所有的格式化功能都是由 <code>java.util.Formatter</code> 类处理的。可以将 <code>Formatter</code> 看做一个翻译器，它将你的格式化字符串与数据翻译成需要的结果。当你创建一个 <code>Formatter</code> 对象时，需要向其构造器传递一些信息，告诉它最终的结果将向哪里输出：</p>
+<p>格式化修饰符 <code>%s</code> 表明这里需要 <code>String</code> 参数。</p>
+<pre><code class="lang-java">// strings/Turtle.java 
+import java.io.*;
+import java.util.*;
+
+public class Turtle {   
+    private String name;   
+    private Formatter f;  
+    public Turtle(String name, Formatter f) {
+        this.name = name;     
+        this.f = f;   
+    }   
+    public void move(int x, int y) {     
+        f.format(&quot;%s The Turtle is at (%d,%d)%n&quot;, name, x, y);   
+    }
+    public static void main(String[] args) {    
+        PrintStream outAlias = System.out;     
+        Turtle tommy = new Turtle(&quot;Tommy&quot;, new Formatter(System.out));     
+        Turtle terry = new Turtle(&quot;Terry&quot;, new Formatter(outAlias));     
+        tommy.move(0,0);     
+        terry.move(4,8);     
+        tommy.move(3,4);     
+        terry.move(2,5);     
+        tommy.move(3,3);     
+        terry.move(3,3);   
+    } 
+} 
+/* Output: 
+Tommy The Turtle is at (0,0) 
+Terry The Turtle is at (4,8) 
+Tommy The Turtle is at (3,4) 
+Terry The Turtle is at (2,5) 
+Tommy The Turtle is at (3,3) 
+Terry The Turtle is at (3,3) 
+*/
+</code></pre>
+<p><strong>格式化修饰符</strong></p>
+<p>在插入数据时，如果想要优化空格与对齐，你需要更精细复杂的格式修饰符。以下是其通用语法：</p>
+<pre><code>%[argument_index$][flags][width][.precision]conversion
+</code></pre><p>最常见的应用是控制一个字段的最小长度，这可以通过指定 <em>width</em> 来实现。<code>Formatter</code>对象通过在必要时添加空格，来确保一个字段至少达到设定长度。默认情况下，数据是右对齐的，不过可以通过使用 <code>-</code> 标志来改变对齐方向。</p>
+<p>与 <em>width</em> 相对的是 <em>precision</em>，用于指定最大长度。<em>width</em> 可以应用于各种类型的数据转换，并且其行为方式都一样。<em>precision</em> 则不然，当应用于不同类型的数据转换时，<em>precision</em> 的意义也不同。在将 <em>precision</em> 应用于 <code>String</code> 时，它表示打印 <code>string</code> 时输出字符的最大数量。而在将 <em>precision</em> 应用于浮点数时，它表示小数部分要显示出来的位数（默认是 6 位小数），如果小数位数过多则舍入，太少则在尾部补零。由于整数没有小数部分，所以 <em>precision</em> 无法应用于整数，如果你对整数应用 <em>precision</em>，则会触发异常。</p>
+<pre><code class="lang-java">// strings/ReceiptBuilder.java 
+import java.util.*; 
+
+public class ReceiptBuilder {   
+    private double total = 0;   
+    private Formatter f =     
+        new Formatter(new StringBuilder());   
+    public ReceiptBuilder() {     
+        f.format(       
+          &quot;%-15s %5s %10s%n&quot;, &quot;Item&quot;, &quot;Qty&quot;, &quot;Price&quot;);     
+        f.format(       
+          &quot;%-15s %5s %10s%n&quot;, &quot;----&quot;, &quot;---&quot;, &quot;-----&quot;);   
+        }   
+    public void add(String name, int qty, double price) {     
+        f.format(&quot;%-15.15s %5d %10.2f%n&quot;, name, qty, price);     
+        total += price * qty;   
+    }  
+    public String build() {     
+        f.format(&quot;%-15s %5s %10.2f%n&quot;, &quot;Tax&quot;, &quot;&quot;,       
+          total * 0.06);     
+        f.format(&quot;%-15s %5s %10s%n&quot;, &quot;&quot;, &quot;&quot;, &quot;-----&quot;);     
+        f.format(&quot;%-15s %5s %10.2f%n&quot;, &quot;Total&quot;, &quot;&quot;,       
+          total * 1.06);     
+        return f.toString();   
+    }   
+    public static void main(String[] args) {     
+        ReceiptBuilder receiptBuilder =       
+          new ReceiptBuilder();     
+        receiptBuilder.add(&quot;Jack&#39;s Magic Beans&quot;, 4, 4.25);     
+        receiptBuilder.add(&quot;Princess Peas&quot;, 3, 5.1);     
+        receiptBuilder.add(       
+          &quot;Three Bears Porridge&quot;, 1, 14.29);     
+        System.out.println(receiptBuilder.build());   
+    } 
+} 
+/* Output: 
+Item              Qty      Price 
+----              ---      ----- 
+Jack&#39;s Magic Be     4       4.25 
+Princess Peas       3       5.10 
+Three Bears Por     1      14.29 
+Tax                         2.80 
+                           ----- 
+Total                      49.39 
+*/
+</code></pre>
+<p><strong>String.format()</strong></p>
+<p>Java SE5 也参考了 C 中的 <code>sprintf()</code> 方法，以生成格式化的 <code>String</code> 对象。<code>String.format()</code> 是一个 <code>static</code> 方法，它接受与 <code>Formatter.format()</code> 方法一样的参数，但返回一个 <code>String</code> 对象。当你只需使用一次 <code>format()</code> 方法的时候，<code>String.format()</code> 用起来很方便。例如：</p>
+<pre><code class="lang-java">// strings/DatabaseException.java 
+
+public class DatabaseException extends Exception {   
+    public DatabaseException(int transactionID,     
+      int queryID, String message) {     
+      super(String.format(&quot;(t%d, q%d) %s&quot;, transactionID,         
+        queryID, message));   
+    }   
+    public static void main(String[] args) {     
+      try {       
+        throw new DatabaseException(3, 7, &quot;Write failed&quot;);     
+      } catch(Exception e) {       
+        System.out.println(e);     
+      }   
+    } 
+} 
+/* 
+Output: 
+DatabaseException: (t3, q7) Write failed 
+*/
+</code></pre>
+<h3 id="4-正则表达式"><a href="#4-正则表达式" class="headerlink" title="4.正则表达式"></a>4.正则表达式</h3>
+            </div>
+            <hr>
+            <div>
+              <p>
+                
+                
+                  <span>
+                <i class="iconfont icon-tag"></i>
+                    
+                      <a class="hover-with-bg" href="/EruLv.github.io/tags/java/">java</a>
+                    
+                  </span>
+                
+              </p>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-12 col-md-6">
+                    
+                      <a href="/EruLv.github.io/2020/10/04/java%E5%9F%BA%E7%A1%804/">
+                        <i class="fa fa-chevron-left"></i>
+                        <span>java基础4</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-12 col-md-6">
+                    
+                      <a href="/EruLv.github.io/2020/08/18/java%E5%9F%BA%E7%A1%802/">
+                        <span>java基础2</span>
+                        <i class="fa fa-chevron-right"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+              
+                <!-- Comments -->
+                <div class="comments" id="comments">
+                  
+                  
+
+                </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc-start"></div>
+<div id="toc">
+  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
+<script  src="/EruLv.github.io/js/main.js" ></script>
+
+
+  <script  src="/EruLv.github.io/js/lazyload.js" ></script>
+
+
+
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var navHeight = $('#navbar').height();
+      var toc = $('#toc');
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+      var tocLimMax = 2 * boardTop + boardCtn.height();
+
+      $(window).scroll(function () {
+        var tocLimMin = $('#toc-start').offset().top - navHeight;
+        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
+
+        if (tocLimMin <= scroH && scroH <= tocLimMax) {
+          toc.css({
+            'display': 'block',
+            'position': 'fixed',
+            'top': navHeight,
+          });
+        } else if (scroH <= tocLimMin) {
+          toc.css({
+            'position': '',
+            'top': '',
+          });
+        } else if (scroH > tocLimMax) {
+          toc.css('display', 'none');
+        }
+      });
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc > p').css('visibility', 'visible');
+      }
+      var offset = boardCtn.css('margin-right')
+      $('#toc-ctn').css({
+        'right': offset
+      })
+    });
+  </script>
+
+
+
+
+
+
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "java基础3&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/EruLv.github.io/js/local-search.js" ></script>
+  <script>
+    var path = "/EruLv.github.io/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+          tex2jax: {
+              inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+              processEscapes: true,
+              skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+          }
+      });
+
+      MathJax.Hub.Queue(function() {
+          var all = MathJax.Hub.getAllJax(), i;
+          for(i=0; i < all.length; i += 1) {
+              all[i].SourceElement().parentNode.className += ' has-jax';
+          }
+      });
+
+    </script>
+
+    <script  src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML" ></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

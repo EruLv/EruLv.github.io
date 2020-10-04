@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/EruLv.github.io/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/EruLv.github.io/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Eru Lv">
+  <meta name="keywords" content="">
+  <title>java基础4 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css" />
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+
+  <link  rel="stylesheet" href="/EruLv.github.io/lib/prettify/tomorrow-night-eighties.min.css" />
+
+<link  rel="stylesheet" href="/EruLv.github.io/css/main.css" />
+
+
+  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+<!-- 自定义样式保持在最底部 -->
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/EruLv.github.io/">&nbsp;<strong>HwLv's blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/EruLv.github.io/">首页</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/EruLv.github.io/archives/">归档</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/EruLv.github.io/categories/">分类</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/EruLv.github.io/tags/">标签</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/EruLv.github.io/about/">关于</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/EruLv.github.io/img/bg2.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+                <p class="mt-3 post-meta">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                  星期日, 十月 4日 2020, 7:32 晚上
+                </p>
+              
+
+              <p class="mt-1">
+                
+                  
+                  <span class="post-meta">
+                    <i class="far fa-chart-bar"></i>
+                    1.2k 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta">
+                      <i class="far fa-clock"></i>
+                      4 分钟
+                  </span>
+                
+
+                
+              </p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5 z-depth-3" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+              <p
+                class="note note-warning">本文最后更新于：星期日, 十月 4日 2020, 8:21 晚上</p>
+            
+            <div class="markdown-body">
+              <h1 id="java基础4"><a href="#java基础4" class="headerlink" title="java基础4"></a>java基础4</h1><h2 id="19-类型信息-反射机制"><a href="#19-类型信息-反射机制" class="headerlink" title="19.类型信息(反射机制)"></a>19.类型信息(反射机制)</h2><blockquote>
+<p>RTTI（RunTime Type Information，运行时类型信息）能够在程序运行时发现和使用类型信息</p>
+</blockquote>
+<ol>
+<li>“传统的” RTTI：假定我们在编译时已经知道了所有的类型；</li>
+<li>“反射”机制：允许我们在运行时发现和使用类的信息</li>
+</ol>
+<h3 id="1-RTTI"><a href="#1-RTTI" class="headerlink" title="1.RTTI"></a>1.RTTI</h3><p>在 Java 中，所有类型转换的正确性检查都是在<strong>运行时进行</strong>的。这也正是 RTTI 的含义所在：在运行时，识别一个对象的类型。</p>
+<pre><code class="lang-java">// typeinfo/Shapes.java
+import java.util.stream.*;
+
+abstract class Shape {
+    void draw() { System.out.println(this + &quot;.draw()&quot;); }
+    @Override
+    public abstract String toString();
+}
+
+class Circle extends Shape {
+    @Override
+    public String toString() { return &quot;Circle&quot;; }
+}
+
+class Square extends Shape {
+    @Override
+    public String toString() { return &quot;Square&quot;; }
+}
+
+class Triangle extends Shape {
+    @Override
+    public String toString() { return &quot;Triangle&quot;; }
+}
+
+public class Shapes {
+    public static void main(String[] args) {
+        Stream.of(
+            new Circle(), new Square(), new Triangle())
+            .forEach(Shape::draw);
+    }
+}
+</code></pre>
+<p>在这个例子中，类型转换并不彻底：<code>Object</code> 被转型为 <code>Shape</code> ，而不是 <code>Circle</code>、<code>Square</code> 或者 <code>Triangle</code>。这是因为目前我们只能确保这个 <code>Stream&lt;Shape&gt;</code> 保存的都是 <code>Shape</code>：</p>
+<ul>
+<li>编译期，<code>stream</code> 和 Java 泛型系统确保放入 <code>stream</code> 的都是 <code>Shape</code> 对象（<code>Shape</code> 子类的对象也可视为 <code>Shape</code> 的对象），否则编译器会报错；</li>
+<li>运行时，自动类型转换确保了从 <code>stream</code> 中取出的对象都是 <code>Shape</code> 类型。</li>
+</ul>
+<p>接下来就是多态机制的事了，<code>Shape</code> 对象实际执行什么样的代码，是由引用所指向的具体对象（<code>Circle</code>、<code>Square</code> 或者 <code>Triangle</code>）决定的。</p>
+<h3 id="2-Class对象"><a href="#2-Class对象" class="headerlink" title="2.Class对象"></a>2.Class对象</h3><p>类是程序的一部分，每个类都有一个 <code>Class</code> 对象。换言之，每当我们编写并且编译了一个新类，就会产生一个 <code>Class</code> 对象（更恰当的说，是被保存在一个同名的 <code>.class</code> 文件中）。为了生成这个类的对象，Java 虚拟机 (JVM) 先会调用”类加载器”子系统把这个类加载到内存中。</p>
+<p>所有的类都是第一次使用时动态加载到 JVM 中的，当程序创建<strong>第一个对类的静态成员的引用时</strong>，就会加载这个类。</p>
+<blockquote>
+<p>其实构造器也是类的静态方法，虽然构造器前面并没有 <code>static</code> 关键字。所以，使用 <code>new</code> 操作符创建类的新对象，这个操作也算作对类的静态成员引用。</p>
+</blockquote>
+<p>因此，Java 程序在它开始运行之前并没有被完全加载，很多部分是在需要时才会加载。这一点与许多传统编程语言不同，动态加载使得 Java 具有一些静态加载语言（如 C++）很难或者根本不可能实现的特性。</p>
+<p>类加载器首先会检查这个类的 <code>Class</code> 对象是否已经加载，如果尚未加载，默认的类加载器就会根据类名查找 <code>.class</code> 文件（如果有附加的类加载器，这时候可能就会在数据库中或者通过其它方式获得字节码）。这个类的字节码被加载后，JVM 会对其进行验证，确保它没有损坏，并且不包含不良的 Java 代码(这是 Java 安全防范的一种措施)。</p>
+<pre><code class="lang-java">// typeinfo/SweetShop.java
+// 检查类加载器工作方式
+class Cookie {
+    static { System.out.println(&quot;Loading Cookie&quot;); }
+}
+
+class Gum {
+    static { System.out.println(&quot;Loading Gum&quot;); }
+}
+
+class Candy {
+    static { System.out.println(&quot;Loading Candy&quot;); }
+}
+
+public class SweetShop {
+    public static void main(String[] args) {
+        System.out.println(&quot;inside main&quot;);
+        new Candy();
+        System.out.println(&quot;After creating Candy&quot;);
+        try {
+            Class.forName(&quot;Gum&quot;);
+        } catch(ClassNotFoundException e) {
+            System.out.println(&quot;Couldn&#39;t find Gum&quot;);
+        }
+        System.out.println(&quot;After Class.forName(\&quot;Gum\&quot;)&quot;);
+        new Cookie();
+        System.out.println(&quot;After creating Cookie&quot;);
+    }
+}
+</code></pre>
+<pre><code>inside main
+Loading Candy
+After creating Candy
+Loading Gum
+After Class.forName(&quot;Gum&quot;)
+Loading Cookie
+After creating Cookie
+</code></pre><p>从输出中可以看到，<code>Class</code> 对象<strong>仅在需要的时候才会被加载</strong>，<code>static</code> 初始化是在类加载时进行的。</p>
+<pre><code>Class.forName(&quot;Gum&quot;);
+</code></pre><p><code>forName()</code> 是 <code>Class</code> 类的一个静态方法，我们可以使用 <code>forName()</code> 根据目标类的类名（<code>String</code>）得到该类的 <code>Class</code> 对象。上面的代码忽略了 <code>forName()</code> 的返回值，因为那个调用是为了得到它产生的“副作用”。从结果可以看出，<code>forName()</code> 执行的副作用是如果 <code>Gum</code> 类没有被加载就加载它，而在加载的过程中，<code>Gum</code> 的 <code>static</code> 初始化块被执行了。</p>
+<p>无论何时，只要你想在运行时使用类型信息，就必须先得到那个 <code>Class</code> 对象的引用。<code>Class.forName()</code> 就是实现这个功能的一个便捷途径，因为使用该方法你不需要先持有这个类型 的对象。但是，如果你已经拥有了目标类的对象，那就可以通过调用 <code>getClass()</code> 方法来获取 <code>Class</code> 引用了，这个方法来自根类 <code>Object</code>，它将返回表示该对象实际类型的 <code>Class</code> 对象的引用。</p>
+
+            </div>
+            <hr>
+            <div>
+              <p>
+                
+                
+                  <span>
+                <i class="iconfont icon-tag"></i>
+                    
+                      <a class="hover-with-bg" href="/EruLv.github.io/tags/java/">java</a>
+                    
+                  </span>
+                
+              </p>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-12 col-md-6">
+                    
+                  </div>
+                  <div class="post-next col-12 col-md-6">
+                    
+                      <a href="/EruLv.github.io/2020/10/03/java%E5%9F%BA%E7%A1%803/">
+                        <span>java基础3</span>
+                        <i class="fa fa-chevron-right"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+              
+                <!-- Comments -->
+                <div class="comments" id="comments">
+                  
+                  
+
+                </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc-start"></div>
+<div id="toc">
+  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
+<script  src="/EruLv.github.io/js/main.js" ></script>
+
+
+  <script  src="/EruLv.github.io/js/lazyload.js" ></script>
+
+
+
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var navHeight = $('#navbar').height();
+      var toc = $('#toc');
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+      var tocLimMax = 2 * boardTop + boardCtn.height();
+
+      $(window).scroll(function () {
+        var tocLimMin = $('#toc-start').offset().top - navHeight;
+        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
+
+        if (tocLimMin <= scroH && scroH <= tocLimMax) {
+          toc.css({
+            'display': 'block',
+            'position': 'fixed',
+            'top': navHeight,
+          });
+        } else if (scroH <= tocLimMin) {
+          toc.css({
+            'position': '',
+            'top': '',
+          });
+        } else if (scroH > tocLimMax) {
+          toc.css('display', 'none');
+        }
+      });
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc > p').css('visibility', 'visible');
+      }
+      var offset = boardCtn.css('margin-right')
+      $('#toc-ctn').css({
+        'right': offset
+      })
+    });
+  </script>
+
+
+
+
+
+
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "java基础4&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/EruLv.github.io/js/local-search.js" ></script>
+  <script>
+    var path = "/EruLv.github.io/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+          tex2jax: {
+              inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+              processEscapes: true,
+              skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+          }
+      });
+
+      MathJax.Hub.Queue(function() {
+          var all = MathJax.Hub.getAllJax(), i;
+          for(i=0; i < all.length; i += 1) {
+              all[i].SourceElement().parentNode.className += ' has-jax';
+          }
+      });
+
+    </script>
+
+    <script  src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML" ></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
